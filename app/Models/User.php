@@ -61,4 +61,9 @@ class User extends Authenticatable implements MustVerifyEmail
             'last_login_at' => 'datetime',
         ];
     }
+
+    public function alumniMembership()
+    {
+        return $this->hasOne(AlumniMembership::class);
+    }
 }

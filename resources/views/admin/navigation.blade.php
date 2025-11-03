@@ -19,7 +19,7 @@
             <x-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')" icon="fa-solid fa-gauge-high">
                 {{ __('Dashboard') }}
             </x-nav-link>
-            <x-nav-group name="{{ __('Settings') }}" :active="request()->routeIs('admin.users.index') || request()->routeIs('admin.roles.index') || request()->routeIs('admin.hero-banners.index')" icon="fa-solid fa-gear">
+            <x-nav-group name="{{ __('Settings') }}" :active="request()->routeIs('admin.users.index') || request()->routeIs('admin.roles.index') || request()->routeIs('admin.hero-banners.index') || request()->routeIs('admin.memberships.index')" icon="fa-solid fa-gear">
                 <x-nav-link :href="route('admin.users.index')" :active="request()->routeIs('admin.users.index')" icon="fa-solid fa-users">
                     {{ __('Users') }}
                 </x-nav-link>
@@ -28,6 +28,9 @@
                 </x-nav-link>
                 <x-nav-link :href="route('admin.hero-banners.index')" :active="request()->routeIs('admin.hero-banners.index')" icon="fa-solid fa-images">
                     {{ __('Banners') }}
+                </x-nav-link>
+                <x-nav-link :href="route('admin.memberships.index')" :active="request()->routeIs('admin.memberships.index')" icon="fa-solid fa-user-check">
+                    {{ __('Memberships') }}
                 </x-nav-link>
             </x-nav-group>
 

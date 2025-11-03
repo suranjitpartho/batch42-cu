@@ -77,3 +77,15 @@ Breadcrumbs::for('admin.hero-banners.edit', function (BreadcrumbTrail $trail, $h
     $trail->parent('admin.hero-banners.index');
     $trail->push('Edit', route('admin.hero-banners.edit', $heroBanner));
 });
+
+// Dashboard > Memberships
+Breadcrumbs::for('admin.memberships.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.dashboard');
+    $trail->push('Memberships', route('admin.memberships.index'));
+});
+
+// Dashboard > Memberships > Show
+Breadcrumbs::for('admin.memberships.show', function (BreadcrumbTrail $trail, $membership) {
+    $trail->parent('admin.memberships.index');
+    $trail->push('Show', route('admin.memberships.show', $membership));
+});

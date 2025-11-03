@@ -51,6 +51,7 @@
                                     Signed in as<br>
                                     <strong>{{ Auth::user()->name }}</strong>
                                 </div>
+                                <a href="{{ route('membership.create') }}">Membership</a>
                                 <a href="{{ route('profile.edit') }}">Profile</a>
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf

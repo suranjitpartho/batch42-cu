@@ -1,0 +1,123 @@
+/* CSS for membership application form */
+
+.membership-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+}
+
+.membership-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: 1.5rem;
+}
+
+.membership-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.membership-form .form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+}
+
+.membership-form .form-control {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.membership-form .form-control:focus {
+    outline: none;
+    border-color: var(--accentC);
+    box-shadow: 0 0 0 2px rgba(233, 180, 81, 0.5);
+}
+
+.btn-submit {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--accentC);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: var(--accentC-light);
+}
+
+.membership-status-box {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background-color: var(--color-background-secondary);
+    text-align: center;
+}
+
+.membership-status-box p {
+    margin-bottom: 1rem;
+    color: var(--color-text-primary);
+}
+
+.membership-status-box p:last-child {
+    margin-bottom: 0;
+}
+
+.membership-status-box .btn-submit {
+    margin-top: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .membership-container {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+
+    .membership-title {
+        font-size: 1.75rem;
+    }
+
+    .membership-form .form-control,
+    .btn-submit {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .membership-status-box {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .membership-container {
+        margin: 0.5rem;
+        padding: 1rem;
+    }
+
+    .membership-title {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .membership-form .form-group {
+        margin-bottom: 1rem;
+    }
+
+    .membership-status-box {
+        padding: 0.8rem;
+    }
+}
