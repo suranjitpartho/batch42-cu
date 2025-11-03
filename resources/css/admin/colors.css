@@ -1,0 +1,33 @@
+:root {
+    --primary-color: #3c997d; /* Indigo-600 */
+    --primary-color-dark: #328169; /* Indigo-700 */
+    --primary-color-darker: #2a6c58; /* Indigo-800 */
+    --primary-color-light: #64c3a6; /* Indigo-200 */
+    --secondary-color: #2C3E50;
+    --secondary-color-dark: #1f2d3a;
+    --secondary-color-light: #364d64;
+    --secondary-color-lighter: #4c6886;
+
+    --background-color: #f3f4f6; /* Gray-100 */
+    --text-color: #454d5a; /* Gray-800 */
+    --text-color-light: #6f7786; /* Gray-500 */
+    --card-background-color: #ffffff;
+    --border-color: #dbdde1; /* Gray-200 */
+    --button-text-color: #ffffff;
+
+    --danger-color: #d74f4f; /* Red-500 */
+    --danger-color-dark: #a94747; /* Red-700 */
+    --danger-color-darker: #803f3f; /* Red-800 */
+    --success-color: #53b17d; /* Green-500 */
+
+    /* Badge Background Colors */
+    --badge-bg-1: #b55f5f;  /* Red-600 */
+    --badge-bg-2: #d39c68;  /* Yellow-500 */
+    --badge-bg-3: #70609f;  /* Purple-600 */
+    --badge-bg-4: #346abb;  /* Blue-600 */
+    --badge-bg-5: var(--primary-color);  /* Primary-600 */
+    --badge-bg-6: #36819a;  /* Teal-600 */
+    --badge-bg-7: #be5a87;  /* Pink-600 */
+    --badge-bg-8: #57667a;  /* Gray-600 */
+}
+

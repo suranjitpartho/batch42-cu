@@ -1,0 +1,40 @@
+<nav class="sidebar-nav" x-bind:class="{ 'overflow-hidden': !sidebarOpen }">
+    <!-- Logo -->
+    <div class="sidebar-logo-container">
+        <a href="{{ route('admin.dashboard') }}">
+            <img src="{{ asset('images/logo.png') }}" alt="{{ config('app.name') }} Logo" class="sidebar-logo" />
+            <span class="sidebar-logo-text" x-show="sidebarOpen">{{ config('app.name') }}</span>
+        </a>
+        {{-- Close button for mobile sidebar --}}
+        <button type="button" @click="$dispatch('toggle-sidebar')" class="mobile-sidebar-close-button" x-show="sidebarOpen && window.innerWidth <= 768">
+            <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+    </div>
+
+    <!-- Navigation Links -->
+    <div class="sidebar-nav-links">
+        @can('admin_panel-view')
+            <x-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')" icon="fa-solid fa-gauge-high">
+                {{ __('Dashboard') }}
+            </x-nav-link>
+            <x-nav-group name="{{ __('Settings') }}" :active="request()->routeIs('admin.users.index') || request()->routeIs('admin.roles.index') || request()->routeIs('admin.hero-banners.index')" icon="fa-solid fa-gear">
+                <x-nav-link :href="route('admin.users.index')" :active="request()->routeIs('admin.users.index')" icon="fa-solid fa-users">
+                    {{ __('Users') }}
+                </x-nav-link>
+                <x-nav-link :href="route('admin.roles.index')" :active="request()->routeIs('admin.roles.index')" icon="fa-solid fa-user-gear">
+                    {{ __('Roles') }}
+                </x-nav-link>
+                <x-nav-link :href="route('admin.hero-banners.index')" :active="request()->routeIs('admin.hero-banners.index')" icon="fa-solid fa-images">
+                    {{ __('Banners') }}
+                </x-nav-link>
+            </x-nav-group>
+
+        @endcan
+    </div>
+
+    <div class="sidebar-version" x-show="sidebarOpen">
+        Version: {{ config('version.app') }}
+    </div>
+</nav>

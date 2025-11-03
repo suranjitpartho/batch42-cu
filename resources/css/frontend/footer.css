@@ -1,0 +1,112 @@
+/* Footer */
+.footer {
+    background-color: var(--accentA);
+    color: var(--accentA-lighter);
+    padding: 60px 20px 20px;
+    margin-top: 20px;
+}
+
+.footer-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #5b5050;
+}
+
+.footer-section h3 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--accentB);
+    margin-bottom: 20px;
+}
+
+.footer-section.about .logo {
+    font-size: 1.8rem;
+    color: var(--accentB);
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.footer-section.about p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 12px;
+}
+
+.footer-links ul li a {
+    color: var(--accentA-lighter);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+    color: #fff;
+}
+
+.footer-bottom {
+    padding-top: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-icons a {
+    color: var(--accentA-light);
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #fff;
+}
+
+.subscribe-form {
+    display: flex;
+    margin-top: 20px;
+}
+
+.subscribe-form .subscribe-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #5c5252;
+    background-color: #564b4b;
+    color: var(--accentB);
+    border-radius: 4px 0 0 4px;
+}
+
+.subscribe-form .subscribe-input:focus {
+    outline: none !important;
+    border-color: var(--accentC) !important;
+    box-shadow: none !important;
+}
+
+.subscribe-form .subscribe-button {
+    padding: 10px 15px;
+    border: none;
+    background-color: var(--accentC);
+    color: #fff;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.subscribe-form .subscribe-button:hover {
+    background-color: var(--accentC-light) !important;
+}

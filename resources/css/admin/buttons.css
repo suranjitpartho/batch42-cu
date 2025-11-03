@@ -1,0 +1,140 @@
+/* CSS for admin buttons */
+
+.admin-button-base {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0; /* Prevent the button from shrinking */
+    box-sizing: border-box;
+    padding: 0 1rem;
+    height: 2.2rem;
+    line-height: 2.2rem;
+    border-width: 1px;
+    border-color: transparent;
+    border-radius: 0.375rem;
+    font-weight: 500;
+    font-size: 0.75rem;
+    color: var(--button-text-color);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden; /* Hide overflowing content */
+    text-overflow: ellipsis; /* Show ellipsis for truncated text */
+    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, color 0.15s ease-in-out, opacity 0.15s ease-in-out, box-shadow 0.15s ease-in-out, transform 0.1s ease-in-out;
+    cursor: pointer;
+    text-decoration: none;
+    justify-content: center;
+}
+
+/* Mobile specific styles for buttons */
+@media (max-width: 768px) {
+    .admin-button-base {
+        padding: 0 0.75rem;
+        justify-content: center;
+        width: 100%;
+    }
+}
+
+.admin-button-base:active {
+    transform: scale(0.98);
+}
+
+.admin-button-base:disabled {
+    opacity: 0.25;
+    cursor: not-allowed;
+}
+
+/* Black Button (like search button) */
+.admin-button-black {
+    background-color: var(--secondary-color);
+}
+
+.admin-button-black:hover {
+    background-color: var(--secondary-color-dark);
+}
+
+.admin-button-black:active {
+    background-color: var(--secondary-color);
+}
+
+.admin-button-black:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    border-color: var(--text-color);
+    box-shadow: 0 0 0 3px rgba(156, 163, 175, 0.5) !important;
+}
+
+/* Purple Button (like original admin-button-primary) */
+
+.admin-button-purple {
+    background-color: var(--primary-color);
+}
+
+.admin-button-purple:hover {
+    background-color: var(--primary-color-dark);
+}
+
+.admin-button-purple:active {
+    background-color: var(--primary-color-darker);
+}
+
+.admin-button-purple:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    border-color: var(--primary-color-darker);
+    box-shadow: 0 0 0 3px rgba(60, 153, 125, 0.5) !important;
+}
+
+/* Red Button (danger) */
+.admin-button-danger {
+    background-color: var(--danger-color);
+}
+
+.admin-button-danger:hover {
+    background-color: var(--danger-color-dark);
+}
+
+.admin-button-danger:active {
+    background-color: var(--danger-color-darker);
+}
+
+.admin-button-danger:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    border-color: var(--danger-color-darker);
+    box-shadow: 0 0 0 3px rgba(252, 165, 165, 0.5); /* Tailwind ring-red-300 */
+}
+
+/* Secondary Button (like cancel) */
+.admin-button-secondary {
+    background-color: transparent;
+    border-color: var(--border-color);
+    color: var(--text-color);
+}
+
+.admin-button-secondary:hover {
+    background-color: var(--card-background-color-hover, #f9fafb);
+}
+
+.admin-button-secondary:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(60, 153, 125, 0.5) !important;
+}
+
+.admin-text-link {
+    text-decoration: underline;
+    font-size: 0.875rem;
+    color: var(--text-color-light);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.admin-text-link:hover {
+    color: var(--text-color);
+}
+
+.admin-text-link:focus {
+    outline: none;
+}

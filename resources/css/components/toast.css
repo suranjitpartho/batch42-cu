@@ -1,0 +1,65 @@
+/* Toast / Flash Messages */
+.toast-container {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1050;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.toast {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    border-radius: 6px;
+    color: #fff;
+    font-weight: 400;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    /* --- Transition Properties --- */
+    opacity: 0;
+    transform: translateY(-100px);
+    transition: opacity 0.5s ease-out, transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.toast-icon {
+    font-size: 1rem;
+}
+
+.toast-divider {
+    width: 1px;
+    background-color: rgba(255, 255, 255, 0.2);
+    align-self: stretch;
+}
+
+.toast-message {
+    flex-grow: 1;
+}
+
+/* State for when the toast is active/visible */
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.toast-success {
+    background-color: var(--success-color);
+}
+
+.toast-danger {
+    background-color: var(--danger-color);
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+    .toast-container {
+        width: 90%;
+    }
+    .toast {
+        width: 100%;
+    }
+}

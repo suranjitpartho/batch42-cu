@@ -1,0 +1,181 @@
+/* CSS for admin tables */
+
+.admin-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.admin-table-responsive-wrapper {
+    overflow-x: auto; /* Enable horizontal scrolling for the table */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+.admin-table-thead {
+    background-color: var(--background-color);
+}
+
+.admin-table-th {
+    padding: 0.75rem 1.5rem;
+    text-align: left;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-color-light);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.admin-table-tbody tr {
+    transition: background-color 0.2s ease-in-out;
+}
+
+.admin-table-tbody tr:hover {
+    background-color: var(--background-color);
+}
+
+.admin-table-td {
+    padding: 0.75rem 1.5rem;
+    white-space: nowrap;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.admin-table-image {
+    width: 1.5rem;
+    height: 1.5rem;
+    object-fit: cover;
+}
+
+.admin-table-action-td {
+    text-align: right;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.admin-status-badge {
+    padding: 0.17rem 0.5rem;
+    display: inline-flex;
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+    font-weight: 400;
+    border-radius: 5px;
+    text-transform: capitalize;
+    color: var(--button-text-color);
+}
+
+.status-1 { background-color: var(--badge-bg-1); }
+.status-2 { background-color: var(--badge-bg-2); }
+.status-3 { background-color: var(--badge-bg-3); }
+.status-4 { background-color: var(--badge-bg-4); }
+.status-5 { background-color: var(--badge-bg-5); }
+.status-6 { background-color: var(--badge-bg-6); }
+.status-7 { background-color: var(--badge-bg-7); }
+.status-8 { background-color: var(--badge-bg-8); }
+
+/* Pagination Styles */
+
+.admin-pagination-container span[aria-current="page"] span,
+.admin-pagination-container a[aria-current="page"] {
+    background-color: var(--primary-color) !important;
+    color: var(--button-text-color) !important;
+    border-color: var(--primary-color) !important;
+    z-index: 10;
+}
+
+.admin-pagination-container .relative.z-0.inline-flex a,
+.admin-pagination-container .relative.z-0.inline-flex span > span {
+    padding: 0.4rem 0.9rem !important;
+    font-size: 0.8rem !important;
+}
+
+.admin-pagination-container .relative.z-0.inline-flex a[rel='prev'],
+.admin-pagination-container .relative.z-0.inline-flex a[rel='next'],
+.admin-pagination-container .relative.z-0.inline-flex span[aria-label] > span {
+    padding: 0.4rem 0.4rem !important;
+}
+
+.admin-pagination-container .relative.z-0.inline-flex a:hover {
+    background-color: var(--background-color) !important;
+}
+
+.admin-pagination-container .relative.z-0.inline-flex a:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.admin-pagination-container p {
+    color: var(--text-color-light);
+}
+
+/* Action Button */
+
+.admin-table-action-icon,
+.admin-table-action-icon-danger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 8px;
+    transition: color 0.2s ease-in-out;
+}
+
+.admin-table-action-icon i,
+.admin-table-action-icon-danger i {
+    font-size: 0.8rem;
+}
+
+.admin-table-action-icon {
+    color: var(--primary-color);
+}
+
+.admin-table-action-icon:hover {
+    color: var(--primary-color-darker);
+}
+
+.admin-table-action-icon-danger {
+    color: var(--danger-color);
+}
+
+.admin-table-action-icon-danger:hover {
+    color: var(--danger-color-darker);
+}
+
+/* Permission Matrix Table */
+
+.permission-matrix-table .admin-table-td,
+.permission-matrix-table .admin-table-th {
+    text-align: center;
+}
+
+.permission-matrix-table .admin-table-td:first-child,
+.permission-matrix-table .admin-table-th:first-child {
+    text-align: left;
+}
+
+@media (max-width: 768px) {
+    .admin-table th,
+    .admin-table td {
+        display: none; /* Hide all table headers and data cells by default on mobile */
+    }
+
+    .admin-table th.mobile-visible-column,
+    .admin-table td.mobile-visible-column {
+        display: table-cell; /* Show only cells with the mobile-visible-column class */
+    }
+
+    /* Apply truncation styles to the inner content span */
+    .admin-table td.mobile-visible-column .table-cell-content {
+        display: block; /* Make the span a block to apply width/overflow */
+        white-space: nowrap; /* Ensure text stays on one line */
+        overflow: hidden; /* Hide overflowing content */
+        text-overflow: ellipsis; /* Show ellipsis for truncated text */
+        max-width: 21ch;
+    }
+
+    /* Specific styles for action columns */
+    .admin-table td.admin-table-action-td.mobile-visible-column {
+        text-align: right; /* Right-align action column */
+    }
+}
+

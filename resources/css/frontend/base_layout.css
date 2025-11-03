@@ -1,0 +1,27 @@
+:root {
+    /* Brand Colors */
+    --primary: #494040;
+    --secondary: #F6F0E5;
+    --accent: #e9b451;
+
+    /* Grayscale */
+    --white: #FFFFFF;
+    --grey-light: #a69393;
+    --grey-med: #655d5d;
+    --grey-dark: #423b3b;
+    --black: #282f38;
+
+    /* UI Colors */
+    --bg-primary: var(--white);
+    --bg-secondary: var(--grey-light);
+    --text-primary: var(--black);
+    --text-secondary: var(--grey-med);
+    --text-on-brand: var(--white);
+    --text-on-accent: var(--black);
+    --border: var(--grey-light);
+
+    /* Utility */
+    --success: #4aa975;
+    --danger: #d9534f;
+    --warning: #f0ad4e;
+}

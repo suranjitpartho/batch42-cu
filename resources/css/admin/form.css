@@ -1,0 +1,189 @@
+.admin-search-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.admin-form-input,
+.admin-form-select,
+.admin-search-input {
+    display: block;
+    width: 100%;
+    border-width: 1px;
+    border-color: var(--border-color) !important;
+    border-radius: 0.375rem !important;
+    padding: 0rem 0.75rem;
+    appearance: none;
+    height: 2.2rem;
+    line-height: 1.5;
+}
+
+.admin-search-input {
+    flex-grow: 1;
+    max-width: 20rem;
+}
+
+@media (max-width: 768px) {
+    .admin-search-container {
+        flex-direction: column; /* Stack input and button vertically */
+        align-items: stretch; /* Make children take full width */
+    }
+
+    .admin-search-input {
+        max-width: none; /* Allow input to take full width */
+    }
+}
+
+.admin-form-textarea {
+    display: block;
+    margin-top: 0.25rem;
+    width: 100%;
+    border-width: 1px;
+    border-color: var(--border-color) !important;
+    border-radius: 0.375rem !important;
+    padding: 0.5rem 0.75rem;
+    appearance: none;
+    min-height: 6rem;
+    line-height: 1.5;
+    resize: vertical;
+}
+
+.admin-search-input:focus,
+.admin-form-input:focus,
+.admin-form-select:focus,
+.admin-form-textarea:focus {
+    border: 1px solid var(--primary-color) !important;
+    outline: 0px solid transparent !important;
+    outline-offset: 2px !important;
+    box-shadow: 0 0 0 2px rgba(60, 153, 125, 0.5) !important;
+}
+
+.admin-form-label {
+    display: block;
+    font-weight: 500;
+    font-size: 0.875rem;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.admin-form-file-input {
+    display: block;
+    margin-top: 0.25rem;
+    width: 100%;
+}
+
+.admin-form-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+}
+
+@media (max-width: 768px) {
+    .admin-form-actions {
+        flex-direction: column; /* Stack buttons vertically */
+        align-items: stretch; /* Make buttons take full width */
+        gap: 1rem; /* Add space between stacked buttons */
+    }
+}
+
+.admin-image-preview-container {
+    margin-top: 0.5rem;
+}
+
+.admin-image-preview {
+    width: 5rem;
+    height: 5rem;
+    object-fit: cover;
+}
+
+.admin-form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .admin-form-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+.admin-form-grid-item-full {
+    grid-column: span 1 / span 1;
+}
+
+@media (min-width: 768px) {
+    .admin-form-grid-item-full {
+        grid-column: span 2 / span 2;
+    }
+}
+
+.admin-form-container {
+    max-width: 640px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+}
+
+.admin-form-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.delete-form-password-input {
+    width: 75%;
+}
+
+.admin-input-error {
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--danger-color, #DC2626);
+}
+
+.admin-input-error li + li {
+    margin-top: 0.25rem;
+}
+
+
+/* Checkbox Styles */
+
+.admin-checkbox-container {
+    display: inline-flex;
+    align-items: center;
+}
+
+.admin-form-checkbox {
+    border-radius: 0.25rem !important;
+    border-width: 1px !important;
+    border-color: var(--border-color) !important;
+    color: var(--primary-color) !important;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.admin-form-checkbox:focus {
+    border-color: var(--primary-color) !important;
+    outline: 2px solid transparent !important;
+    outline-offset: 2px !important;
+    box-shadow: 0 0 0 2px rgba(60, 153, 125, 0.5) !important;
+}
+
+.admin-checkbox-label {
+    margin-left: 0.5rem !important;
+    font-size: 0.875rem !important;
+    color: var(--text-color-light) !important;
+}
+
+.admin-checkbox-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    .admin-checkbox-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

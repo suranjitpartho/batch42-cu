@@ -1,0 +1,16 @@
+@import 'colors.css';
+@import 'app-layout.css';
+@import 'admin-layout.css';
+@import 'navigation.css';
+@import 'table.css';
+@import 'form.css';
+@import 'buttons.css';
+@import 'modal.css';
+@import 'auth.css';
+@import 'breadcrumbs.css';
+@import 'dashboard.css';
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
