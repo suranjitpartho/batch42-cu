@@ -31,8 +31,13 @@ class MembershipController extends Controller
 
     public function reject(Request $request, AlumniMembership $membership)
     {
+        $request->validateWithBag('rejectMembership', [
+            'rejection_reason' => 'required|string',
+        ]);
+
         $membership->update([
             'status' => 'rejected',
+            'rejection_reason' => $request->rejection_reason,
         ]);
 
         return redirect()->route('admin.memberships.index')->with('success', 'Membership application rejected successfully.');

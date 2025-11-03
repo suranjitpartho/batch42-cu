@@ -13,7 +13,10 @@ class AlumniMembership extends Model
         'membership_type',
         'transaction_id',
         'payment_method',
+        'status',
+        'rejection_reason',
         'applied_at',
+        'approved_at',
     ];
 
     protected $casts = [

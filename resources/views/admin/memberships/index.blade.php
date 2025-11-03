@@ -21,6 +21,9 @@
                                     Membership Type
                                 </th>
                                 <th scope="col" class="admin-table-th">
+                                    Transaction ID
+                                </th>
+                                <th scope="col" class="admin-table-th">
                                     Status
                                 </th>
                                 <th scope="col" class="admin-table-th">
@@ -41,6 +44,9 @@
                                         <span class="table-cell-content">{{ $membership->membership_type }}</span>
                                     </td>
                                     <td class="admin-table-td">
+                                        <span class="table-cell-content">{{ $membership->transaction_id }}</span>
+                                    </td>
+                                    <td class="admin-table-td">
                                         <span class="table-cell-content">{{ $membership->status }}</span>
                                     </td>
                                     <td class="admin-table-td">
@@ -52,13 +58,13 @@
                                                 <i class="fa-solid fa-eye"></i>
                                             </a>
                                             @if ($membership->status === 'pending')
-                                                <form action="{{ route('admin.memberships.approve', $membership) }}" method="POST" class="inline-block">
+                                                <form action="{{ route('admin.memberships.approve', $membership) }}" method="POST" class="inline-block ml-2">
                                                     @csrf
                                                     <button type="submit" class="admin-table-action-icon" title="Approve">
                                                         <i class="fa-solid fa-circle-check"></i>
                                                     </button>
                                                 </form>
-                                                <button type="button" class="admin-table-action-icon admin-table-action-icon-danger" title="Reject" x-on:click.prevent="$dispatch('open-modal', 'reject-membership-{{ $membership->id }}')">
+                                                <button type="button" class="admin-table-action-icon admin-table-action-icon-danger ml-2" title="Reject" x-on:click.prevent="$dispatch('open-modal', 'reject-membership-{{ $membership->id }}')">
                                                     <i class="fa-solid fa-ban"></i>
                                                 </button>
                                             @endif
