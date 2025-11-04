@@ -49,4 +49,8 @@
         @endif
     </div>
 
+    @include('frontend.partials._membership-promo')
+
+    @include('frontend.partials._events')
+
 @endsection

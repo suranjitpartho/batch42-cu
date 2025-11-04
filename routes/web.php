@@ -9,10 +9,12 @@ use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\HeroBannerController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\MembershipController as AdminMembershipController;
+use App\Http\Controllers\Admin\EventController as AdminEventController;
 
 // Frontend Controllers
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\MembershipController;
+use App\Http\Controllers\Frontend\EventController;
 
 
 
@@ -23,6 +25,12 @@ use App\Http\Controllers\Frontend\MembershipController;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+// Membership Routes
+Route::get('/membership', [MembershipController::class, 'create'])->name('membership.create');
+Route::post('/membership', [MembershipController::class, 'store'])->name('membership.store');
+Route::get('/membership/status', [MembershipController::class, 'show'])->name('membership.show');
+// Events Routes
+Route::get('/events/{event:slug}', [EventController::class, 'show'])->name('events.show');
 
 
 /*
@@ -37,15 +45,9 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile/photo', [ProfileController::class, 'updatePhoto'])->name('profile.photo.update');
     Route::delete('/profile/photo', [ProfileController::class, 'destroyPhoto'])->name('profile.photo.destroy');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-
-    // Membership Routes
-    Route::get('/membership', [MembershipController::class, 'create'])->name('membership.create');
-    Route::post('/membership', [MembershipController::class, 'store'])->name('membership.store');
-    Route::get('/membership/status', [MembershipController::class, 'show'])->name('membership.show');
 });
 
 require __DIR__.'/auth.php';
-
 
 /*
 |--------------------------------------------------------------------------
@@ -59,6 +61,8 @@ Route::middleware(['auth', 'can:admin_panel-view'])->prefix('admin')->name('admi
     Route::resource('users', UserController::class);
     Route::resource('roles', RoleController::class);
     Route::resource('hero-banners', HeroBannerController::class);
+    Route::resource('events', AdminEventController::class);
+    Route::delete('events/{event}/images/{image}', [AdminEventController::class, 'destroyImage'])->name('events.images.destroy');
 
     // Membership Routes
     Route::resource('memberships', AdminMembershipController::class)->except(['create', 'store', 'edit', 'update', 'destroy']);

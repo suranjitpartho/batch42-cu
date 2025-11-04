@@ -89,3 +89,21 @@ Breadcrumbs::for('admin.memberships.show', function (BreadcrumbTrail $trail, $me
     $trail->parent('admin.memberships.index');
     $trail->push('Show', route('admin.memberships.show', $membership));
 });
+
+// Dashboard > Events
+Breadcrumbs::for('admin.events.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.dashboard');
+    $trail->push('Events', route('admin.events.index'));
+});
+
+// Dashboard > Events > Create
+Breadcrumbs::for('admin.events.create', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.events.index');
+    $trail->push('Create', route('admin.events.create'));
+});
+
+// Dashboard > Events > Edit
+Breadcrumbs::for('admin.events.edit', function (BreadcrumbTrail $trail, $event) {
+    $trail->parent('admin.events.index');
+    $trail->push('Edit', route('admin.events.edit', $event));
+});

@@ -8,6 +8,7 @@
     flex-direction: column; /* Ensure children stack vertically */
     justify-content: center;
     align-items: center;
+    margin-bottom: 2rem;
 }
 
 .hero-cover-photo {

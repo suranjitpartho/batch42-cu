@@ -2,6 +2,9 @@
 @import 'hero.css';
 @import 'footer.css';
 @import 'membership.css';
+@import 'membership-promo.css';
+@import 'events.css';
+@import 'event-detail.css';
 
 /* @tailwind base;
 @tailwind components;

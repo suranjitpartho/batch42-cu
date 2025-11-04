@@ -37,7 +37,7 @@ body {
 
 body {
     font-family: 'Barlow', sans-serif;
-    background-color: #ffffff;
+    background-color: var(--accentB);
     color: #1f2937;
     line-height: 1.6;
     display: flex;

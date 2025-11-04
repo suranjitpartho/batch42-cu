@@ -1,0 +1,87 @@
+
+.membership-promo {
+    background-color: #cc3f65;
+    padding: 2rem 2rem 3rem;
+    text-align: center;
+}
+
+.membership-promo .promo-icon {
+    font-size: 3.5rem;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+}
+
+.membership-promo h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+
+.membership-promo p {
+    font-size: 1.2rem;
+    color: #ffffff;
+    margin-bottom: 2rem;
+}
+
+.membership-promo .promo-button {
+    background-color: #4e345a;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.membership-promo .promo-button:hover {
+    background-color: #634770;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .membership-promo {
+        padding: 1.5rem 1.5rem 2.5rem;
+    }
+
+    .membership-promo .promo-icon {
+        font-size: 3rem;
+    }
+
+    .membership-promo h2 {
+        font-size: 2rem;
+    }
+
+    .membership-promo p {
+        font-size: 1rem;
+    }
+
+    .membership-promo .promo-button {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .membership-promo {
+        padding: 1rem 1rem 2rem;
+    }
+
+    .membership-promo .promo-icon {
+        font-size: 2.5rem;
+    }
+
+    .membership-promo h2 {
+        font-size: 1.8rem;
+    }
+
+    .membership-promo p {
+        font-size: 0.9rem;
+    }
+
+    .membership-promo .promo-button {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}

@@ -138,3 +138,25 @@
 .admin-text-link:focus {
     outline: none;
 }
+
+.admin-image-delete-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 9999px;
+    background-color: var(--danger-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.15s ease-in-out;
+}
+
+.admin-image-delete-button:hover {
+    background-color: var(--danger-color-dark);
+}
+
+.admin-image-delete-button i {
+    font-size: 0.8rem;
+}

@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 
 class MembershipController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:membership-view')->only(['index', 'show']);
+        $this->middleware('can:membership-edit')->only(['approve', 'reject']);
+    }
+
     public function index()
     {
         $memberships = AlumniMembership::with('user')->latest()->paginate(10);
