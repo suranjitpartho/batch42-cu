@@ -107,3 +107,21 @@ Breadcrumbs::for('admin.events.edit', function (BreadcrumbTrail $trail, $event) 
     $trail->parent('admin.events.index');
     $trail->push('Edit', route('admin.events.edit', $event));
 });
+
+// Dashboard > Notices
+Breadcrumbs::for('admin.notices.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.dashboard');
+    $trail->push('Notices', route('admin.notices.index'));
+});
+
+// Dashboard > Notices > Create
+Breadcrumbs::for('admin.notices.create', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.notices.index');
+    $trail->push('Create', route('admin.notices.create'));
+});
+
+// Dashboard > Notices > Edit
+Breadcrumbs::for('admin.notices.edit', function (BreadcrumbTrail $trail, $notice) {
+    $trail->parent('admin.notices.index');
+    $trail->push('Edit', route('admin.notices.edit', $notice));
+});

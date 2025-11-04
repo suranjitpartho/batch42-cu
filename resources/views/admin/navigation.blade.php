@@ -19,13 +19,16 @@
             <x-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')" icon="fa-solid fa-gauge-high">
                 {{ __('Dashboard') }}
             </x-nav-link>
-            <x-nav-group name="{{ __('Settings') }}" :active="request()->routeIs('admin.users.index') || request()->routeIs('admin.roles.index') || request()->routeIs('admin.hero-banners.index') || request()->routeIs('admin.events.index') || request()->routeIs('admin.memberships.index')" icon="fa-solid fa-gear">
+            <x-nav-group name="{{ __('Settings') }}" :active="request()->routeIs('admin.users.index') || request()->routeIs('admin.roles.index')" icon="fa-solid fa-gear">
                 <x-nav-link :href="route('admin.users.index')" :active="request()->routeIs('admin.users.index')" icon="fa-solid fa-users">
                     {{ __('Users') }}
                 </x-nav-link>
                 <x-nav-link :href="route('admin.roles.index')" :active="request()->routeIs('admin.roles.index')" icon="fa-solid fa-user-gear">
                     {{ __('Roles') }}
                 </x-nav-link>
+            </x-nav-group>
+
+            <x-nav-group name="{{ __('Contents') }}" :active="request()->routeIs('admin.hero-banners.index') || request()->routeIs('admin.events.index') || request()->routeIs('admin.memberships.index') || request()->routeIs('admin.notices.index')" icon="fa-solid fa-globe">
                 <x-nav-link :href="route('admin.hero-banners.index')" :active="request()->routeIs('admin.hero-banners.index')" icon="fa-solid fa-images">
                     {{ __('Banners') }}
                 </x-nav-link>
@@ -35,8 +38,10 @@
                 <x-nav-link :href="route('admin.memberships.index')" :active="request()->routeIs('admin.memberships.index')" icon="fa-solid fa-user-check">
                     {{ __('Memberships') }}
                 </x-nav-link>
+                <x-nav-link :href="route('admin.notices.index')" :active="request()->routeIs('admin.notices.index')" icon="fa-solid fa-bell">
+                    {{ __('Notices') }}
+                </x-nav-link>
             </x-nav-group>
-
         @endcan
     </div>
 

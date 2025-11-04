@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\HeroBannerController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\NoticeController;
 use App\Http\Controllers\Admin\MembershipController as AdminMembershipController;
 use App\Http\Controllers\Admin\EventController as AdminEventController;
 
@@ -62,6 +63,7 @@ Route::middleware(['auth', 'can:admin_panel-view'])->prefix('admin')->name('admi
     Route::resource('roles', RoleController::class);
     Route::resource('hero-banners', HeroBannerController::class);
     Route::resource('events', AdminEventController::class);
+    Route::resource('notices', NoticeController::class);
     Route::delete('events/{event}/images/{image}', [AdminEventController::class, 'destroyImage'])->name('events.images.destroy');
 
     // Membership Routes

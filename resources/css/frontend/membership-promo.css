@@ -1,6 +1,6 @@
 
 .membership-promo {
-    background-color: #cc3f65;
+    background-color: #7ea653;
     padding: 2rem 2rem 3rem;
     text-align: center;
 }
@@ -25,7 +25,7 @@
 }
 
 .membership-promo .promo-button {
-    background-color: #4e345a;
+    background-color: #506239;
     color: white;
     padding: 1rem 2rem;
     border-radius: 0.5rem;
@@ -36,7 +36,7 @@
 }
 
 .membership-promo .promo-button:hover {
-    background-color: #634770;
+    background-color: #677a4e;
 }
 
 /* Responsive Adjustments */

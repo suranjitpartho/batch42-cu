@@ -25,6 +25,7 @@ class RolesAndPermissionsSeeder extends Seeder
             'hero_banner' => ['view', 'create', 'edit', 'delete'],
             'event' => ['view', 'create', 'edit', 'delete'],
             'membership' => ['view', 'edit'],
+            'notice' => ['view', 'create', 'edit', 'delete'],
         ];
 
         // Create permissions
