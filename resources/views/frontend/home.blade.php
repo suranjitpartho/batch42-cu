@@ -53,4 +53,6 @@
 
     @include('frontend.partials._events')
 
+    @include('frontend.partials._notices')
+
 @endsection
