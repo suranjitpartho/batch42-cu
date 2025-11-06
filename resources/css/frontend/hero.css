@@ -14,7 +14,7 @@
 .hero-cover-photo {
     flex-grow: 1;
     width: 100%;
-    min-height: 45vh;
+    min-height: 50vh;
     overflow: hidden;
     position: relative;
     background-color: var(--accentB);

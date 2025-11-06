@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\HeroBanner;
 use App\Models\Event;
 use App\Models\Notice;
+use App\Models\UniversityInfo; // Add this line
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -26,6 +27,8 @@ class HomeController extends Controller
 
         $showAllNoticesButton = $noticesCount > 2;
 
-        return view('frontend.home', compact('heroBanners', 'events', 'notices', 'showAllNoticesButton'));
+        $info = UniversityInfo::first();
+
+        return view('frontend.home', compact('heroBanners', 'events', 'notices', 'showAllNoticesButton', 'info'));
     }
 }
