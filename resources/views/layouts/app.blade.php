@@ -50,11 +50,12 @@
                 <main>
                     {{ $slot }}
                     <x-toast/>
-        </main>
-    </div>
+                </main>
+            </div>
 
-    <!-- Mobile Sidebar Overlay -->
-    <div x-show="sidebarOpen && window.innerWidth <= 768" @click="sidebarOpen = false" class="mobile-sidebar-overlay" style="display: none;"></div>
-</div>
+            <!-- Mobile Sidebar Overlay -->
+            <div x-show="sidebarOpen && window.innerWidth <= 768" @click="sidebarOpen = false" class="mobile-sidebar-overlay" style="display: none;"></div>
+        </div>
+@stack('scripts')
     </body>
 </html>

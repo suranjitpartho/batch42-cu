@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\NoticeController;
 use App\Http\Controllers\Admin\MembershipController as AdminMembershipController;
 use App\Http\Controllers\Admin\EventController as AdminEventController;
+use App\Http\Controllers\Admin\UniversityInfoController;
 
 // Frontend Controllers
 use App\Http\Controllers\Frontend\HomeController;
@@ -31,7 +32,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/membership', [MembershipController::class, 'create'])->name('membership.create');
 Route::post('/membership', [MembershipController::class, 'store'])->name('membership.store');
 Route::get('/membership/status', [MembershipController::class, 'show'])->name('membership.show');
-// Events Routes
+// Events and Notices Routes
 Route::get('/events/{event:slug}', [EventController::class, 'show'])->name('events.show');
 Route::get('/notices', [FrontendNoticeController::class, 'index'])->name('notices.index');
 Route::get('/notices/{notice}', [FrontendNoticeController::class, 'show'])->name('notices.show');
@@ -64,13 +65,23 @@ Route::middleware(['auth', 'can:admin_panel-view'])->prefix('admin')->name('admi
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('users', UserController::class);
     Route::resource('roles', RoleController::class);
+
     Route::resource('hero-banners', HeroBannerController::class);
-    Route::resource('events', AdminEventController::class);
+
+    // Events and Notices
     Route::resource('notices', NoticeController::class);
+    Route::resource('events', AdminEventController::class);
     Route::delete('events/{event}/images/{image}', [AdminEventController::class, 'destroyImage'])->name('events.images.destroy');
 
     // Membership Routes
     Route::resource('memberships', AdminMembershipController::class)->except(['create', 'store', 'edit', 'update', 'destroy']);
     Route::post('memberships/{membership}/approve', [AdminMembershipController::class, 'approve'])->name('memberships.approve');
     Route::post('memberships/{membership}/reject', [AdminMembershipController::class, 'reject'])->name('memberships.reject');
+
+    // University Info Routes
+    Route::get('university-info', [UniversityInfoController::class, 'edit'])->name('university-info.edit');
+    Route::put('university-info/textual', [UniversityInfoController::class, 'updateTextualInfo'])->name('university-info.update.textual');
+    Route::post('university-info/university-images', [UniversityInfoController::class, 'updateUniversityImages'])->name('university-info.update.university-images');
+    Route::post('university-info/batch-images', [UniversityInfoController::class, 'updateBatchImages'])->name('university-info.update.batch-images');
+    Route::delete('university-info/image/{field}', [UniversityInfoController::class, 'destroyImage'])->name('university-info.image.destroy');
 });

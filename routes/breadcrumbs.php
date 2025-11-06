@@ -125,3 +125,9 @@ Breadcrumbs::for('admin.notices.edit', function (BreadcrumbTrail $trail, $notice
     $trail->parent('admin.notices.index');
     $trail->push('Edit', route('admin.notices.edit', $notice));
 });
+
+// Dashboard > University Info
+Breadcrumbs::for('admin.university-info.edit', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.dashboard');
+    $trail->push('University Info', route('admin.university-info.edit'));
+});
