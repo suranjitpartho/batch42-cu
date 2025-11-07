@@ -4,7 +4,7 @@
             <img src="{{ asset('images/logo-uni.png') }}" alt="University Logo" class="info-logo">
             <h2>University of Chittagong</h2>
             <p>{{ $info->university_history ?? '' }}</p>
-            <a href="#" class="read-more-button">See More</a>
+            <a href="{{ route('university.show') }}" class="read-more-button">See More</a>
         </div>
         <div class="info-column">
             <img src="{{ asset('images/logo.png') }}" alt="Batch Logo" class="info-logo">

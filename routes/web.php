@@ -18,6 +18,7 @@ use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\MembershipController;
 use App\Http\Controllers\Frontend\EventController;
 use App\Http\Controllers\Frontend\NoticeController as FrontendNoticeController;
+use App\Http\Controllers\Frontend\UniversityController;
 
 
 
@@ -36,6 +37,7 @@ Route::get('/membership/status', [MembershipController::class, 'show'])->name('m
 Route::get('/events/{event:slug}', [EventController::class, 'show'])->name('events.show');
 Route::get('/notices', [FrontendNoticeController::class, 'index'])->name('notices.index');
 Route::get('/notices/{notice}', [FrontendNoticeController::class, 'show'])->name('notices.show');
+Route::get('/university', [UniversityController::class, 'show'])->name('university.show');
 
 
 /*
