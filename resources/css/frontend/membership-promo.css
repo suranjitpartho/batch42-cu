@@ -1,32 +1,32 @@
 
 .membership-promo {
-    background-color: #977a82;
-    background-image: url("data:image/svg+xml,%3Csvg width='64' height='64' viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 16c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm0-2c3.314 0 6-2.686 6-6s-2.686-6-6-6-6 2.686-6 6 2.686 6 6 6zm33.414-6l5.95-5.95L45.95.636 40 6.586 34.05.636 32.636 2.05 38.586 8l-5.95 5.95 1.414 1.414L40 9.414l5.95 5.95 1.414-1.414L41.414 8zM40 48c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm0-2c3.314 0 6-2.686 6-6s-2.686-6-6-6-6 2.686-6 6 2.686 6 6 6zM9.414 40l5.95-5.95-1.414-1.414L8 38.586l-5.95-5.95L.636 34.05 6.586 40l-5.95 5.95 1.414 1.414L8 41.414l5.95 5.95 1.414-1.414L9.414 40z' fill='%23baa1a8' fill-opacity='0.3' fill-rule='evenodd'/%3E%3C/svg%3E");
+    background-color: var(--primary);
+    background-image: var(--primary-svg-pattern);
     padding: 2rem 2rem 3rem;
     text-align: center;
 }
 
 .membership-promo .promo-icon {
     font-size: 3.5rem;
-    color: #ffffff;
+    color: white;
     margin-bottom: 0.5rem;
 }
 
 .membership-promo h2 {
     font-size: 2.5rem;
     font-weight: 600;
-    color: #ffffff;
+    color: white;
     margin-bottom: 1rem;
 }
 
 .membership-promo p {
     font-size: 1.2rem;
-    color: #ffffff;
+    color: white;
     margin-bottom: 2rem;
 }
 
 .membership-promo .promo-button {
-    background-color: #e9ae9a;
+    background-color: var(--secondary);
     background-size: 100% auto;
     color: white;
     padding: 0.8rem 1.5rem;
@@ -34,22 +34,22 @@
     border-radius: 6px;
     text-decoration: none;
     font-size: 1.2rem;
-    font-weight: 500;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Slower and more specific */
+    font-weight: 400;
+    transition: background-color 0.2s ease;
 }
 
 .membership-promo .promo-button:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transform: translateY(-5px); /* A bit more lift to be noticeable */
+    background-color: var(--secondary-light);
+    transition: background-color 0.2s ease;
 }
 
 .membership-promo .promo-button:active {
     transform: translateY(2px);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
+
 /* Responsive Adjustments */
+
 @media (max-width: 768px) {
     .membership-promo {
         padding: 1.5rem 1.5rem 2.5rem;

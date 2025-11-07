@@ -3,12 +3,11 @@
     width: 100%;
     margin: 0 auto; /* Center the section */
     padding: 0 2rem; /* Padding on sides */
-    background-color: var(--accentB);
+    background-color: var(--background);
     display: flex;
     flex-direction: column; /* Ensure children stack vertically */
     justify-content: center;
     align-items: center;
-    margin-bottom: 2rem;
 }
 
 .hero-cover-photo {

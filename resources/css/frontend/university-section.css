@@ -1,5 +1,5 @@
 .university-section {
-    background-color: #F6F0E5;
+    background-color: var(--background);
     padding: 2rem 2rem;
     text-align: center;
 }
@@ -30,13 +30,13 @@
 .university-section h2 {
     font-size: 2rem;
     font-weight: 600;
-    color: #494040;
+    color: var(--primary-dark);
     margin-bottom: 1rem;
 }
 
 .university-section p {
     font-size: 1rem;
-    color: #504d4d;
+    color: var(--primary-dark);
     line-height: 1.7;
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -47,9 +47,9 @@
 .university-section .read-more-button {
     display: inline-block;
     padding: 0.5rem 1.5rem;
-    border: 1px solid #494040;
+    border: 1px solid var(--primary-dark);
     border-radius: 6px;
-    color: #494040;
+    color: var(--primary-dark);
     text-decoration: none;
     font-weight: 500;
     font-size: 0.9rem;
@@ -58,8 +58,8 @@
 }
 
 .university-section .read-more-button:hover {
-    color: #807474;
-    border: 1px solid #807474;
+    color: var(--primary-light);
+    border: 1px solid var(--primary-light);
 }
 
 /* Responsive Adjustments */

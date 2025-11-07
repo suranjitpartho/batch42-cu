@@ -1,8 +1,10 @@
 
 /* Notice Section */
+
 .notice-section {
-    padding: 4rem 2rem;
-    background-color: #977a82;
+    padding: 2rem 2rem;
+    background-color: var(--primary);
+    background-image: var(--primary-svg-pattern);
 }
 
 .notice-section-header {
@@ -13,13 +15,13 @@
 .notice-section-title {
     font-size: 2.5rem;
     font-weight: 600;
-    color: #ffffff;
-    margin-bottom: 0.5rem;
+    color: white;
+    margin-bottom: 0.3rem;
 }
 
 .notice-section-subtitle {
     font-size: 1.2rem;
-    color: #ebebeb;
+    color: white;
 }
 
 .notice-grid {
@@ -31,20 +33,20 @@
 }
 
 .notice-card {
-    background-color: #ffffff;
+    background-color: white;
     border-radius: 0.5rem;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Softer shadow */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     text-decoration: none;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border-top: 4px solid #e9ae9a;
+    border-top: 4px solid var(--secondary);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .notice-card:hover {
-    transform: translateY(-8px); /* Increased hover effect */
-    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1); /* Stronger shadow on hover */
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
 }
 
 .notice-card-content {
@@ -52,25 +54,25 @@
 }
 
 .notice-card-title {
-    font-size: 1.4rem; /* Slightly smaller title */
+    font-size: 1.4rem;
     font-weight: 600;
-    color: var(--color-text-primary);
+    color: var(--primary-dark);
     margin-bottom: 1rem;
     display: flex;
     align-items: center;
-    gap: 0.75rem; /* Gap between icon and title */
+    gap: 0.75rem;
 }
 
 .notice-card-title i {
-    color: #e9ae9a; /* Icon color */
+    color: var(--secondary);
     font-size: 1.2rem;
 }
 
 .notice-card-excerpt {
     font-size: 1rem;
-    color: var(--color-text-secondary);
+    color: var(--primary-dark);
     line-height: 1.6;
-    height: 4.8rem; /* 1.6rem * 3 lines */
+    height: 4.8rem;
     overflow: hidden;
 }
 
@@ -82,38 +84,24 @@
 }
 
 .notice-card-date-tag {
-    background-color: #f0f0f0;
+    background-color: var(--background);
     padding: 0.2rem 0.5rem;
     border-radius: 0.25rem;
     font-size: 0.75rem;
-    color: var(--color-text-secondary);
+    color: var(--spaceblack);
     display: inline-block;
 }
 
 .notice-card-member-tag {
-    background-color: #e9ae9a;
+    background-color: var(--secondary);
     padding: 0.2rem 0.5rem;
     border-radius: 0.25rem;
     font-size: 0.75rem;
-    color: #ffffff;
+    color: white;
     font-weight: 500;
     display: inline-block;
 }
 
-.notice-card-footer {
-    padding: 1rem 1.5rem;
-    border-top: 1px solid var(--color-border);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: var(--accentA-light); /* Changed color */
-    font-weight: 600;
-    transition: color 0.3s ease;
-}
-
-.notice-card:hover .notice-card-footer {
-    color: var(--accentA); /* Darker on hover */
-}
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
@@ -130,6 +118,7 @@
     }
 }
 
+
 .notice-section-footer {
     text-align: center;
     margin-top: 2.5rem;
@@ -137,19 +126,19 @@
 
 .btn-show-all-notices {
     display: inline-block;
-    padding: 0.5rem 1.5rem; /* Less padding */
-    border: 1px solid #ffffff;
-    border-radius: 6px; /* Slightly smaller radius */
-    color: #ffffff;
+    padding: 0.5rem 1.5rem;
+    border: 1px solid white;
+    border-radius: 6px;
+    color: white;
     text-decoration: none;
-    font-weight: 500;
-    font-size: 0.9rem; /* Smaller font */
+    font-weight: 400;
+    font-size: 0.9rem;
     transition: all 0.3s ease;
 }
 
 .btn-show-all-notices:hover {
-    color: #e9e9e9; /* The purple color */
-    border: 1px solid #e9e9e9;
+    color: var(--background-dark);
+    border: 1px solid var(--background-dark);
 }
 
 
@@ -157,8 +146,8 @@
 /* === SHOW ALL NOTICE PAGE === */
 
 .all-notices-section {
-    padding: 4rem 2rem;
-    background-color: #F5F5F5;
+    padding: 2rem 2rem;
+    background-color: var(--background);
 }
 
 .all-notices-header {
@@ -169,13 +158,13 @@
 .all-notices-header h1 {
     font-size: 2.5rem;
     font-weight: 600;
-    color: var(--color-text-primary);
+    color: var(--primary-dark);
     margin-bottom: 0.5rem;
 }
 
 .all-notices-header p {
     font-size: 1.2rem;
-    color: var(--color-text-secondary);
+    color: var(--primary-dark);
 }
 
 .notice-grid-container {

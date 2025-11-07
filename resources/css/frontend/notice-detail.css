@@ -1,20 +1,20 @@
 
 .notice-detail-container {
     padding: 4rem 2rem;
-    background-color: var(--color-background-secondary);
+    background-color: var(--background);
 }
 
 .notice-detail-card {
     max-width: 800px;
     margin: 0 auto;
-    background-color: #ffffff;
+    background-color: white;
     border-radius: 0.5rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     overflow: hidden;
 }
 
 .notice-detail-header {
-    background-color: #977a82;
+    background-color: var(--primary);
     color: white;
     padding: 2rem;
     border-bottom: 1px solid transparent;
@@ -36,7 +36,7 @@
 
 .header-divider {
     width: 1px;
-    background-color: #ad9199;
+    background-color: var(--primary-light);
     align-self: stretch;
     margin: 0 2rem;
 }
@@ -62,7 +62,7 @@
     padding: 2rem;
     font-size: 1.1rem;
     line-height: 1.8;
-    color: var(--color-text-primary);
+    color: var(--primary-dark);
 }
 
 .notice-detail-content h1,

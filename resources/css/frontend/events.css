@@ -1,24 +1,25 @@
 /* Events Section */
 .events-section {
     padding: 2rem 2rem;
-    background-color: var(--color-background-secondary);
+    background-color: var(--background);
+    background-image: var(--background-svg-pattern);
 }
 
 .events-section-header {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 .events-section-title {
     font-size: 2.5rem;
     font-weight: 600;
-    color: var(--color-text-primary);
-    margin-bottom: 0.5rem;
+    color: var(--primary-dark);
+    margin-bottom: 0.3rem;
 }
 
 .events-section-subtitle {
     font-size: 1.2rem;
-    color: var(--color-text-secondary);
+    color: var(--primary-dark);
 }
 
 .events-grid {
@@ -28,7 +29,7 @@
 }
 
 .event-card {
-    background-color: #ffffff;
+    background-color: white;
     border-radius: 0.5rem;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -44,7 +45,7 @@
 .event-card-photo-frame {
     position: relative;
     height: 250px;
-    background-color: var(--accentA-lighter);
+    background-color: var(--primary-light);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -95,14 +96,14 @@
 .event-card-title {
     font-size: 1.25rem;
     font-weight: 600;
-    color: var(--color-text-primary);
+    color: var(--primary-dark);
     margin-bottom: 0.75rem;
 }
 
 .event-card-date,
 .event-card-location {
     font-size: 0.9rem;
-    color: var(--color-text-secondary);
+    color: var(--primary-dark);
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -111,7 +112,7 @@
 
 .event-card-date i,
 .event-card-location i {
-    color: var(--accentC);
+    color: var(--secondary);
 }
 
 /* Responsive Adjustments */
