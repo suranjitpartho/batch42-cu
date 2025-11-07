@@ -19,6 +19,7 @@ use App\Http\Controllers\Frontend\MembershipController;
 use App\Http\Controllers\Frontend\EventController;
 use App\Http\Controllers\Frontend\NoticeController as FrontendNoticeController;
 use App\Http\Controllers\Frontend\UniversityController;
+use App\Http\Controllers\Frontend\AlumniController;
 
 
 
@@ -38,6 +39,7 @@ Route::get('/events/{event:slug}', [EventController::class, 'show'])->name('even
 Route::get('/notices', [FrontendNoticeController::class, 'index'])->name('notices.index');
 Route::get('/notices/{notice}', [FrontendNoticeController::class, 'show'])->name('notices.show');
 Route::get('/university', [UniversityController::class, 'show'])->name('university.show');
+Route::get('/alumni', [AlumniController::class, 'index'])->name('alumni.index');
 
 
 /*
