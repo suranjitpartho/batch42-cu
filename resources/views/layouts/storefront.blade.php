@@ -98,17 +98,17 @@
                 <div class="footer-section footer-links">
                     <h3>Useful Links</h3>
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="{{ route('home') }}">Home</a></li>
+                        <li><a href="{{ route('content_pages.show', 'constitution') }}">Constitution</a></li>
+                        <li><a href="{{ route('content_pages.show', 'about-us') }}">About Us</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-section footer-links">
                     <h3>Help</h3>
                     <ul>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="{{ route('content_pages.show', 'faq') }}">FAQ</a></li>
+                        <li><a href="{{ route('content_pages.show', 'privacy-policy') }}">Privacy Policy</a></li>
                     </ul>
                 </div>
 

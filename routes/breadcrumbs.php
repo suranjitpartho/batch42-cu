@@ -131,3 +131,15 @@ Breadcrumbs::for('admin.university-info.edit', function (BreadcrumbTrail $trail)
     $trail->parent('admin.dashboard');
     $trail->push('University Info', route('admin.university-info.edit'));
 });
+
+// Dashboard > Content Pages
+Breadcrumbs::for('admin.content-pages.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.dashboard');
+    $trail->push('Content Pages', route('admin.content-pages.index'));
+});
+
+// Dashboard > Content Pages > Edit
+Breadcrumbs::for('admin.content-pages.edit', function (BreadcrumbTrail $trail, $contentPage) {
+    $trail->parent('admin.content-pages.index');
+    $trail->push('Edit', route('admin.content-pages.edit', $contentPage));
+});

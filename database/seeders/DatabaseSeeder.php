@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
 
         $this->call(RolesAndPermissionsSeeder::class);
+        $this->call(ContentPageSeeder::class);
 
         // Create the main admin user from .env, or use a default
         $adminEmail = config('auth.admin_email');

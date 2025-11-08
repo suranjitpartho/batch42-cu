@@ -76,6 +76,22 @@ php artisan migrate --seed
 php artisan storage:link
 ```
 
+### Running Specific Seeders (Post-Installation)
+
+The `php artisan migrate --seed` command is for the initial setup. If you later modify the seeders that define content pages or permissions, you can run them individually without affecting the rest of the database.
+
+-   **To update or add predefined content pages:**
+    If you have modified the `ContentPageSeeder.php` file, run:
+    ```bash
+    php artisan db:seed --class=ContentPageSeeder
+    ```
+
+-   **To update roles and permissions:**
+    If you have modified the `RolesAndPermissionsSeeder.php` file, run:
+    ```bash
+    php artisan db:seed --class=RolesAndPermissionsSeeder
+    ```
+
 ### 5. Build Frontend Assets
 Compile the frontend assets for the application.
 

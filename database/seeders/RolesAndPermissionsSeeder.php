@@ -27,6 +27,7 @@ class RolesAndPermissionsSeeder extends Seeder
             'membership' => ['view', 'edit'],
             'notice' => ['view', 'create', 'edit', 'delete'],
             'university_info' => ['view', 'edit'],
+            'content_page' => ['view', 'edit'],
         ];
 
         // Create permissions
