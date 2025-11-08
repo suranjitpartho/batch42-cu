@@ -74,7 +74,11 @@
             </div>
         </header>
 
-
+        @if (!request()->routeIs('home') && count(Breadcrumbs::generate()))
+            <div class="front-breadcrumb-container">
+                {{ Breadcrumbs::render() }}
+            </div>
+        @endif
 
         <main id="main-content">
             @yield('content')

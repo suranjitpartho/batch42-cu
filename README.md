@@ -1,4 +1,4 @@
-# BATCH 24 CU
+# BATCH 42 CU
 
 This is a foundational Laravel web application developed by ForkByte, intended as a base layout for future projects. It features a complete user authentication system, role-based access control, and a secure admin panel with pre-built UI and configurations.
 
@@ -32,8 +32,8 @@ Before you begin, ensure you have the following installed on your local developm
 
 ### 1. Clone the Repository
 ```bash
-git clone [your-repository-url]
-cd laravel-base
+git clone https://github.com/suranjitpartho/batch42-cu.git
+cd batch42-cu
 ```
 
 ### 2. Configure Environment

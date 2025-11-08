@@ -1,0 +1,39 @@
+.front-breadcrumb-container {
+    padding: 0.5rem 2rem;
+    background-color: #f8f9fa;
+}
+
+.breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-size: 0.9rem;
+}
+
+.breadcrumb-item {
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumb-item a {
+    color: var(--primary); /* Use frontend primary color */
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+.breadcrumb-item a:hover {
+    color: var(--primary-dark);
+}
+
+.breadcrumb-item.active {
+    color: var(--text-color); /* A darker color for the active item */
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    content: '>'; /* Use a different separator for the frontend */
+    display: inline-block;
+    padding: 0 0.75rem;
+    color: #6c757d;
+}

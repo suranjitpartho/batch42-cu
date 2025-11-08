@@ -49,17 +49,6 @@ Breadcrumbs::for('admin.roles.edit', function (BreadcrumbTrail $trail, $role) {
     $trail->push('Edit', route('admin.roles.edit', $role));
 });
 
-// Home
-Breadcrumbs::for('home', function (BreadcrumbTrail $trail) {
-    $trail->push('Home', route('home'));
-});
-
-// Home > Profile
-Breadcrumbs::for('profile.edit', function (BreadcrumbTrail $trail) {
-    $trail->parent('home');
-    $trail->push('Profile', route('profile.edit'));
-});
-
 // Dashboard > Banners
 Breadcrumbs::for('admin.hero-banners.index', function (BreadcrumbTrail $trail) {
     $trail->parent('admin.dashboard');
