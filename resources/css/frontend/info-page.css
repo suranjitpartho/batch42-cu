@@ -1,5 +1,5 @@
-/* University Info Page Specific Styles */
-.university-info-container {
+/* Info Page Specific Styles */
+.info-page-container {
     max-width: 1000px;
     margin: 2rem auto;
     padding: 2rem;
@@ -8,20 +8,20 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-.university-info-header {
+.info-page-header {
     text-align: center;
     margin-bottom: 2rem;
     padding-bottom: 1rem;
     border-bottom: 1px solid #ececec;
 }
 
-.university-info-header h1 {
+.info-page-header h1 {
     font-size: 2.5rem;
     font-weight: 400;
     color: #2f343e;
 }
 
-.university-main-image-container {
+.info-main-image-container {
     margin-bottom: 2rem;
     padding: 10px;
     background: var(--spaceblack);
@@ -32,37 +32,37 @@
     margin-right: auto;
 }
 
-.university-main-image {
+.info-main-image {
     max-width: 100%;
     height: auto;
     display: block;
 }
 
-.university-content-section {
+.info-content-section {
     margin-bottom: 2rem;
 }
 
-.university-content-section h2 {
+.info-content-section h2 {
     font-size: 1.75rem;
     font-weight: 600;
     color: var(--spaceblack);
     margin-bottom: 1rem;
     padding-bottom: 0.5rem;
-    border-bottom: 1px solid #e2e8f0;
+    text-align: center;
 }
 
-.university-content-section p {
+.info-content-section p {
     font-size: 1rem;
     line-height: 1.6;
     color: var(--spaceblack);
     text-align: justify;
 }
 
-.university-gallery {
+.info-gallery {
     margin-top: 3rem;
 }
 
-.university-gallery h2 {
+.info-gallery h2 {
     text-align: center;
     font-size: 2rem;
     font-weight: 600;
@@ -122,28 +122,28 @@
 
 /* Responsive Adjustments */
 @media (max-width: 1024px) {
-    .university-info-container {
+    .info-page-container {
         margin: 1.5rem auto;
         padding: 1.5rem;
     }
 
-    .university-info-header h1 {
+    .info-page-header h1 {
         font-size: 2rem;
     }
 
-    .university-main-image {
+    .info-main-image {
         max-width: 100%;
     }
 
-    .university-content-section h2 {
+    .info-content-section h2 {
         font-size: 1.5rem;
     }
 
-    .university-content-section p {
+    .info-content-section p {
         font-size: 0.95rem;
     }
 
-    .university-gallery h2 {
+    .info-gallery h2 {
         font-size: 1.75rem;
     }
 
@@ -160,28 +160,28 @@
 }
 
 @media (max-width: 768px) {
-    .university-info-container {
+    .info-page-container {
         margin: 1rem auto;
         padding: 1rem;
     }
 
-    .university-info-header h1 {
+    .info-page-header h1 {
         font-size: 1.75rem;
     }
 
-    .university-main-image {
+    .info-main-image {
         max-width: 100%;
     }
 
-    .university-content-section h2 {
+    .info-content-section h2 {
         font-size: 1.3rem;
     }
 
-    .university-content-section p {
+    .info-content-section p {
         font-size: 0.9rem;
     }
 
-    .university-gallery h2 {
+    .info-gallery h2 {
         font-size: 1.5rem;
     }
 
@@ -220,19 +220,19 @@
 }
 
 @media (max-width: 480px) {
-    .university-info-header h1 {
+    .info-page-header h1 {
         font-size: 1.5rem;
     }
 
-    .university-content-section h2 {
+    .info-content-section h2 {
         font-size: 1.2rem;
     }
 
-    .university-content-section p {
+    .info-content-section p {
         font-size: 0.85rem;
     }
 
-    .university-gallery h2 {
+    .info-gallery h2 {
         font-size: 1.3rem;
     }
 

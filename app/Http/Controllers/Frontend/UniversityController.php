@@ -17,4 +17,15 @@ class UniversityController extends Controller
 
         return view('frontend.pages.university.show', compact('info'));
     }
+
+    public function showBatchInfo()
+    {
+        $info = UniversityInfo::first();
+
+        if (!$info) {
+            abort(404);
+        }
+
+        return view('frontend.pages.batch.show', compact('info'));
+    }
 }

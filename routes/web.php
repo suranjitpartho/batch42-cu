@@ -42,6 +42,7 @@ Route::get('/events/{event:slug}', [EventController::class, 'show'])->name('even
 Route::get('/notices', [FrontendNoticeController::class, 'index'])->name('notices.index');
 Route::get('/notices/{notice}', [FrontendNoticeController::class, 'show'])->name('notices.show');
 Route::get('/university', [UniversityController::class, 'show'])->name('university.show');
+Route::get('/batch', [UniversityController::class, 'showBatchInfo'])->name('batch.show');
 Route::get('/alumni', [AlumniController::class, 'index'])->name('alumni.index');
 Route::get('/alumni/{user}', [AlumniController::class, 'show'])->name('alumni.show');
 

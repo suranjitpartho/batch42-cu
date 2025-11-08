@@ -10,7 +10,7 @@
             <img src="{{ asset('images/logo.png') }}" alt="Batch Logo" class="info-logo">
             <h2>Batch 42 (2006-2007)</h2>
             <p>{{ $info->batch_info ?? '' }}</p>
-            <a href="#" class="read-more-button">See More</a>
+            <a href="{{ route('batch.show') }}" class="read-more-button">See More</a>
         </div>
     </div>
 </section>

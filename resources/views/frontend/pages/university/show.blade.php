@@ -1,28 +1,28 @@
 @extends('layouts.storefront')
 
 @section('content')
-    <div class="university-info-container">
-        <div class="university-info-header">
+    <div class="info-page-container">
+        <div class="info-page-header">
             <h1>University of Chittagong</h1>
         </div>
 
         @if($info->university_main_photo_path)
-            <div class="university-main-image-container">
-                <img src="{{ asset('storage/' . $info->university_main_photo_path) }}" alt="University Main View" class="university-main-image">
+            <div class="info-main-image-container">
+                <img src="{{ asset('storage/' . $info->university_main_photo_path) }}" alt="University Main View" class="info-main-image">
             </div>
         @endif
 
-        <div class="university-content-section">
+        <div class="info-content-section">
             <h2>Our History</h2>
             <p>{!! nl2br(e($info->university_history)) !!}</p>
         </div>
 
-        <div class="university-content-section">
+        <div class="info-content-section">
             <h2>Mission</h2>
             <p>{!! nl2br(e($info->university_mission)) !!}</p>
         </div>
 
-        <div class="university-content-section">
+        <div class="info-content-section">
             <h2>Vision</h2>
             <p>{!! nl2br(e($info->university_vision)) !!}</p>
         </div>
@@ -38,7 +38,7 @@
         @endphp
 
         @if(!empty($galleryImages))
-            <div class="university-gallery">
+            <div class="info-gallery">
                 <h2>Gallery</h2>
                 <div class="scattered-gallery">
                     @foreach($galleryImages as $imagePath)
