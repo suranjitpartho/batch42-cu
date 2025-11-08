@@ -124,6 +124,7 @@
 /* === Alumni Card === */
 
 .alumni-card {
+    position: relative; /* Necessary for positioning the cover link */
     background-color: white;
     border: 1px solid white;
     border-radius: 8px;
@@ -134,6 +135,16 @@
     color: inherit;
     transition: border 0.2s ease;
     overflow: hidden;
+}
+
+.card-cover-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1; /* Place it above the card content visually */
+    text-indent: -9999px; /* Hide link text */
 }
 
 .alumni-card:hover {
@@ -184,6 +195,19 @@
     margin: 0;
 }
 
+.blood-group {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.9rem;
+    color: var(--spacegrey);
+    margin-left: 0.5rem;
+}
+
+.blood-group i {
+    font-size: 0.8rem;
+}
+
 .alumni-socials {
     display: flex;
     gap: 0.75rem;
@@ -193,8 +217,10 @@
 }
 
 .alumni-socials a {
+    position: relative;
+    z-index: 2; /* Ensure social links are clickable above the cover link */
     color: var(--secondary);
-    font-size: 1rem;
+    font-size: 1.25rem; /* Increased from 1rem */
     transition: color 0.2s ease;
 }
 
@@ -247,13 +273,6 @@
 
 
 
-/* Pagination */
-.pagination-links {
-    margin-top: 2rem;
-    display: flex;
-    justify-content: center;
-}
-
 /* Responsive */
 @media (max-width: 1024px) {
     .alumni-grid {
@@ -272,5 +291,29 @@
 
     .filter-bar .filter-buttons {
         grid-column: 1;
+    }
+
+    .upper-part {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .alumni-basic-info {
+        text-align: center;
+    }
+
+    .alumni-socials {
+        display: none;
+    }
+
+    .alumni-card .lower-part {
+        display: none;
+    }
+
+    .alumni-card .middle-part {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.1rem;
     }
 }

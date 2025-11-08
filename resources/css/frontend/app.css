@@ -11,6 +11,8 @@
 @import 'university-section.css';
 @import 'university-info.css';
 @import 'alumni-directory.css';
+@import 'alumni-profile.css';
+@import 'pagination.css';
 
 /* @tailwind base;
 @tailwind components;

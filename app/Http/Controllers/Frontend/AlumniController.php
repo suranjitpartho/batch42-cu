@@ -46,4 +46,9 @@ class AlumniController extends Controller
             'blood_groups' => $blood_groups,
         ]);
     }
+
+    public function show(User $user)
+    {
+        return view('frontend.pages.alumni.show', compact('user'));
+    }
 }

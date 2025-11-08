@@ -43,6 +43,7 @@ Route::get('/notices', [FrontendNoticeController::class, 'index'])->name('notice
 Route::get('/notices/{notice}', [FrontendNoticeController::class, 'show'])->name('notices.show');
 Route::get('/university', [UniversityController::class, 'show'])->name('university.show');
 Route::get('/alumni', [AlumniController::class, 'index'])->name('alumni.index');
+Route::get('/alumni/{user}', [AlumniController::class, 'show'])->name('alumni.show');
 
 Route::get('/verify-email-guest', [EmailVerificationPromptController::class, 'guest'])->name('verification.notice.guest');
 Route::post('/email/verification-notification-guest', [EmailVerificationNotificationController::class, 'guestStore'])->name('verification.send.guest');

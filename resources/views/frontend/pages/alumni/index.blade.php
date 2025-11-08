@@ -57,9 +57,10 @@
             </form>
         </div>
 
-        <div class="alumni-grid">
+        <div class="alumni-grid" style="margin-bottom: 2rem;">
             @forelse($users as $user)
                 <div class="alumni-card">
+                    <a href="{{ route('alumni.show', $user) }}" class="card-cover-link"></a>
                     <!-- Upper Part -->
                     <div class="card-part upper-part">
                         <img src="{{ $user->profile_photo_path ? asset('storage/' . $user->profile_photo_path) : asset('images/default-avatar.svg') }}" alt="{{ $user->name }}" class="profile-photo">
@@ -71,7 +72,15 @@
                                     {{ $user->name }}
                                 @endif
                             </h3>
-                            <p class="alumni-department">{{ $user->department }}</p>
+                            <p class="alumni-department">
+                                {{ $user->department }}
+                                @if($user->blood_group)
+                                    <span class="blood-group">
+                                        <i class="fa-solid fa-droplet"></i>
+                                        {{ $user->blood_group }}
+                                    </span>
+                                @endif
+                            </p>
                             <div class="alumni-socials">
                                 <a href="#" aria-label="LinkedIn Profile"><i class="fa-brands fa-linkedin"></i></a>
                                 <a href="#" aria-label="Facebook Profile"><i class="fa-brands fa-facebook"></i></a>
@@ -94,35 +103,13 @@
                             </div>
                         @endif
                     </div>
-
-                    <!-- Lower Part -->
-                    <div class="card-part lower-part">
-                        @if($user->works_at)
-                            <div class="lower-item">
-                                <i class="fa-solid fa-briefcase"></i>
-                                <span>{{ $user->works_at }}</span>
-                            </div>
-                        @endif
-                        @if($user->current_city)
-                            <div class="lower-item">
-                                <i class="fa-solid fa-location-dot"></i>
-                                <span>{{ $user->current_city }}</span>
-                            </div>
-                        @endif
-                        @if($user->blood_group)
-                            <div class="lower-item">
-                                <i class="fa-solid fa-droplet"></i>
-                                <span>{{ $user->blood_group }}</span>
-                            </div>
-                        @endif
-                    </div>
                 </div>
             @empty
                 <p>No alumni found matching your criteria.</p>
             @endforelse
         </div>
 
-        <div class="pagination-links">
+        <div class="frontend-pagination-container">
             {{ $users->links() }}
         </div>
     </div>
