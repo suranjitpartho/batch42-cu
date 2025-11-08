@@ -27,3 +27,21 @@
 
     --simple-shadow: 0 1px 3px rgba(0,0,0,0.06);
 }
+
+
+/* SCROLL BAR */
+
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+::-webkit-scrollbar-track {
+    background: white;
+}
+::-webkit-scrollbar-thumb {
+    background: #afafaf;
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #828282;
+}
