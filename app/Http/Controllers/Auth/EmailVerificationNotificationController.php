@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EmailVerificationNotificationController extends Controller
 {
@@ -13,11 +15,25 @@ class EmailVerificationNotificationController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        if ($request->user()->hasVerifiedEmail()) {
-            return redirect()->intended(route('dashboard', absolute: false));
+        if (Auth::check()) {
+            $user = $request->user();
+        } else {
+            $request->validate([
+                'email' => ['required', 'string', 'email', 'max:255'],
+            ]);
+
+            $user = User::where('email', $request->email)->first();
         }
 
-        $request->user()->sendEmailVerificationNotification();
+        if (! $user) {
+            return back()->withErrors(['email' => 'We can\'t find a user with that email address.']);
+        }
+
+        if ($user->hasVerifiedEmail()) {
+            return redirect()->intended(route('home', absolute: false));
+        }
+
+        $user->sendEmailVerificationNotification();
 
         return back()->with('status', 'verification-link-sent');
     }

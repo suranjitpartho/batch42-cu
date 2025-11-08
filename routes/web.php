@@ -20,6 +20,9 @@ use App\Http\Controllers\Frontend\EventController;
 use App\Http\Controllers\Frontend\NoticeController as FrontendNoticeController;
 use App\Http\Controllers\Frontend\UniversityController;
 use App\Http\Controllers\Frontend\AlumniController;
+use App\Http\Controllers\Auth\EmailVerificationPromptController;
+use App\Http\Controllers\Auth\EmailVerificationNotificationController;
+use App\Http\Controllers\Auth\GuestVerificationController;
 
 
 
@@ -41,6 +44,12 @@ Route::get('/notices/{notice}', [FrontendNoticeController::class, 'show'])->name
 Route::get('/university', [UniversityController::class, 'show'])->name('university.show');
 Route::get('/alumni', [AlumniController::class, 'index'])->name('alumni.index');
 
+Route::get('/verify-email-guest', [EmailVerificationPromptController::class, 'guest'])->name('verification.notice.guest');
+Route::post('/email/verification-notification-guest', [EmailVerificationNotificationController::class, 'guestStore'])->name('verification.send.guest');
+Route::get('/email/verify/guest/{email}', [GuestVerificationController::class, '__invoke'])
+    ->middleware(['signed'])
+    ->name('verification.verify.guest');
+
 
 /*
 |--------------------------------------------------------------------------
@@ -48,7 +57,7 @@ Route::get('/alumni', [AlumniController::class, 'index'])->name('alumni.index');
 |--------------------------------------------------------------------------
 */
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::patch('/profile/photo', [ProfileController::class, 'updatePhoto'])->name('profile.photo.update');

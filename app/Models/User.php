@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
+use App\Notifications\VerifyEmailAsGuest;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -65,5 +66,15 @@ class User extends Authenticatable implements MustVerifyEmail
     public function alumniMembership()
     {
         return $this->hasOne(AlumniMembership::class);
+    }
+
+    /**
+     * Send the email verification notification.
+     *
+     * @return void
+     */
+    public function sendEmailVerificationNotification()
+    {
+        $this->notify(new VerifyEmailAsGuest);
     }
 }
