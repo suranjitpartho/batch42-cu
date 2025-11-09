@@ -24,10 +24,10 @@
                     </a>
                 @endforeach
             </div>
-        </div>
 
-        <div class="frontend-pagination-container">
-            {{ $notices->links() }}
+            <div class="frontend-pagination-container">
+                {{ $notices->links() }}
+            </div>
         </div>
     </div>
 @endsection

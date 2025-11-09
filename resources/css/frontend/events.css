@@ -45,7 +45,7 @@
 .event-card-photo-frame {
     position: relative;
     height: 250px;
-    background-color: var(--primary-light);
+    background-color: var(--primary);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -187,42 +187,8 @@
     margin: 0 auto;
 }
 
-/* === PAGINATION === */
-.frontend-pagination-container {
-    margin-top: 3rem;
-    display: flex;
-    justify-content: center;
-}
-
-.frontend-pagination-container .pagination {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    gap: 0.5rem;
-}
-
-.frontend-pagination-container .page-item .page-link {
-    padding: 0.5rem 1rem;
-    border: 1px solid var(--light-border);
-    border-radius: 0.25rem;
-    color: var(--primary-dark);
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.frontend-pagination-container .page-item.active .page-link {
-    background-color: var(--primary);
-    color: white;
-    border-color: var(--primary);
-}
-
-.frontend-pagination-container .page-item:not(.disabled) .page-link:hover {
-    background-color: var(--background-dark);
-}
-
-.frontend-pagination-container .page-item.disabled .page-link {
-    color: #ccc;
-    pointer-events: none;
+.events-grid-container .events-grid {
+     margin-bottom: 2.5rem;
 }
 
 .events-section-footer {

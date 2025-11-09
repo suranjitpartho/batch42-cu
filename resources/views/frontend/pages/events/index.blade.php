@@ -30,10 +30,10 @@
                     </a>
                 @endforeach
             </div>
-        </div>
 
-        <div class="frontend-pagination-container">
-            {{ $events->links() }}
+            <div class="frontend-pagination-container">
+                {{ $events->links() }}
+            </div>
         </div>
     </div>
 @endsection
