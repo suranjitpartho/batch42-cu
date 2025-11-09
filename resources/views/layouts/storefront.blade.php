@@ -17,7 +17,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     </head>
-    <body class="antialiased">
+    <body class="antialiased" x-data="{ open: false }" @keydown.window.escape="open = false">
         <x-topbar-loader />
 
 
@@ -31,49 +31,131 @@
                 </div>
 
                 <div class="header-right">
-                    <nav class="main-nav">
-                        <ul class="nav-links">
-                            <li class="nav-link"><a href="{{ route('home') }}">Home</a></li>
-                            <li class="nav-link"><a href="#">Events</a></li>
-                            <li class="nav-link"><a href="{{ route('notices.index') }}">Notices</a></li>
+                    <!-- Desktop Nav -->
+                    <div class="desktop-nav">
+                        <nav class="main-nav">
+                            <ul class="nav-links">
+                                <li class="nav-link"><a href="{{ route('home') }}">Home</a></li>
+                                <li class="nav-link"><a href="#">Events</a></li>
+                                <li class="nav-link"><a href="{{ route('notices.index') }}">Notices</a></li>
 
-                            <li class="nav-dropdown" x-data="{ open: false }" @click.away="open = false" @close.stop="open = false">
-                                <button @click="open = !open" class="nav-dropdown-button">
+                                <li class="nav-dropdown">
+                                    <x-dropdown align="right">
+                                        <x-slot name="trigger">
+                                            <button class="nav-dropdown-button">
+                                                <span>Alumni</span>
+                                                <i class="fa-solid fa-chevron-down fa-xs"></i>
+                                            </button>
+                                        </x-slot>
+
+                                        <x-slot name="content" width="w-52">
+                                            <a href="{{ route('alumni.index') }}">Alumni Directory</a>
+                                            <a href="{{ route('membership.create') }}">Apply for Membership</a>
+                                        </x-slot>
+                                    </x-dropdown>
+                                </li>
+                            </ul>
+                        </nav>
+
+                        <div class="header-icons">
+                            <div class="nav-dropdown">
+                                <x-dropdown align="right">
+                                    <x-slot name="trigger">
+                                        <button class="nav-dropdown-button">
+                                            @auth
+                                                <span>{{ Auth::user()->name }}</span>
+                                            @else
+                                                <span>User</span>
+                                            @endauth
+                                            <i class="fa-solid fa-chevron-down fa-xs"></i>
+                                        </button>
+                                    </x-slot>
+
+                                    <x-slot name="content" width="w-52">
+                                        @guest
+                                            <a href="{{ route('login') }}">Login</a>
+                                            <a href="{{ route('register') }}">Register</a>
+                                        @else
+                                            <div class="dropdown-header">
+                                                Signed in as<br>
+                                                <strong>{{ Auth::user()->name }}</strong>
+                                            </div>
+                                            <a href="{{ route('profile.edit') }}">Update Profile</a>
+                                            @can('admin_panel-view')
+                                                <a href="{{ route('admin.dashboard') }}">Admin Panel</a>
+                                            @endcan
+                                            <div class="dropdown-divider"></div>
+                                            <form method="POST" action="{{ route('logout') }}" x-ref="logoutForm">
+                                                @csrf
+                                                <a href="{{ route('logout') }}" @click.prevent="$refs.logoutForm.submit();">
+                                                    Log Out
+                                                </a>
+                                            </form>
+                                        @endguest
+                                    </x-slot>
+                                </x-dropdown>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hamburger -->
+                    <div class="hamburger-menu">
+                        <button @click="open = !open" class="hamburger-button">
+                            <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                                <path :class="{'hidden': open, 'inline-flex': !open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                                <path :class="{'hidden': !open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Mobile Nav -->
+        <div class="mobile-nav-container" x-show="open" x-transition>
+            <nav class="main-nav">
+                <ul class="nav-links">
+                    <li class="nav-link"><a href="{{ route('home') }}">Home</a></li>
+                    <li class="nav-link"><a href="#">Events</a></li>
+                    <li class="nav-link"><a href="{{ route('notices.index') }}">Notices</a></li>
+
+                    <li class="nav-dropdown">
+                        <x-dropdown align="left">
+                            <x-slot name="trigger">
+                                <button class="nav-dropdown-button">
                                     <span>Alumni</span>
                                     <i class="fa-solid fa-chevron-down fa-xs"></i>
                                 </button>
-                                <div class="nav-dropdown-content" x-show="open">
-                                    <a href="{{ route('alumni.index') }}">Alumni Directory</a>
-                                    <a href="{{ route('membership.create') }}">Apply for Membership</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </nav>
+                            </x-slot>
 
-                    <div class="header-icons">
-                        <div class="nav-dropdown" x-data="{ open: false }" @click.away="open = false" @close.stop="open = false">
-                            <button @click="open = !open" class="nav-dropdown-button">
-                                @auth
-                                    <span>{{ Auth::user()->name }}</span>
-                                @else
-                                    <span>User</span>
-                                @endauth
-                                <i class="fa-solid fa-chevron-down fa-xs"></i>
-                            </button>
-                            <div class="nav-dropdown-content dropdown-align-right" x-show="open">
+                            <x-slot name="content" width="w-52">
+                                <a href="{{ route('alumni.index') }}">Alumni Directory</a>
+                                <a href="{{ route('membership.create') }}">Apply for Membership</a>
+                            </x-slot>
+                        </x-dropdown>
+                    </li>
+                    <li class="nav-dropdown">
+                        <x-dropdown align="right">
+                            <x-slot name="trigger">
+                                <button class="nav-dropdown-button">
+                                    @auth
+                                        <span>{{ Auth::user()->name }}</span>
+                                    @else
+                                        <span>User</span>
+                                    @endauth
+                                    <i class="fa-solid fa-chevron-down fa-xs"></i>
+                                </button>
+                            </x-slot>
+
+                            <x-slot name="content" width="w-52">
                                 @guest
                                     <a href="{{ route('login') }}">Login</a>
                                     <a href="{{ route('register') }}">Register</a>
                                 @else
-                                    <div class="dropdown-header">
-                                        Signed in as<br>
-                                        <strong>{{ Auth::user()->name }}</strong>
-                                    </div>
                                     <a href="{{ route('profile.edit') }}">Update Profile</a>
                                     @can('admin_panel-view')
                                         <a href="{{ route('admin.dashboard') }}">Admin Panel</a>
                                     @endcan
-                                    <div class="dropdown-divider"></div>
                                     <form method="POST" action="{{ route('logout') }}" x-ref="logoutForm">
                                         @csrf
                                         <a href="{{ route('logout') }}" @click.prevent="$refs.logoutForm.submit();">
@@ -81,12 +163,12 @@
                                         </a>
                                     </form>
                                 @endguest
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
+                            </x-slot>
+                        </x-dropdown>
+                    </li>
+                </ul>
+            </nav>
+        </div>
 
         @if (!request()->routeIs('home') && count(Breadcrumbs::generate()))
             <div class="front-breadcrumb-container">
