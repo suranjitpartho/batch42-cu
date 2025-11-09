@@ -15,7 +15,7 @@ class NoticeController extends Controller
                 return $query->where('members_only', false);
             })
             ->latest()
-            ->paginate(10);
+            ->paginate(3);
 
         return view('frontend.pages.notices.index', compact('notices'));
     }

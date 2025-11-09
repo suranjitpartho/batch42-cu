@@ -26,7 +26,7 @@
             </div>
         </div>
 
-        <div class="pagination-container">
+        <div class="frontend-pagination-container">
             {{ $notices->links() }}
         </div>
     </div>

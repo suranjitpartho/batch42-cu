@@ -37,9 +37,15 @@ Breadcrumbs::for('membership.show', function (BreadcrumbTrail $trail) {
     $trail->push('Membership Status', route('membership.show'));
 });
 
+// Home > Events
+Breadcrumbs::for('events.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push('Events', route('events.index'));
+});
+
 // Home > Events > [Event Title]
 Breadcrumbs::for('events.show', function (BreadcrumbTrail $trail, $event) {
-    $trail->parent('home');
+    $trail->parent('events.index');
     $trail->push($event->title, route('events.show', $event));
 });
 

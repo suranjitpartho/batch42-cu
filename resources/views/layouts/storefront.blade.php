@@ -36,7 +36,7 @@
                         <nav class="main-nav">
                             <ul class="nav-links">
                                 <li class="nav-link"><a href="{{ route('home') }}">Home</a></li>
-                                <li class="nav-link"><a href="#">Events</a></li>
+                                <li class="nav-link"><a href="{{ route('events.index') }}">Events</a></li>
                                 <li class="nav-link"><a href="{{ route('notices.index') }}">Notices</a></li>
 
                                 <li class="nav-dropdown">
@@ -116,7 +116,7 @@
             <nav class="main-nav">
                 <ul class="nav-links">
                     <li class="nav-link"><a href="{{ route('home') }}">Home</a></li>
-                    <li class="nav-link"><a href="#">Events</a></li>
+                    <li class="nav-link"><a href="{{ route('events.index') }}">Events</a></li>
                     <li class="nav-link"><a href="{{ route('notices.index') }}">Notices</a></li>
 
                     <li class="nav-dropdown">

@@ -42,6 +42,7 @@ Route::get('/membership', [MembershipController::class, 'create'])->name('member
 Route::post('/membership', [MembershipController::class, 'store'])->name('membership.store');
 Route::get('/membership/status', [MembershipController::class, 'show'])->name('membership.show');
 // Events and Notices Routes
+Route::get('/events', [EventController::class, 'index'])->name('events.index');
 Route::get('/events/{event:slug}', [EventController::class, 'show'])->name('events.show');
 Route::get('/notices', [NoticeController::class, 'index'])->name('notices.index');
 Route::get('/notices/{notice}', [NoticeController::class, 'show'])->name('notices.show');
