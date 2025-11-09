@@ -56,6 +56,14 @@
     margin-bottom: 1.5rem; /* Adjusted margin */
 }
 
+.profile-bio {
+    font-size: 1rem;
+    color: var(--spacegrey);
+    text-align: center;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
 .profile-divider {
     width: 80%;
     margin: 0 auto 2rem;

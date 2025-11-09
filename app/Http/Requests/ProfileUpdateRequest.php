@@ -35,6 +35,9 @@ class ProfileUpdateRequest extends FormRequest
             'department' => ['nullable', 'string', 'max:255'],
             'works_at' => ['nullable', 'string', 'max:255'],
             'designation' => ['nullable', 'string', 'max:255'],
+            'bio' => ['nullable', 'string', 'max:1000'],
+            'linkedin_url' => ['nullable', 'url', 'max:255'],
+            'facebook_url' => ['nullable', 'url', 'max:255'],
         ];
     }
 }

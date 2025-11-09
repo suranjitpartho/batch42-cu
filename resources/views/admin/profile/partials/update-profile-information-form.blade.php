@@ -163,6 +163,42 @@
         @enderror
     </div>
 
+    <div class="admin-form-group">
+        <label for="bio" class="admin-form-label">{{ __('Bio') }}</label>
+        <textarea id="bio" name="bio" class="admin-form-textarea" rows="4">{{ old('bio', $user->bio) }}</textarea>
+        @error('bio')
+            <ul class="admin-input-error">
+                @foreach ($errors->get('bio') as $message)
+                    <li>{{ $message }}</li>
+                @endforeach
+            </ul>
+        @enderror
+    </div>
+
+    <div class="admin-form-group">
+        <label for="linkedin_url" class="admin-form-label">{{ __('LinkedIn URL') }}</label>
+        <input id="linkedin_url" name="linkedin_url" type="text" class="admin-form-input" value="{{ old('linkedin_url', $user->linkedin_url) }}" />
+        @error('linkedin_url')
+            <ul class="admin-input-error">
+                @foreach ($errors->get('linkedin_url') as $message)
+                    <li>{{ $message }}</li>
+                @endforeach
+            </ul>
+        @enderror
+    </div>
+
+    <div class="admin-form-group">
+        <label for="facebook_url" class="admin-form-label">{{ __('Facebook URL') }}</label>
+        <input id="facebook_url" name="facebook_url" type="text" class="admin-form-input" value="{{ old('facebook_url', $user->facebook_url) }}" />
+        @error('facebook_url')
+            <ul class="admin-input-error">
+                @foreach ($errors->get('facebook_url') as $message)
+                    <li>{{ $message }}</li>
+                @endforeach
+            </ul>
+        @enderror
+    </div>
+
     <div class="admin-form-actions">
         <button type="submit" class="admin-button-base admin-button-purple">{{ __('Save') }}</button>
 
