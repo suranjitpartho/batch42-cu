@@ -39,14 +39,19 @@ class ContentPageController extends Controller
     public function update(Request $request, ContentPage $contentPage)
     {
         $request->validate([
-            'content' => 'required|string',
+            'title_en' => 'required|string',
+            'title_bn' => 'required|string',
+            'content_en' => 'required|string',
+            'content_bn' => 'required|string',
             'is_published' => 'boolean',
         ]);
 
-        $contentPage->update([
-            'content' => $request->content,
-            'is_published' => $request->has('is_published'),
-        ]);
+        $contentPage->setTranslation('title', 'en', $request->title_en);
+        $contentPage->setTranslation('title', 'bn', $request->title_bn);
+        $contentPage->setTranslation('content', 'en', $request->content_en);
+        $contentPage->setTranslation('content', 'bn', $request->content_bn);
+        $contentPage->is_published = $request->has('is_published');
+        $contentPage->save();
 
         return redirect()->route('admin.content-pages.index')->with('success', 'Content page updated successfully.');
     }

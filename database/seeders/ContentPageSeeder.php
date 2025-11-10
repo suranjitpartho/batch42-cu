@@ -15,27 +15,51 @@ class ContentPageSeeder extends Seeder
     {
         $pages = [
             [
-                'title' => 'Alumni Constitution',
+                'title' => [
+                    'en' => 'Alumni Constitution',
+                    'bn' => 'প্রাক্তন ছাত্র সংবিধান',
+                ],
                 'slug' => 'constitution',
-                'content' => 'This is the default content for the Constitution page. Please update it from the admin panel.',
+                'content' => [
+                    'en' => 'This is the default content for the Constitution page. Please update it from the admin panel.',
+                    'bn' => 'সংবিধান পৃষ্ঠার জন্য এটি ডিফল্ট বিষয়বস্তু। অ্যাডমিন প্যানেল থেকে এটি আপডেট করুন।',
+                ],
                 'is_published' => false,
             ],
             [
-                'title' => 'About Us',
+                'title' => [
+                    'en' => 'About Us',
+                    'bn' => 'আমাদের সম্পর্কে',
+                ],
                 'slug' => 'about-us',
-                'content' => 'This is the default content for the About Us page. Please update it from the admin panel.',
+                'content' => [
+                    'en' => 'This is the default content for the About Us page. Please update it from the admin panel.',
+                    'bn' => 'আমাদের সম্পর্কে পৃষ্ঠার জন্য এটি ডিফল্ট বিষয়বস্তু। অ্যাডমিন প্যানেল থেকে এটি আপডেট করুন।',
+                ],
                 'is_published' => false,
             ],
             [
-                'title' => 'FAQ',
+                'title' => [
+                    'en' => 'FAQ',
+                    'bn' => 'সচরাচর জিজ্ঞাস্য',
+                ],
                 'slug' => 'faq',
-                'content' => 'This is the default content for the FAQ page. Please update it from the admin panel.',
+                'content' => [
+                    'en' => 'This is the default content for the FAQ page. Please update it from the admin panel.',
+                    'bn' => 'সচরাচর জিজ্ঞাস্য পৃষ্ঠার জন্য এটি ডিফল্ট বিষয়বস্তু। অ্যাডমিন প্যানেল থেকে এটি আপডেট করুন।',
+                ],
                 'is_published' => false,
             ],
             [
-                'title' => 'Privacy Policy',
+                'title' => [
+                    'en' => 'Privacy Policy',
+                    'bn' => 'গোপনীয়তা নীতি',
+                ],
                 'slug' => 'privacy-policy',
-                'content' => 'This is the default content for the Privacy Policy page. Please update it from the admin panel.',
+                'content' => [
+                    'en' => 'This is the default content for the Privacy Policy page. Please update it from the admin panel.',
+                    'bn' => 'গোপনীয়তা নীতি পৃষ্ঠার জন্য এটি ডিফল্ট বিষয়বস্তু। অ্যাডমিন প্যানেল থেকে এটি আপডেট করুন।',
+                ],
                 'is_published' => false,
             ],
         ];

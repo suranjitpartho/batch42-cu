@@ -14,7 +14,7 @@ body {
 }
 
 body {
-    font-family: 'Barlow', sans-serif;
+    font-family: 'Barlow', 'Anek Bangla', sans-serif;
     background-color: var(--background);
     color: var(--primary-dark);
     line-height: 1.6;

@@ -1,5 +1,5 @@
 .content-page-container {
-    padding: 4rem 2rem;
+    padding: 2rem 2rem;
     background-color: var(--background);
 }
 
@@ -94,4 +94,37 @@
     .content-page-content {
         padding: 1.5rem;
     }
+}
+
+/* Content Page Tabs */
+.content-page-tabs-wrapper {
+    max-width: 900px;
+    margin: 0 auto 0rem auto; /* Center and add bottom margin */
+}
+
+.content-page-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem; /* Space between buttons */
+}
+
+.content-page-tab-button {
+    background: none;
+    border: none;
+    padding: 0.5rem 0.3rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--primary-dark);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.content-page-tab-button:hover {
+    border-bottom-color: var(--primary-dark);
+}
+
+.content-page-tab-button.active {
+    color: var(--primary);
+    border-bottom-color: var(--primary);
 }

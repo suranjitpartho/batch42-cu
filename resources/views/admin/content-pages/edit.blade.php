@@ -7,49 +7,55 @@
 
     <div class="admin-dashboard-section">
         <div class="admin-dashboard-container">
-            <div class="admin-card">
+            <div class="admin-card" x-data="{ activeTab: 'en' }">
                 <div class="admin-card-body">
+                    <div class="admin-tabs-container">
+                        <div class="admin-tabs">
+                            <button @click="activeTab = 'en'" :class="{'admin-tab-active': activeTab === 'en'}" class="admin-tab-item">English</button>
+                            <button @click="activeTab = 'bn'" :class="{'admin-tab-active': activeTab === 'bn'}" class="admin-tab-item">Bengali</button>
+                        </div>
+                    </div>
+
                     <form action="{{ route('admin.content-pages.update', $contentPage) }}" method="POST" class="admin-form-vertical">
                         @csrf
                         @method('PUT')
-                        
-                        {{-- Title --}}
-                        <div class="admin-form-group">
-                            <label for="title" class="admin-form-label">Title</label>
-                            <input type="text" id="title" name="title" class="admin-form-input" value="{{ old('title', $contentPage->title) }}" readonly>
-                            @error('title')
-                                <p class="admin-input-error">{{ $message }}</p>
-                            @enderror
+
+                        {{-- English Fields --}}
+                        <div x-show="activeTab === 'en'" class="admin-tab-content admin-form-vertical">
+                            <div class="admin-form-group">
+                                <label for="title_en" class="admin-form-label">Title (English)</label>
+                                <input type="text" id="title_en" name="title_en" class="admin-form-input" value="{{ old('title_en', $contentPage->getTranslation('title', 'en')) }}" readonly>
+                            </div>
+                            <div class="admin-form-group">
+                                <label for="content_en" class="admin-form-label">Content (English)</label>
+                                <textarea id="content_en" name="content_en" class="admin-form-textarea" required>{{ old('content_en', $contentPage->getTranslation('content', 'en')) }}</textarea>
+                            </div>
                         </div>
 
-                        {{-- Slug --}}
+                        {{-- Bengali Fields --}}
+                        <div x-show="activeTab === 'bn'" class="admin-tab-content admin-form-vertical" style="display: none;">
+                            <div class="admin-form-group">
+                                <label for="title_bn" class="admin-form-label">Title (Bengali)</label>
+                                <input type="text" id="title_bn" name="title_bn" class="admin-form-input" value="{{ old('title_bn', $contentPage->getTranslation('title', 'bn')) }}" readonly>
+                            </div>
+                            <div class="admin-form-group">
+                                <label for="content_bn" class="admin-form-label">Content (Bengali)</label>
+                                <textarea id="content_bn" name="content_bn" class="admin-form-textarea" required>{{ old('content_bn', $contentPage->getTranslation('content', 'bn')) }}</textarea>
+                            </div>
+                        </div>
+
+                        {{-- Shared Fields --}}
                         <div class="admin-form-group">
                             <label for="slug" class="admin-form-label">Slug</label>
                             <input type="text" id="slug" name="slug" class="admin-form-input" value="{{ old('slug', $contentPage->slug) }}" readonly>
-                            @error('slug')
-                                <p class="admin-input-error">{{ $message }}</p>
-                            @enderror
                         </div>
 
-                        {{-- Content --}}
-                        <div class="admin-form-group">
-                            <label for="content" class="admin-form-label">Content</label>
-                            <textarea id="content" name="content" class="admin-form-textarea" required>{{ old('content', $contentPage->content) }}</textarea>
-                            @error('content')
-                                <p class="admin-input-error">{{ $message }}</p>
-                            @enderror
-                        </div>
-
-                        {{-- Published --}}
                         <div class="admin-form-group">
                             <label class="admin-form-label">Published</label>
                             <div class="admin-checkbox-container">
                                 <input type="checkbox" id="is_published" name="is_published" value="1" class="admin-form-checkbox" {{ old('is_published', $contentPage->is_published) ? 'checked' : '' }}>
                                 <label for="is_published" class="admin-checkbox-label">Make this page publicly visible</label>
                             </div>
-                            @error('is_published')
-                                <p class="admin-input-error">{{ $message }}</p>
-                            @enderror
                         </div>
 
                         <div class="admin-form-actions">
