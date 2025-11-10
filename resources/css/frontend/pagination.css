@@ -12,6 +12,9 @@
 .frontend-pagination-container .relative.z-0.inline-flex span > span {
     padding: 0.4rem 0.9rem !important;
     font-size: 0.8rem !important;
+    color: grey;
+    background-color: white;
+    border-color: var(--background-dark) !important; 
 }
 
 .frontend-pagination-container .relative.z-0.inline-flex a[rel='prev'],
@@ -25,10 +28,10 @@
 }
 
 .frontend-pagination-container .relative.z-0.inline-flex a:focus {
-    outline: none !important;
+    outline: var(--background-dark) !important;
     box-shadow: none !important;
 }
 
 .frontend-pagination-container p {
-    color: var(--text-color-light);
+    color: var(--spaceblack) !important;
 }

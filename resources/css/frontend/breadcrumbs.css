@@ -1,6 +1,11 @@
 .front-breadcrumb-container {
     padding: 0.5rem 2rem;
-    background-color: #f8f9fa;
+    background-color: #ffffffb3;
+    backdrop-filter: blur(10px); /* The glass effect */
+    -webkit-backdrop-filter: blur(10px); /* For Safari */
+    position: sticky;
+    top: 65px;
+    z-index: 49;
 }
 
 .breadcrumb {
