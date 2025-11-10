@@ -1,7 +1,7 @@
 @extends('layouts.storefront')
 
 @section('content')
-    <div class="info-page-container">
+    <div class="info-page-container" x-data="{ showModal: false, modalImage: '' }">
         <div class="info-page-header">
             <h1>University of Chittagong</h1>
         </div>
@@ -42,12 +42,20 @@
                 <h2>Gallery</h2>
                 <div class="scattered-gallery">
                     @foreach($galleryImages as $imagePath)
-                        <div class="gallery-image-wrapper">
+                        <div class="gallery-image-wrapper" @click="showModal = true; modalImage = '{{ asset('storage/' . $imagePath) }}'">
                             <img src="{{ asset('storage/' . $imagePath) }}" alt="University Gallery Image" class="gallery-image">
                         </div>
                     @endforeach
                 </div>
             </div>
         @endif
+
+        <!-- Modal HTML -->
+        <div x-show="showModal" class="image-modal-container" @click.self="showModal = false" @keydown.escape.window="showModal = false" style="display: none;">
+            <div class="image-modal-content">
+                <button class="image-modal-close" @click="showModal = false">&times;</button>
+                <img :src="modalImage" alt="Gallery Image Preview">
+            </div>
+        </div>
     </div>
 @endsection
