@@ -226,7 +226,7 @@
             </div>
         </footer>
 
-        <x-toast />
+        <x-toast/>
 
     </body>
 </html>

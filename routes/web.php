@@ -5,7 +5,6 @@ use Illuminate\Support\Facades\Route;
 // Admin Controllers
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\RoleController;
-use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\HeroBannerController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\NoticeController as AdminNoticeController;
@@ -16,6 +15,7 @@ use App\Http\Controllers\Admin\ContentPageController as AdminContentPageControll
 
 // Frontend Controllers
 use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Frontend\ProfileController;
 use App\Http\Controllers\Frontend\MembershipController;
 use App\Http\Controllers\Frontend\EventController;
 use App\Http\Controllers\Frontend\NoticeController;
@@ -37,10 +37,21 @@ use App\Http\Controllers\Auth\GuestVerificationController;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::put('/profile/password', [ProfileController::class, 'updatePassword'])->name('profile.password.update');
+    Route::patch('/profile/photo', [ProfileController::class, 'updatePhoto'])->name('profile.photo.update');
+    Route::delete('/profile/photo', [ProfileController::class, 'destroyPhoto'])->name('profile.photo.destroy');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
 // Membership Routes
 Route::get('/membership', [MembershipController::class, 'create'])->name('membership.create');
 Route::post('/membership', [MembershipController::class, 'store'])->name('membership.store');
 Route::get('/membership/status', [MembershipController::class, 'show'])->name('membership.show');
+
 // Events and Notices Routes
 Route::get('/events', [EventController::class, 'index'])->name('events.index');
 Route::get('/events/{event:slug}', [EventController::class, 'show'])->name('events.show');
@@ -57,7 +68,6 @@ Route::get('/pages/{contentPage:slug}', [ContentPageController::class, 'show'])-
 
 
 
-
 /*
 |--------------------------------------------------------------------------
 | User Authentication Routes
@@ -65,12 +75,6 @@ Route::get('/pages/{contentPage:slug}', [ContentPageController::class, 'show'])-
 */
 
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::patch('/profile/photo', [ProfileController::class, 'updatePhoto'])->name('profile.photo.update');
-    Route::delete('/profile/photo', [ProfileController::class, 'destroyPhoto'])->name('profile.photo.destroy');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-
     Route::get('/verify-email-guest', [EmailVerificationPromptController::class, 'guest'])->name('verification.notice.guest');
     Route::post('/email/verification-notification-guest', [EmailVerificationNotificationController::class, 'guestStore'])->name('verification.send.guest');
     Route::get('/email/verify/guest/{email}', [GuestVerificationController::class, '__invoke'])->middleware(['signed'])->name('verification.verify.guest');

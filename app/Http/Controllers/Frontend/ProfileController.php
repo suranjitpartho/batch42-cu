@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Frontend;
 
 use App\Http\Requests\ProfileUpdateRequest;
 use App\Http\Controllers\Controller;
@@ -11,6 +11,9 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules\Password;
+
 class ProfileController extends Controller
 {
     /**
@@ -18,7 +21,7 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
-        return view('admin.profile.edit', [
+        return view('frontend.profile.edit', [
             'user' => $request->user(),
         ]);
     }
@@ -40,7 +43,28 @@ class ProfileController extends Controller
 
         $request->user()->save();
 
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        return Redirect::route('profile.edit')->with('success', 'Profile updated successfully.');
+    }
+
+    /**
+     * Update the user's password.
+     */
+    public function updatePassword(Request $request): RedirectResponse
+    {
+        if ($request->user()->email === config('auth.admin_email')) {
+            return Redirect::route('profile.edit')->with('error', 'The main admin user cannot be modified from this panel.');
+        }
+        
+        $validated = $request->validateWithBag('updatePassword', [
+            'current_password' => ['required', 'current_password'],
+            'password' => ['required', Password::defaults(), 'confirmed'],
+        ]);
+
+        $request->user()->update([
+            'password' => Hash::make($validated['password']),
+        ]);
+
+        return back()->with('success', 'Password updated successfully.');
     }
 
     /**
@@ -68,7 +92,7 @@ class ProfileController extends Controller
         $user->profile_photo_path = $path;
         $user->save();
 
-        return Redirect::route('profile.edit')->with('status', 'photo-updated');
+        return Redirect::route('profile.edit')->with('success', 'Photo updated successfully.');
     }
 
     /**
@@ -88,7 +112,7 @@ class ProfileController extends Controller
             $user->save();
         }
 
-        return Redirect::route('profile.edit')->with('status', 'photo-deleted');
+        return Redirect::route('profile.edit')->with('success', 'Photo deleted successfully.');
     }
 
     /**

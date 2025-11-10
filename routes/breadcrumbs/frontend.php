@@ -16,7 +16,7 @@ Breadcrumbs::for('home', function (BreadcrumbTrail $trail) {
 // Home > Profile
 Breadcrumbs::for('profile.edit', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
-    $trail->push('Profile', route('profile.edit'));
+    $trail->push('Edit Profile', route('profile.edit'));
 });
 
 // Home > [Page Title]
