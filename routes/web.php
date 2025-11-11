@@ -68,18 +68,6 @@ Route::get('/pages/{contentPage:slug}', [ContentPageController::class, 'show'])-
 
 
 
-/*
-|--------------------------------------------------------------------------
-| User Authentication Routes
-|--------------------------------------------------------------------------
-*/
-
-Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/verify-email-guest', [EmailVerificationPromptController::class, 'guest'])->name('verification.notice.guest');
-    Route::post('/email/verification-notification-guest', [EmailVerificationNotificationController::class, 'guestStore'])->name('verification.send.guest');
-    Route::get('/email/verify/guest/{email}', [GuestVerificationController::class, '__invoke'])->middleware(['signed'])->name('verification.verify.guest');
-});
-
 require __DIR__.'/auth.php';
 
 /*
