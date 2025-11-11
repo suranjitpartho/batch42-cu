@@ -17,12 +17,12 @@ class ContentPageSeeder extends Seeder
             [
                 'title' => [
                     'en' => 'Alumni Constitution',
-                    'bn' => 'প্রাক্তন ছাত্র সংবিধান',
+                    'bn' => 'অ্যালামনাই সংবিধান',
                 ],
                 'slug' => 'constitution',
                 'content' => [
-                    'en' => 'This is the default content for the Constitution page. Please update it from the admin panel.',
-                    'bn' => 'সংবিধান পৃষ্ঠার জন্য এটি ডিফল্ট বিষয়বস্তু। অ্যাডমিন প্যানেল থেকে এটি আপডেট করুন।',
+                    'en' => '',
+                    'bn' => '',
                 ],
                 'is_published' => false,
             ],
@@ -33,8 +33,8 @@ class ContentPageSeeder extends Seeder
                 ],
                 'slug' => 'about-us',
                 'content' => [
-                    'en' => 'This is the default content for the About Us page. Please update it from the admin panel.',
-                    'bn' => 'আমাদের সম্পর্কে পৃষ্ঠার জন্য এটি ডিফল্ট বিষয়বস্তু। অ্যাডমিন প্যানেল থেকে এটি আপডেট করুন।',
+                    'en' => '',
+                    'bn' => '',
                 ],
                 'is_published' => false,
             ],
@@ -45,8 +45,8 @@ class ContentPageSeeder extends Seeder
                 ],
                 'slug' => 'faq',
                 'content' => [
-                    'en' => 'This is the default content for the FAQ page. Please update it from the admin panel.',
-                    'bn' => 'সচরাচর জিজ্ঞাস্য পৃষ্ঠার জন্য এটি ডিফল্ট বিষয়বস্তু। অ্যাডমিন প্যানেল থেকে এটি আপডেট করুন।',
+                    'en' => '',
+                    'bn' => '',
                 ],
                 'is_published' => false,
             ],
@@ -57,10 +57,26 @@ class ContentPageSeeder extends Seeder
                 ],
                 'slug' => 'privacy-policy',
                 'content' => [
-                    'en' => 'This is the default content for the Privacy Policy page. Please update it from the admin panel.',
-                    'bn' => 'গোপনীয়তা নীতি পৃষ্ঠার জন্য এটি ডিফল্ট বিষয়বস্তু। অ্যাডমিন প্যানেল থেকে এটি আপডেট করুন।',
+                    'en' => '',
+                    'bn' => '',
                 ],
                 'is_published' => false,
+            ],
+            [
+                'title' => [
+                    'en' => 'Social Media Links',
+                ],
+                'slug' => 'social-media-links',
+                'content' => [
+                    'en' => json_encode([
+                        'facebook_url' => '',
+                        'twitter_url' => '',
+                        'instagram_url' => '',
+                        'linkedin_url' => '',
+                        'youtube_url' => '',
+                    ]),
+                ],
+                'is_published' => true,
             ],
         ];
 

@@ -34,7 +34,7 @@
                                         @php
                                             $statusColorClass = match($membership->status) {
                                                 'pending' => 'status-2',
-                                                'approved' => 'status-3',
+                                                'approved' => 'status-4',
                                                 'rejected' => 'status-1',
                                                 default => 'status-8',
                                             };

@@ -47,7 +47,19 @@
                                         <span class="table-cell-content">{{ $membership->transaction_id }}</span>
                                     </td>
                                     <td class="admin-table-td">
-                                        <span class="table-cell-content">{{ $membership->status }}</span>
+                                        @switch($membership->status)
+                                            @case('approved')
+                                                <span class="admin-status-badge status-4">{{ ucfirst($membership->status) }}</span>
+                                                @break
+                                            @case('rejected')
+                                                <span class="admin-status-badge status-1">{{ ucfirst($membership->status) }}</span>
+                                                @break
+                                            @case('pending')
+                                                <span class="admin-status-badge status-2">{{ ucfirst($membership->status) }}</span>
+                                                @break
+                                            @default
+                                                <span class="admin-status-badge status-8">{{ ucfirst($membership->status) }}</span>
+                                        @endswitch
                                     </td>
                                     <td class="admin-table-td">
                                         <span class="table-cell-content">{{ $membership->applied_at->format('d M, Y') }}</span>

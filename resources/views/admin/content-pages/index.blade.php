@@ -46,7 +46,11 @@
                                         <span class="table-cell-content">{{ $contentPage->slug }}</span>
                                     </td>
                                     <td class="admin-table-td">
-                                        <span class="table-cell-content">{{ $contentPage->is_published ? 'Yes' : 'No' }}</span>
+                                        @if ($contentPage->is_published)
+                                            <span class="admin-status-badge status-4">Published</span>
+                                        @else
+                                            <span class="admin-status-badge status-7">Unpublished</span>
+                                        @endif
                                     </td>
                                     <td class="admin-table-td admin-table-action-td">
                                         <span class="table-cell-content">

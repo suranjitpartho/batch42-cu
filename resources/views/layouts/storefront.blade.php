@@ -188,10 +188,11 @@
                         Your one-stop shop for the latest trends in fashion and accessories.
                     </p>
                     <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="{{ $socialLinks['facebook_url'] ?? '#' }}" @if(!empty($socialLinks['facebook_url'])) target="_blank" rel="noopener noreferrer" @endif><i class="fab fa-facebook"></i></a>
+                        <a href="{{ $socialLinks['twitter_url'] ?? '#' }}" @if(!empty($socialLinks['twitter_url'])) target="_blank" rel="noopener noreferrer" @endif><i class="fab fa-twitter"></i></a>
+                        <a href="{{ $socialLinks['instagram_url'] ?? '#' }}" @if(!empty($socialLinks['instagram_url'])) target="_blank" rel="noopener noreferrer" @endif><i class="fab fa-instagram"></i></a>
+                        <a href="{{ $socialLinks['linkedin_url'] ?? '#' }}" @if(!empty($socialLinks['linkedin_url'])) target="_blank" rel="noopener noreferrer" @endif><i class="fab fa-linkedin"></i></a>
+                        <a href="{{ $socialLinks['youtube_url'] ?? '#' }}" @if(!empty($socialLinks['youtube_url'])) target="_blank" rel="noopener noreferrer" @endif><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
 
