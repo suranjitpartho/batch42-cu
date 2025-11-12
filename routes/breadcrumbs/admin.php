@@ -132,3 +132,21 @@ Breadcrumbs::for('admin.content-pages.edit', function (BreadcrumbTrail $trail, $
     $trail->parent('admin.content-pages.index');
     $trail->push('Edit', route('admin.content-pages.edit', $contentPage));
 });
+
+// Dashboard > Advertisements
+Breadcrumbs::for('admin.advertisements.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.dashboard');
+    $trail->push('Advertisements', route('admin.advertisements.index'));
+});
+
+// Dashboard > Advertisements > Create
+Breadcrumbs::for('admin.advertisements.create', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.advertisements.index');
+    $trail->push('Create', route('admin.advertisements.create'));
+});
+
+// Dashboard > Advertisements > Edit
+Breadcrumbs::for('admin.advertisements.edit', function (BreadcrumbTrail $trail, $advertisement) {
+    $trail->parent('admin.advertisements.index');
+    $trail->push('Edit', route('admin.advertisements.edit', $advertisement));
+});
