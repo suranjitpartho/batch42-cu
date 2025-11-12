@@ -11,6 +11,14 @@
         <div class="admin-dashboard-container">
             <div class="admin-card">
                 <div class="admin-card-body">
+                    <div class="admin-card-header">
+                        <form action="{{ route('admin.memberships.index') }}" method="GET" class="admin-search-container">
+                            <input type="text" name="search" placeholder="Search memberships..." value="{{ request('search') }}" class="admin-search-input">
+                            <button type="submit" class="admin-button-base admin-button-black">
+                                Search
+                            </button>
+                        </form>
+                    </div>
                     <table class="admin-table">
                         <thead class="admin-table-thead">
                             <tr>
