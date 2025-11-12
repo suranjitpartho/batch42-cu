@@ -229,5 +229,6 @@
 
         <x-toast/>
 
+        <x-lightbox-advertisement />
     </body>
 </html>
