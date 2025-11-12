@@ -222,6 +222,7 @@
                     </form>
                 </div>
             </div>
+            <x-advertisements.footer />
             <div class="footer-bottom">
                 <p>&copy; {{ date('Y') }} {{ config('app.name', 'Batch42_CU') }}. All rights reserved.</p>
             </div>
@@ -229,6 +230,6 @@
 
         <x-toast/>
 
-        <x-lightbox-advertisement />
+        <x-advertisements.lightbox />
     </body>
 </html>
