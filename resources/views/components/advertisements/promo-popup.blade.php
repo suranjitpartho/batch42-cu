@@ -25,17 +25,32 @@
                     clearTimeout(window.promoPopupTimer);
                 }
     
-                if (sessionStorage.getItem("promoPopupDismissed")) {
+                if (sessionStorage.getItem("promoPopupDismissed") === "true") {
                     this.dismissed = true;
                     return;
                 }
-                window.promoPopupTimer = setTimeout(() => this.showNextAd(), 10000);
+
+                const storedIndex = sessionStorage.getItem("promoPopupCurrentIndex");
+                if (storedIndex) {
+                    this.currentIndex = parseInt(storedIndex, 10);
+                }
+
+                const cycleStarted = sessionStorage.getItem("promoPopupCycleStarted");
+                if (cycleStarted === "true") {
+                    // If cycle already started in this session, show the next ad almost immediately.
+                    window.promoPopupTimer = setTimeout(() => this.showNextAd(), 500);
+                } else {
+                    // On first view, set the flag and start after the initial delay.
+                    sessionStorage.setItem("promoPopupCycleStarted", "true");
+                    window.promoPopupTimer = setTimeout(() => this.showNextAd(), 10000);
+                }
             },
     
             showNextAd() {
                 if (this.dismissed || this.ads.length === 0) return;
     
                 this.show = true;
+                sessionStorage.setItem("promoPopupCurrentIndex", this.currentIndex.toString());
     
                 window.promoPopupTimer = setTimeout(() => {
                     this.show = false;
