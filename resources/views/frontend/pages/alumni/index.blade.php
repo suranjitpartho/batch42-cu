@@ -57,7 +57,7 @@
             </form>
         </div>
 
-        <div class="alumni-grid" style="margin-bottom: 2rem;">
+        <div class="alumni-grid">
             @forelse($users as $user)
                 <div class="alumni-card">
                     <a href="{{ route('alumni.show', $user) }}" class="card-cover-link"></a>

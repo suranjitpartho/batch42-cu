@@ -32,7 +32,7 @@ class AlumniController extends Controller
         }
 
         // Paginate the results
-        $users = $query->paginate(9)->withQueryString();
+        $users = $query->paginate(3)->withQueryString();
 
         // Get distinct values for filter dropdowns
         $departments = User::select('department')->whereNotNull('department')->distinct()->orderBy('department')->pluck('department');

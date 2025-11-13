@@ -26,4 +26,10 @@
             </a>
         @endforeach
     </div>
+
+    <div class="events-section-footer">
+        @if($showAllEventsButton)
+            <a href="{{ route('events.index') }}" class="btn-show-all-events">Show All Events</a>
+        @endif
+    </div>
 </section>

@@ -21,6 +21,11 @@
 
                 <div class="profile-divider"></div>
 
+                @if($user->bio)
+                    <p class="profile-bio">{{ $user->bio }}</p>
+                    <div class="profile-divider"></div>
+                @endif
+
                 <div class="profile-details-grid">
                     @if($user->email)
                         <div class="detail-item">
@@ -66,12 +71,18 @@
                     @endif
                 </div>
 
-                <div class="profile-divider"></div>
+                @if($user->linkedin_url || $user->facebook_url)
+                    <div class="profile-divider"></div>
 
-                <div class="profile-socials">
-                    <a href="#" aria-label="LinkedIn Profile"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="#" aria-label="Facebook Profile"><i class="fa-brands fa-facebook"></i></a>
-                </div>
+                    <div class="profile-socials">
+                        @if($user->linkedin_url)
+                            <a href="{{ $user->linkedin_url }}" target="_blank" aria-label="LinkedIn Profile"><i class="fa-brands fa-linkedin"></i></a>
+                        @endif
+                        @if($user->facebook_url)
+                            <a href="{{ $user->facebook_url }}" target="_blank" aria-label="Facebook Profile"><i class="fa-brands fa-facebook"></i></a>
+                        @endif
+                    </div>
+                @endif
             </div>
         </div>
     </div>

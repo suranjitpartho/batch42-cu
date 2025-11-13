@@ -15,7 +15,9 @@ class HomeController extends Controller
     {
         $heroBanners = HeroBanner::where('is_active', true)->orderBy('order', 'asc')->get();
 
-        $events = Event::where('is_published', true)->latest()->take(4)->get();
+        $eventsQuery = Event::where('is_published', true);
+        $showAllEventsButton = (clone $eventsQuery)->count() > 4;
+        $events = (clone $eventsQuery)->latest()->take(4)->get();
 
         $baseQuery = Notice::query()
             ->when(!Auth::check() || !Auth::user()->alumniMembership || Auth::user()->alumniMembership->status !== 'approved', function ($query) {
@@ -29,6 +31,6 @@ class HomeController extends Controller
 
         $info = UniversityInfo::first();
 
-        return view('frontend.home', compact('heroBanners', 'events', 'notices', 'showAllNoticesButton', 'info'));
+        return view('frontend.home', compact('heroBanners', 'events', 'showAllEventsButton', 'notices', 'showAllNoticesButton', 'info'));
     }
 }

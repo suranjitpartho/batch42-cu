@@ -49,17 +49,6 @@ Breadcrumbs::for('admin.roles.edit', function (BreadcrumbTrail $trail, $role) {
     $trail->push('Edit', route('admin.roles.edit', $role));
 });
 
-// Home
-Breadcrumbs::for('home', function (BreadcrumbTrail $trail) {
-    $trail->push('Home', route('home'));
-});
-
-// Home > Profile
-Breadcrumbs::for('profile.edit', function (BreadcrumbTrail $trail) {
-    $trail->parent('home');
-    $trail->push('Profile', route('profile.edit'));
-});
-
 // Dashboard > Banners
 Breadcrumbs::for('admin.hero-banners.index', function (BreadcrumbTrail $trail) {
     $trail->parent('admin.dashboard');
@@ -130,4 +119,34 @@ Breadcrumbs::for('admin.notices.edit', function (BreadcrumbTrail $trail, $notice
 Breadcrumbs::for('admin.university-info.edit', function (BreadcrumbTrail $trail) {
     $trail->parent('admin.dashboard');
     $trail->push('University Info', route('admin.university-info.edit'));
+});
+
+// Dashboard > Content Pages
+Breadcrumbs::for('admin.content-pages.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.dashboard');
+    $trail->push('Content Pages', route('admin.content-pages.index'));
+});
+
+// Dashboard > Content Pages > Edit
+Breadcrumbs::for('admin.content-pages.edit', function (BreadcrumbTrail $trail, $contentPage) {
+    $trail->parent('admin.content-pages.index');
+    $trail->push('Edit', route('admin.content-pages.edit', $contentPage));
+});
+
+// Dashboard > Advertisements
+Breadcrumbs::for('admin.advertisements.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.dashboard');
+    $trail->push('Advertisements', route('admin.advertisements.index'));
+});
+
+// Dashboard > Advertisements > Create
+Breadcrumbs::for('admin.advertisements.create', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.advertisements.index');
+    $trail->push('Create', route('admin.advertisements.create'));
+});
+
+// Dashboard > Advertisements > Edit
+Breadcrumbs::for('admin.advertisements.edit', function (BreadcrumbTrail $trail, $advertisement) {
+    $trail->parent('admin.advertisements.index');
+    $trail->push('Edit', route('admin.advertisements.edit', $advertisement));
 });

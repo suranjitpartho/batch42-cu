@@ -49,7 +49,11 @@
                                         <span class="table-cell-content">{{ Str::limit($notice->content, 50) }}</span>
                                     </td>
                                     <td class="admin-table-td">
-                                        <span class="table-cell-content">{{ $notice->members_only ? 'Yes' : 'No' }}</span>
+                                        @if ($notice->members_only)
+                                            <span class="admin-status-badge status-2">Members Only</span>
+                                        @else
+                                            <span class="admin-status-badge status-8">Public</span>
+                                        @endif
                                     </td>
                                     <td class="admin-table-td admin-table-action-td">
                                         <span class="table-cell-content">

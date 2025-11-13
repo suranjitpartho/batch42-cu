@@ -14,9 +14,23 @@ class MembershipController extends Controller
         $this->middleware('can:membership-edit')->only(['approve', 'reject']);
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $memberships = AlumniMembership::with('user')->latest()->paginate(10);
+        $query = AlumniMembership::with('user');
+
+        if ($request->has('search')) {
+            $search = $request->input('search');
+            $query->where(function ($q) use ($search) {
+                $q->where('membership_type', 'like', '%' . $search . '%')
+                  ->orWhere('transaction_id', 'like', '%' . $search . '%')
+                  ->orWhere('status', 'like', '%' . $search . '%')
+                  ->orWhereHas('user', function ($q) use ($search) {
+                      $q->where('name', 'like', '%' . $search . '%');
+                  });
+            });
+        }
+
+        $memberships = $query->latest()->paginate(10);
         return view('admin.memberships.index', compact('memberships'));
     }
 

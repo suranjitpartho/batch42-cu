@@ -11,6 +11,14 @@
         <div class="admin-dashboard-container">
             <div class="admin-card">
                 <div class="admin-card-body">
+                    <div class="admin-card-header">
+                        <form action="{{ route('admin.memberships.index') }}" method="GET" class="admin-search-container">
+                            <input type="text" name="search" placeholder="Search memberships..." value="{{ request('search') }}" class="admin-search-input">
+                            <button type="submit" class="admin-button-base admin-button-black">
+                                Search
+                            </button>
+                        </form>
+                    </div>
                     <table class="admin-table">
                         <thead class="admin-table-thead">
                             <tr>
@@ -47,7 +55,19 @@
                                         <span class="table-cell-content">{{ $membership->transaction_id }}</span>
                                     </td>
                                     <td class="admin-table-td">
-                                        <span class="table-cell-content">{{ $membership->status }}</span>
+                                        @switch($membership->status)
+                                            @case('approved')
+                                                <span class="admin-status-badge status-4">{{ ucfirst($membership->status) }}</span>
+                                                @break
+                                            @case('rejected')
+                                                <span class="admin-status-badge status-1">{{ ucfirst($membership->status) }}</span>
+                                                @break
+                                            @case('pending')
+                                                <span class="admin-status-badge status-2">{{ ucfirst($membership->status) }}</span>
+                                                @break
+                                            @default
+                                                <span class="admin-status-badge status-8">{{ ucfirst($membership->status) }}</span>
+                                        @endswitch
                                     </td>
                                     <td class="admin-table-td">
                                         <span class="table-cell-content">{{ $membership->applied_at->format('d M, Y') }}</span>

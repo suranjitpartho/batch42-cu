@@ -28,7 +28,7 @@
                 </x-nav-link>
             </x-nav-group>
 
-            <x-nav-group name="{{ __('Contents') }}" :active="request()->routeIs('admin.hero-banners.index') || request()->routeIs('admin.events.index') || request()->routeIs('admin.memberships.index') || request()->routeIs('admin.notices.index') || request()->routeIs('admin.university-info.edit')" icon="fa-solid fa-globe">
+            <x-nav-group name="{{ __('Contents') }}" :active="request()->routeIs('admin.hero-banners.index') || request()->routeIs('admin.events.index') || request()->routeIs('admin.memberships.index') || request()->routeIs('admin.notices.index') || request()->routeIs('admin.university-info.edit') || request()->routeIs('admin.content-pages.index') || request()->routeIs('admin.advertisements.index')" icon="fa-solid fa-globe">
                 <x-nav-link :href="route('admin.hero-banners.index')" :active="request()->routeIs('admin.hero-banners.index')" icon="fa-solid fa-images">
                     {{ __('Banners') }}
                 </x-nav-link>
@@ -43,6 +43,12 @@
                 </x-nav-link>
                 <x-nav-link :href="route('admin.university-info.edit')" :active="request()->routeIs('admin.university-info.edit')" icon="fa-solid fa-building-columns">
                     {{ __('University Info') }}
+                </x-nav-link>
+                <x-nav-link :href="route('admin.content-pages.index')" :active="request()->routeIs('admin.content-pages.index')" icon="fa-solid fa-file-lines">
+                    {{ __('Content Pages') }}
+                </x-nav-link>
+                <x-nav-link :href="route('admin.advertisements.index')" :active="request()->routeIs('admin.advertisements.index')" icon="fa-solid fa-rectangle-ad">
+                    {{ __('Advertisements') }}
                 </x-nav-link>
             </x-nav-group>
         @endcan
