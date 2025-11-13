@@ -55,9 +55,13 @@ class AdvertisementController extends Controller
             return redirect()->back()->withErrors(['type' => 'You cannot have more than 5 footer advertisements.'])->withInput();
         }
 
+        if ($request->type === 'promo_popup' && Advertisement::where('type', 'promo_popup')->count() >= 10) {
+            return redirect()->back()->withErrors(['type' => 'You cannot have more than 10 promo popup advertisements.'])->withInput();
+        }
+
         $validated = $request->validate([
             'title' => 'required|string|max:255',
-            'type' => 'required|string|in:lightbox,footer',
+            'type' => 'required|string|in:lightbox,footer,promo_popup',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'link_url' => 'nullable|url',
             'order' => 'required|integer',
@@ -107,9 +111,13 @@ class AdvertisementController extends Controller
             return redirect()->back()->withErrors(['type' => 'You cannot have more than 5 footer advertisements.'])->withInput();
         }
 
+        if ($request->type === 'promo_popup' && $advertisement->type !== 'promo_popup' && Advertisement::where('type', 'promo_popup')->count() >= 10) {
+            return redirect()->back()->withErrors(['type' => 'You cannot have more than 10 promo popup advertisements.'])->withInput();
+        }
+
         $validated = $request->validate([
             'title' => 'required|string|max:255',
-            'type' => 'required|string|in:lightbox,footer',
+            'type' => 'required|string|in:lightbox,footer,promo_popup',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'link_url' => 'nullable|url',
             'order' => 'required|integer',

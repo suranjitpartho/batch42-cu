@@ -27,6 +27,7 @@
                             <select id="type" name="type" class="admin-form-input" required>
                                 <option value="lightbox" {{ old('type') == 'lightbox' ? 'selected' : '' }}>Lightbox</option>
                                 <option value="footer" {{ old('type') == 'footer' ? 'selected' : '' }}>Footer</option>
+                                <option value="promo_popup" {{ old('type') == 'promo_popup' ? 'selected' : '' }}>Promo Popup</option>
                             </select>
                             @error('type')
                                 <p class="admin-input-error">{{ $message }}</p>

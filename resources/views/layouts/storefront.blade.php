@@ -231,5 +231,6 @@
         <x-toast/>
 
         <x-advertisements.lightbox />
+        <x-advertisements.promo-popup />
     </body>
 </html>
