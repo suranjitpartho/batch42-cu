@@ -15,13 +15,13 @@
 
                         <div class="admin-form-group">
                             <label for="name" class="admin-form-label">{{ __('Name') }}</label>
-                            <input id="name" name="name" type="text" class="admin-form-input" value="{{ old('name', $user->name) }}" required autofocus autocomplete="name" {{ $user->email === config('auth.admin_email') ? 'readonly' : '' }} />
+                            <input id="name" name="name" type="text" class="admin-form-input" value="{{ old('name', $user->name) }}" required autofocus autocomplete="name" disabled />
                             <x-input-error class="mt-2" :messages="$errors->get('name')" />
                         </div>
 
                         <div class="admin-form-group">
                             <label for="email" class="admin-form-label">{{ __('Email') }}</label>
-                            <input id="email" name="email" type="email" class="admin-form-input" value="{{ old('email', $user->email) }}" required autocomplete="username" {{ $user->email === config('auth.admin_email') ? 'readonly' : '' }} />
+                            <input id="email" name="email" type="email" class="admin-form-input" value="{{ old('email', $user->email) }}" required autocomplete="username" disabled />
                             <x-input-error class="mt-2" :messages="$errors->get('email')" />
                         </div>
 

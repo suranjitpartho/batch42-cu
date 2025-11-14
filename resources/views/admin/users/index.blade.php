@@ -42,7 +42,7 @@
                                     <td class="admin-table-td">{{ $user->email }}</td>
                                     <td class="admin-table-td">
                                         @if ($user->hasVerifiedEmail())
-                                            <span class="admin-status-badge status-5">Verified</span>
+                                            <span class="admin-status-badge status-4">Verified</span>
                                         @else
                                             <span class="admin-status-badge status-7">Unverified</span>
                                         @endif
