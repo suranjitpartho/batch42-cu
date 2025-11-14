@@ -140,6 +140,15 @@
 }
 
 @media (max-width: 768px) {
+    .image-modal-container {
+        padding: 1rem;
+    }
+
+    .image-modal-content {
+        max-width: 90vw;
+        max-height: 90vh;
+    }
+
     .info-gallery h2 {
         font-size: 1.5rem;
     }

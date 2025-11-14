@@ -91,7 +91,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1.5rem;
-    justify-items: start;
+    justify-items: center;
     margin-bottom: 2rem;
 }
 
@@ -112,6 +112,11 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+    .profile-details-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
     .profile-banner {
         height: 120px;
     }
