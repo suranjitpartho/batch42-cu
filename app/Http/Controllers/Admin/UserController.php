@@ -76,14 +76,10 @@ class UserController extends Controller
         }
 
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
             'roles' => ['nullable', 'array'],
             'status' => ['required', 'string', Rule::in(['active', 'inactive'])],
         ]);
 
-        $user->name = $request->name;
-        $user->email = $request->email;
         $user->status = $request->status;
 
         $user->syncRoles($request->roles);

@@ -11,8 +11,10 @@ class AlumniController extends Controller
 {
     public function index(Request $request)
     {
-        // Start with a query builder for users
-        $query = User::query();
+        // Start with a query builder for users who have an approved alumni membership
+        $query = User::whereHas('alumniMembership', function ($q) {
+            $q->where('status', 'approved');
+        });
 
         // Apply filters based on request input
         if ($request->filled('name')) {
@@ -34,10 +36,18 @@ class AlumniController extends Controller
         // Paginate the results
         $users = $query->paginate(3)->withQueryString();
 
-        // Get distinct values for filter dropdowns
-        $departments = User::select('department')->whereNotNull('department')->distinct()->orderBy('department')->pluck('department');
-        $cities = User::select('current_city')->whereNotNull('current_city')->distinct()->orderBy('current_city')->pluck('current_city');
-        $blood_groups = User::select('blood_group')->whereNotNull('blood_group')->distinct()->orderBy('blood_group')->pluck('blood_group');
+        // Get distinct values for filter dropdowns from approved alumni
+        $departments = User::whereHas('alumniMembership', function ($q) {
+            $q->where('status', 'approved');
+        })->select('department')->whereNotNull('department')->distinct()->orderBy('department')->pluck('department');
+
+        $cities = User::whereHas('alumniMembership', function ($q) {
+            $q->where('status', 'approved');
+        })->select('current_city')->whereNotNull('current_city')->distinct()->orderBy('current_city')->pluck('current_city');
+
+        $blood_groups = User::whereHas('alumniMembership', function ($q) {
+            $q->where('status', 'approved');
+        })->select('blood_group')->whereNotNull('blood_group')->distinct()->orderBy('blood_group')->pluck('blood_group');
 
         return view('frontend.pages.alumni.index', [
             'users' => $users,
