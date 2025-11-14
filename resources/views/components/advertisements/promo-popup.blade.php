@@ -5,7 +5,7 @@
             "currentIndex": 0,
             "show": false,
             "dismissed": false,
-            "displayTime": 7000,
+            "displayTime": 6500,
             "timeBetweenCycles": 120000,
     
             calculateTimeBetweenAds() {
@@ -13,7 +13,7 @@
                 if (adCount <= 1) {
                     return this.timeBetweenCycles;
                 }
-                const maxInterval = 25000;
+                const maxInterval = 40000;
                 const minInterval = 10000;
                 const maxAds = 10;
                 const interval = maxInterval - ((maxInterval - minInterval) / (maxAds - 1)) * (adCount - 1);
@@ -24,11 +24,6 @@
                 if (window.promoPopupTimer) {
                     clearTimeout(window.promoPopupTimer);
                 }
-    
-                if (sessionStorage.getItem("promoPopupDismissed") === "true") {
-                    this.dismissed = true;
-                    return;
-                }
 
                 const storedIndex = sessionStorage.getItem("promoPopupCurrentIndex");
                 if (storedIndex) {
@@ -37,10 +32,11 @@
 
                 const cycleStarted = sessionStorage.getItem("promoPopupCycleStarted");
                 if (cycleStarted === "true") {
-                    // If cycle already started in this session, show the next ad almost immediately.
-                    window.promoPopupTimer = setTimeout(() => this.showNextAd(), 500);
+                    // On navigation, show the *next* ad in the sequence quickly.
+                    this.currentIndex = (this.currentIndex + 1) % this.ads.length;
+                    window.promoPopupTimer = setTimeout(() => this.showNextAd(), 5000);
                 } else {
-                    // On first view, set the flag and start after the initial delay.
+                    // On first view of the session, set the flag and start after the initial delay.
                     sessionStorage.setItem("promoPopupCycleStarted", "true");
                     window.promoPopupTimer = setTimeout(() => this.showNextAd(), 10000);
                 }
@@ -72,7 +68,6 @@
                 if (window.promoPopupTimer) {
                     clearTimeout(window.promoPopupTimer);
                 }
-                sessionStorage.setItem("promoPopupDismissed", "true");
             },
     
             get currentAd() {
