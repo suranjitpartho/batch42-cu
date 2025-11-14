@@ -12,13 +12,13 @@
 @import 'university-section.css';
 @import 'info-page.css';
 @import 'photo-gallery.css';
-@import 'content-page.css';
 @import 'alumni-directory.css';
 @import 'alumni-profile.css';
 @import 'pagination.css';
 @import 'profile-edit.css';
 @import 'modal.css';
 @import 'footer.css';
+@import 'content-page.css';
 
 /* @tailwind base;
 @tailwind components;

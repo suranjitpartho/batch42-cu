@@ -1,9 +1,5 @@
 @extends('layouts.storefront')
 
-@push('styles')
-    @vite('resources/css/frontend/content-page.css')
-@endpush
-
 @section('content')
     @php
         // Get translations without fallback to check for their actual presence.
