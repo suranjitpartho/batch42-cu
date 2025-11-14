@@ -40,9 +40,13 @@ class DatabaseSeeder extends Seeder
             $adminUser->assignRole($adminRole);
         }
 
-        User::factory()->create([
-            'name' => 'User',
-            'email' => 'user@gmail.com',
-        ]);
+        User::firstOrCreate(
+            ['email' => 'user@gmail.com'],
+            [
+                'name' => 'User',
+                'password' => Hash::make('password'),
+                'email_verified_at' => now(),
+            ]
+        );
     }
 }
