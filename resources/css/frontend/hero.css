@@ -125,8 +125,12 @@ RESPONSIVE ADJUSTMENTS
 ------------------------------ */
 
 @media (max-width: 768px) {
+    .hero-section {
+        padding: 0 1rem;
+    }
+
     .hero-cover-photo {
-        min-height: 25vh;
+        min-height: 30vh;
     }
 
     .slide::after {
@@ -157,7 +161,7 @@ RESPONSIVE ADJUSTMENTS
 
 @media (max-width: 480px) {
     .hero-cover-photo {
-        min-height: 25vh;
+        min-height: 30vh;
     }
 
     .slide-text-content h2 {

@@ -81,13 +81,13 @@
         }'
         x-init="init()"
         x-cloak
-        class="fixed bottom-5 left-0 right-0 z-50 flex justify-center sm:left-5 sm:right-auto sm:justify-start">        <div x-show="show && !dismissed" x-transition:enter="transition ease-out duration-300"
+        class="fixed bottom-5 left-0 right-0 z-50 flex sm:left-5 sm:right-auto sm:justify-start">        <div x-show="show && !dismissed" x-transition:enter="transition ease-out duration-300"
             x-transition:enter-start="transform translate-y-10 opacity-0"
             x-transition:enter-end="transform translate-y-0 opacity-100"
             x-transition:leave="transition ease-in duration-200"
             x-transition:leave-start="transform translate-y-0 opacity-100"
             x-transition:leave-end="transform translate-y-10 opacity-0"
-            class="w-11/12 rounded-lg bg-white shadow-2xl ring-1 ring-black ring-opacity-5 sm:w-80">
+            class="w-11/12 mx-auto rounded-lg bg-white shadow-2xl ring-1 ring-black ring-opacity-5 sm:w-80 sm:mx-0">
             <div class="relative p-4">
                 <!-- Close Button -->
                 <button @click="dismiss()"
@@ -112,7 +112,7 @@
 
                     <!-- Text -->
                     <div class="flex-1">
-                        <p class="text-sm font-semibold text-gray-800" x-text="currentAd.title"></p>
+                        <p class="text-sm font-semibold text-gray-800 line-clamp-2" x-text="currentAd.title"></p>
                         <p class="text-xs text-gray-500">Sponsored</p>
                     </div>
                 </a>
