@@ -294,6 +294,15 @@
         grid-column: 1;
     }
 
+    .filter-bar .filter-buttons > * {
+        flex: 1;
+    }
+
+    .filter-bar .filter-buttons button {
+        display: flex;
+        justify-content: center;
+    }
+
     .upper-part {
         flex-direction: column;
         align-items: center;

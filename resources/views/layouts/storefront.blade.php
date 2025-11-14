@@ -185,7 +185,7 @@
                 <div class="footer-section about">
                     <h3 class="logo">{{ config('app.name', 'Laravel') }}</h3>
                     <p>
-                        Your one-stop shop for the latest trends in fashion and accessories.
+                        A shared space for memories, updates, and lifelong bonds.
                     </p>
                     <div class="social-icons">
                         <a href="{{ $socialLinks['facebook_url'] ?? '#' }}" @if(!empty($socialLinks['facebook_url'])) target="_blank" rel="noopener noreferrer" @endif><i class="fab fa-facebook"></i></a>
