@@ -257,7 +257,7 @@
         </div>
 
         <!-- Delete Account Section -->
-        <div class="profile-card danger-zone">
+        <!-- <div class="profile-card danger-zone">
             <h2>Delete Account</h2>
             <p>Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.</p>
             
@@ -271,7 +271,7 @@
                     Delete Account
                 </button>
             </div>
-        </div>
+        </div> -->
 
         <x-modal name="confirm-user-deletion" focusable>
             <form method="post" action="{{ route('profile.destroy') }}" class="p-6" style="padding: 1.5rem;">
