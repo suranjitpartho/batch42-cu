@@ -23,13 +23,13 @@
                         <thead class="admin-table-thead">
                             <tr>
                                 <th scope="col" class="admin-table-th">
-                                    User
+                                    Applicant
                                 </th>
                                 <th scope="col" class="admin-table-th">
-                                    Membership Type
+                                    Department
                                 </th>
                                 <th scope="col" class="admin-table-th">
-                                    Transaction ID
+                                    Phone
                                 </th>
                                 <th scope="col" class="admin-table-th">
                                     Status
@@ -46,13 +46,25 @@
                             @foreach ($memberships as $membership)
                                 <tr>
                                     <td class="admin-table-td">
-                                        <span class="table-cell-content">{{ $membership->user->name }}</span>
+                                        <div class="flex items-center">
+                                            <div class="flex-shrink-0 h-10 w-10">
+                                                <img class="h-10 w-10 rounded-full object-cover" src="{{ $membership->user->profile_photo_path ? asset('storage/' . $membership->user->profile_photo_path) : asset('images/default-avatar.svg') }}" alt="">
+                                            </div>
+                                            <div class="ml-4">
+                                                <div class="text-sm font-medium text-gray-900">
+                                                    {{ $membership->user->name }}
+                                                </div>
+                                                <div class="text-sm text-gray-500">
+                                                    {{ $membership->user->email }}
+                                                </div>
+                                            </div>
+                                        </div>
                                     </td>
                                     <td class="admin-table-td">
-                                        <span class="table-cell-content">{{ $membership->membership_type }}</span>
+                                        <span class="table-cell-content">{{ $membership->user->department }}</span>
                                     </td>
                                     <td class="admin-table-td">
-                                        <span class="table-cell-content">{{ $membership->transaction_id }}</span>
+                                        <span class="table-cell-content">{{ $membership->user->phone_number }}</span>
                                     </td>
                                     <td class="admin-table-td">
                                         @switch($membership->status)
