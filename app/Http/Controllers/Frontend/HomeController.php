@@ -31,6 +31,9 @@ class HomeController extends Controller
 
         $info = UniversityInfo::first();
 
-        return view('frontend.home', compact('heroBanners', 'events', 'showAllEventsButton', 'notices', 'showAllNoticesButton', 'info'));
+        $presidentMessage = \App\Models\ContentPage::where('slug', 'president-message')->first();
+        $secretaryMessage = \App\Models\ContentPage::where('slug', 'secretary-message')->first();
+
+        return view('frontend.home', compact('heroBanners', 'events', 'showAllEventsButton', 'notices', 'showAllNoticesButton', 'info', 'presidentMessage', 'secretaryMessage'));
     }
 }
