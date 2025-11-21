@@ -124,6 +124,15 @@
                             <span class="form-error">{{ $message }}</span>
                         @enderror
                     </div>
+                    
+                    <!-- Emergency Contact -->
+                    <div class="form-group">
+                        <label for="emergency_contact">Emergency Contact</label>
+                        <input type="text" id="emergency_contact" name="emergency_contact" value="{{ old('emergency_contact', $user->emergency_contact) }}">
+                        @error('emergency_contact')
+                            <span class="form-error">{{ $message }}</span>
+                        @enderror
+                    </div>
 
                     <!-- Date of Birth -->
                     <div class="form-group">
@@ -157,6 +166,15 @@
                         <label for="country">Country</label>
                         <input type="text" id="country" name="country" value="{{ old('country', $user->country) }}">
                         @error('country')
+                            <span class="form-error">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                    <!-- Home District -->
+                    <div class="form-group">
+                        <label for="home_district">Home District</label>
+                        <input type="text" id="home_district" name="home_district" value="{{ old('home_district', $user->home_district) }}">
+                        @error('home_district')
                             <span class="form-error">{{ $message }}</span>
                         @enderror
                     </div>
@@ -202,6 +220,24 @@
                         <label for="facebook_url">Facebook Profile</label>
                         <input type="url" id="facebook_url" name="facebook_url" value="{{ old('facebook_url', $user->facebook_url) }}">
                         @error('facebook_url')
+                            <span class="form-error">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                    <!-- Instagram URL -->
+                    <div class="form-group form-group-full">
+                        <label for="instagram_url">Instagram Profile</label>
+                        <input type="url" id="instagram_url" name="instagram_url" value="{{ old('instagram_url', $user->instagram_url) }}">
+                        @error('instagram_url')
+                            <span class="form-error">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                    <!-- Hobby -->
+                    <div class="form-group form-group-full">
+                        <label for="hobby">Hobby</label>
+                        <textarea id="hobby" name="hobby" rows="2">{{ old('hobby', $user->hobby) }}</textarea>
+                        @error('hobby')
                             <span class="form-error">{{ $message }}</span>
                         @enderror
                     </div>
