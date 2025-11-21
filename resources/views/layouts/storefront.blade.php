@@ -49,7 +49,9 @@
                                         </x-slot>
 
                                         <x-slot name="content" width="w-52">
-                                            <a href="{{ route('alumni.index') }}">Alumni Directory</a>
+                                            @if(auth()->check() && (auth()->user()->hasRole('admin') || auth()->user()->alumniMembership?->status === 'approved'))
+                                                <a href="{{ route('alumni.index') }}">Alumni Directory</a>
+                                            @endif
                                             <a href="{{ route('membership.create') }}">Apply for Membership</a>
                                         </x-slot>
                                     </x-dropdown>
@@ -129,7 +131,9 @@
                             </x-slot>
 
                             <x-slot name="content" width="w-52">
-                                <a href="{{ route('alumni.index') }}">Alumni Directory</a>
+                                @if(auth()->check() && (auth()->user()->hasRole('admin') || auth()->user()->alumniMembership?->status === 'approved'))
+                                    <a href="{{ route('alumni.index') }}">Alumni Directory</a>
+                                @endif
                                 <a href="{{ route('membership.create') }}">Apply for Membership</a>
                             </x-slot>
                         </x-dropdown>
