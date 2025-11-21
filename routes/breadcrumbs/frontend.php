@@ -84,3 +84,9 @@ Breadcrumbs::for('alumni.show', function (BreadcrumbTrail $trail, $user) {
     $trail->parent('alumni.index');
     $trail->push($user->name, route('alumni.show', $user));
 });
+
+// Home > Constitution
+Breadcrumbs::for('constitution.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push('Constitution', route('constitution.index'));
+});

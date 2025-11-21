@@ -4,51 +4,63 @@
 
         <!-- Name -->
         <div>
-            <label for="name" class="admin-form-label">{{ __('Name') }}</label>
-            <input id="name" class="admin-form-input" type="text" name="name" value="{{ old('name') }}" required autofocus autocomplete="name" />
+            <label for="name" class="block font-medium text-sm text-text-light mb-1">{{ __('Name') }}</label>
+            <input id="name" class="block w-full border-border rounded-md shadow-sm text-text focus:border-primary focus:ring-primary py-2 leading-tight" type="text" name="name" value="{{ old('name') }}" required autofocus autocomplete="name" />
             @error('name')
-                <div class="admin-input-error">{{ $message }}</div>
+                <p class="text-danger text-sm mt-1">{{ $message }}</p>
             @enderror
         </div>
 
         <!-- Email Address -->
-        <div class="form-group-mt">
-            <label for="email" class="admin-form-label">{{ __('Email') }}</label>
-            <input id="email" class="admin-form-input" type="email" name="email" value="{{ old('email') }}" required autocomplete="username" />
+        <div class="mt-4">
+            <label for="email" class="block font-medium text-sm text-text-light mb-1">{{ __('Email') }}</label>
+            <input id="email" class="block w-full border-border rounded-md shadow-sm text-text focus:border-primary focus:ring-primary py-2 leading-tight" type="email" name="email" value="{{ old('email') }}" required autocomplete="username" />
              @error('email')
-                <div class="admin-input-error">{{ $message }}</div>
+                <p class="text-danger text-sm mt-1">{{ $message }}</p>
             @enderror
         </div>
 
         <!-- Password -->
-        <div class="form-group-mt">
-            <label for="password" class="admin-form-label">{{ __('Password') }}</label>
-            <input id="password" class="admin-form-input"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
+        <div class="mt-4" x-data="{ show: false }">
+            <label for="password" class="block font-medium text-sm text-text-light mb-1">{{ __('Password') }}</label>
+            <div class="relative">
+                <input id="password" class="block w-full border-border rounded-md shadow-sm text-text focus:border-primary focus:ring-primary pr-10 py-2 leading-tight"
+                                :type="show ? 'text' : 'password'"
+                                name="password"
+                                required autocomplete="new-password" />
+                <button type="button" class="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5"
+                        @click="show = !show">
+                    <i class="fa" :class="{ 'fa-eye': show, 'fa-eye-slash': !show }"></i>
+                </button>
+            </div>
             @error('password')
-                <div class="admin-input-error">{{ $message }}</div>
+                <p class="text-danger text-sm mt-1">{{ $message }}</p>
             @enderror
         </div>
 
         <!-- Confirm Password -->
-        <div class="form-group-mt">
-            <label for="password_confirmation" class="admin-form-label">{{ __('Confirm Password') }}</label>
-            <input id="password_confirmation" class="admin-form-input"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
+        <div class="mt-4" x-data="{ show: false }">
+            <label for="password_confirmation" class="block font-medium text-sm text-text-light mb-1">{{ __('Confirm Password') }}</label>
+            <div class="relative">
+                <input id="password_confirmation" class="block w-full border-border rounded-md shadow-sm text-text focus:border-primary focus:ring-primary pr-10 py-2 leading-tight"
+                                :type="show ? 'text' : 'password'"
+                                name="password_confirmation" required autocomplete="new-password" />
+                <button type="button" class="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5"
+                        @click="show = !show">
+                    <i class="fa" :class="{ 'fa-eye': show, 'fa-eye-slash': !show }"></i>
+                </button>
+            </div>
             @error('password_confirmation')
-                <div class="admin-input-error">{{ $message }}</div>
+                <p class="text-danger text-sm mt-1">{{ $message }}</p>
             @enderror
         </div>
 
-        <div class="admin-form-actions form-group-mt form-actions-justify">
-            <a class="admin-text-link" href="{{ route('login') }}">
+        <div class="flex items-center justify-end mt-4">
+            <a class="underline text-sm text-text-light hover:text-text rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary" href="{{ route('login') }}">
                 {{ __('Already registered?') }}
             </a>
 
-            <button type="submit" class="admin-button-base admin-button-purple">
+            <button type="submit" class="inline-flex items-center px-4 py-2 bg-primary border border-transparent rounded-md font-semibold text-xs text-button-text uppercase tracking-widest hover:bg-primary-dark focus:bg-primary-dark active:bg-primary-darker focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition ease-in-out duration-150 ml-4">
                 {{ __('Register') }}
             </button>
         </div>

@@ -53,5 +53,6 @@
     @include('frontend.partials._membership-promo')
     @include('frontend.partials._events')
     @include('frontend.partials._notices')
+    @include('frontend.partials._messages')
 
 @endsection

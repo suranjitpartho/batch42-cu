@@ -9,6 +9,20 @@ use Illuminate\Support\Facades\DB;
 
 class AlumniController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(function ($request, $next) {
+            $user = auth()->user();
+            
+            // Allow if user is admin OR has approved alumni membership
+            if ($user && ($user->hasRole('admin') || ($user->alumniMembership && $user->alumniMembership->status === 'approved'))) {
+                return $next($request);
+            }
+
+            return redirect()->route('home')->with('error', 'You must be an approved alumni member to view the directory.');
+        });
+    }
+
     public function index(Request $request)
     {
         // Start with a query builder for users who have an approved alumni membership

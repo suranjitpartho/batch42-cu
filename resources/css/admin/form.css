@@ -25,12 +25,15 @@
 
 @media (max-width: 768px) {
     .admin-search-container {
-        flex-direction: column; /* Stack input and button vertically */
-        align-items: stretch; /* Make children take full width */
+        flex-direction: column;
+        /* Stack input and button vertically */
+        align-items: stretch;
+        /* Make children take full width */
     }
 
     .admin-search-input {
-        max-width: none; /* Allow input to take full width */
+        max-width: none;
+        /* Allow input to take full width */
     }
 }
 
@@ -81,9 +84,12 @@
 
 @media (max-width: 768px) {
     .admin-form-actions {
-        flex-direction: column; /* Stack buttons vertically */
-        align-items: stretch; /* Make buttons take full width */
-        gap: 1rem; /* Add space between stacked buttons */
+        flex-direction: column;
+        /* Stack buttons vertically */
+        align-items: stretch;
+        /* Make buttons take full width */
+        gap: 1rem;
+        /* Add space between stacked buttons */
     }
 }
 
@@ -143,7 +149,7 @@
     color: var(--danger-color, #DC2626);
 }
 
-.admin-input-error li + li {
+.admin-input-error li+li {
     margin-top: 0.25rem;
 }
 

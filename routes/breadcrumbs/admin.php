@@ -150,3 +150,21 @@ Breadcrumbs::for('admin.advertisements.edit', function (BreadcrumbTrail $trail, 
     $trail->parent('admin.advertisements.index');
     $trail->push('Edit', route('admin.advertisements.edit', $advertisement));
 });
+
+// Dashboard > Constitutions
+Breadcrumbs::for('admin.constitutions.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.dashboard');
+    $trail->push('Constitutions', route('admin.constitutions.index'));
+});
+
+// Dashboard > Constitutions > Create
+Breadcrumbs::for('admin.constitutions.create', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.constitutions.index');
+    $trail->push('Create', route('admin.constitutions.create'));
+});
+
+// Dashboard > Constitutions > Edit
+Breadcrumbs::for('admin.constitutions.edit', function (BreadcrumbTrail $trail, $constitution) {
+    $trail->parent('admin.constitutions.index');
+    $trail->push('Edit', route('admin.constitutions.edit', $constitution));
+});
