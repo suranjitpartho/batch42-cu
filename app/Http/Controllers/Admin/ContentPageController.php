@@ -31,11 +31,20 @@ class ContentPageController extends Controller
     public function edit(ContentPage $contentPage)
     {
         $socialLinks = [];
+        $messageData = [];
+        
         if ($contentPage->slug === 'social-media-links') {
             $socialLinks = json_decode($contentPage->getTranslation('content', 'en'), true) ?? [];
+        } elseif (in_array($contentPage->slug, ['president-message', 'secretary-message'])) {
+            $messageData = json_decode($contentPage->getTranslation('content', 'en'), true) ?? [
+                'name_en' => '',
+                'name_bn' => '',
+                'message_en' => '',
+                'message_bn' => '',
+            ];
         }
 
-        return view('admin.content-pages.edit', compact('contentPage', 'socialLinks'));
+        return view('admin.content-pages.edit', compact('contentPage', 'socialLinks', 'messageData'));
     }
 
     /**
@@ -66,6 +75,26 @@ class ContentPageController extends Controller
 
             $socialLinks = $validated['social_links'] ?? [];
             $contentPage->setTranslation('content', 'en', json_encode($socialLinks));
+            $contentPage->setTranslation('content', 'bn', null);
+
+            $contentPage->save();
+
+        } elseif (in_array($contentPage->slug, ['president-message', 'secretary-message'])) {
+            $messageRules = [
+                'message_data.name_en' => 'nullable|string|max:255',
+                'message_data.name_bn' => 'nullable|string|max:255',
+                'message_data.message_en' => 'nullable|string',
+                'message_data.message_bn' => 'nullable|string',
+            ];
+            $rules = array_merge($baseRules, $messageRules);
+            $validated = $request->validate($rules);
+
+            $contentPage->setTranslation('title', 'en', $validated['title_en']);
+            $contentPage->setTranslation('title', 'bn', $validated['title_bn']);
+            $contentPage->is_published = $request->has('is_published');
+
+            $messageData = $validated['message_data'] ?? [];
+            $contentPage->setTranslation('content', 'en', json_encode($messageData));
             $contentPage->setTranslation('content', 'bn', null);
 
             $contentPage->save();

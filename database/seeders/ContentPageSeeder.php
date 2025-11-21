@@ -16,13 +16,35 @@ class ContentPageSeeder extends Seeder
         $pages = [
             [
                 'title' => [
-                    'en' => 'Alumni Constitution',
-                    'bn' => 'অ্যালামনাই সংবিধান',
+                    'en' => 'President Message',
+                    'bn' => 'সভাপতির বার্তা',
                 ],
-                'slug' => 'constitution',
+                'slug' => 'president-message',
                 'content' => [
-                    'en' => '',
-                    'bn' => '',
+                    'en' => json_encode([
+                        'name_en' => '',
+                        'name_bn' => '',
+                        'message_en' => '',
+                        'message_bn' => '',
+                    ]),
+                    'bn' => null,
+                ],
+                'is_published' => false,
+            ],
+            [
+                'title' => [
+                    'en' => 'Secretary Message',
+                    'bn' => 'সেক্রেটারির বার্তা',
+                ],
+                'slug' => 'secretary-message',
+                'content' => [
+                    'en' => json_encode([
+                        'name_en' => '',
+                        'name_bn' => '',
+                        'message_en' => '',
+                        'message_bn' => '',
+                    ]),
+                    'bn' => null,
                 ],
                 'is_published' => false,
             ],
