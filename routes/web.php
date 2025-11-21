@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\EventController as AdminEventController;
 use App\Http\Controllers\Admin\UniversityInfoController;
 use App\Http\Controllers\Admin\ContentPageController as AdminContentPageController;
 use App\Http\Controllers\Admin\AdvertisementController;
+use App\Http\Controllers\Admin\ConstitutionController;
 
 // Frontend Controllers
 use App\Http\Controllers\Frontend\HomeController;
@@ -103,6 +104,7 @@ Route::middleware(['auth', 'can:admin_panel-view'])->prefix('admin')->name('admi
     Route::delete('university-info/image/{field}', [UniversityInfoController::class, 'destroyImage'])->name('university-info.image.destroy');
 
     Route::resource('content-pages', AdminContentPageController::class);
+    Route::resource('constitutions', ConstitutionController::class);
 
     Route::resource('advertisements', AdvertisementController::class);
 });
