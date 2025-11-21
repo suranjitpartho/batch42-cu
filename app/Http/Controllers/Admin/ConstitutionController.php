@@ -24,10 +24,10 @@ class ConstitutionController extends Controller
     {
         $validated = $request->validate([
             'chapter_number' => 'required|string|max:255',
-            'chapter_name_en' => 'required|string|max:255',
-            'chapter_name_bn' => 'required|string|max:255',
-            'content_en' => 'required|string',
-            'content_bn' => 'required|string',
+            'chapter_name_en' => 'nullable|string|max:255',
+            'chapter_name_bn' => 'nullable|string|max:255',
+            'content_en' => 'nullable|string',
+            'content_bn' => 'nullable|string',
             'order' => 'nullable|integer',
             'is_active' => 'nullable|boolean',
         ]);
@@ -54,10 +54,10 @@ class ConstitutionController extends Controller
     {
         $validated = $request->validate([
             'chapter_number' => 'required|string|max:255',
-            'chapter_name_en' => 'required|string|max:255',
-            'chapter_name_bn' => 'required|string|max:255',
-            'content_en' => 'required|string',
-            'content_bn' => 'required|string',
+            'chapter_name_en' => 'nullable|string|max:255',
+            'chapter_name_bn' => 'nullable|string|max:255',
+            'content_en' => 'nullable|string',
+            'content_bn' => 'nullable|string',
             'order' => 'nullable|integer',
             'is_active' => 'nullable|boolean',
         ]);

@@ -13,7 +13,7 @@ use App\Http\Controllers\Admin\EventController as AdminEventController;
 use App\Http\Controllers\Admin\UniversityInfoController;
 use App\Http\Controllers\Admin\ContentPageController as AdminContentPageController;
 use App\Http\Controllers\Admin\AdvertisementController;
-use App\Http\Controllers\Admin\ConstitutionController;
+use App\Http\Controllers\Admin\ConstitutionController as AdminConstitutionController;
 
 // Frontend Controllers
 use App\Http\Controllers\Frontend\HomeController;
@@ -24,6 +24,7 @@ use App\Http\Controllers\Frontend\NoticeController;
 use App\Http\Controllers\Frontend\UniversityController;
 use App\Http\Controllers\Frontend\AlumniController;
 use App\Http\Controllers\Frontend\ContentPageController;
+use App\Http\Controllers\Frontend\ConstitutionController;
 
 // Auth Controller
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
@@ -68,6 +69,8 @@ Route::get('/alumni/{user}', [AlumniController::class, 'show'])->name('alumni.sh
 
 Route::get('/pages/{contentPage:slug}', [ContentPageController::class, 'show'])->name('content_pages.show');
 
+Route::get('/constitution', [ConstitutionController::class, 'index'])->name('constitution.index');
+
 
 
 require __DIR__.'/auth.php';
@@ -104,7 +107,7 @@ Route::middleware(['auth', 'can:admin_panel-view'])->prefix('admin')->name('admi
     Route::delete('university-info/image/{field}', [UniversityInfoController::class, 'destroyImage'])->name('university-info.image.destroy');
 
     Route::resource('content-pages', AdminContentPageController::class);
-    Route::resource('constitutions', ConstitutionController::class);
+    Route::resource('constitutions', AdminConstitutionController::class);
 
     Route::resource('advertisements', AdvertisementController::class);
 });

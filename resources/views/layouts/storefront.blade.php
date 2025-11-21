@@ -53,6 +53,7 @@
                                                 <a href="{{ route('alumni.index') }}">Alumni Directory</a>
                                             @endif
                                             <a href="{{ route('membership.create') }}">Apply for Membership</a>
+                                            <a href="{{ route('constitution.index') }}">Alumni Constitution</a>
                                         </x-slot>
                                     </x-dropdown>
                                 </li>
@@ -135,6 +136,7 @@
                                     <a href="{{ route('alumni.index') }}">Alumni Directory</a>
                                 @endif
                                 <a href="{{ route('membership.create') }}">Apply for Membership</a>
+                                <a href="{{ route('constitution.index') }}">Alumni Constitution</a>
                             </x-slot>
                         </x-dropdown>
                     </li>
@@ -204,7 +206,7 @@
                     <h3>Useful Links</h3>
                     <ul>
                         <li><a href="{{ route('home') }}">Home</a></li>
-                        <li><a href="{{ route('content_pages.show', 'constitution') }}">Constitution</a></li>
+                        <li><a href="{{ route('constitution.index') }}">Constitution</a></li>
                         <li><a href="{{ route('content_pages.show', 'about-us') }}">About Us</a></li>
                     </ul>
                 </div>
