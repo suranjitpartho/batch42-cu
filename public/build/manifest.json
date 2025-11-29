@@ -16,7 +16,7 @@
     "src": "node_modules/@fortawesome/fontawesome-free/webfonts/fa-v4compatibility.woff2"
   },
   "resources/css/admin/main.css": {
-    "file": "assets/main-gt6bYpj8.css",
+    "file": "assets/main-BUT4CWMQ.css",
     "src": "resources/css/admin/main.css",
     "isEntry": true,
     "names": [
@@ -24,7 +24,7 @@
     ]
   },
   "resources/css/components/main.css": {
-    "file": "assets/main-DYgW9RUL.css",
+    "file": "assets/main-B8MYZtux.css",
     "src": "resources/css/components/main.css",
     "isEntry": true,
     "names": [
