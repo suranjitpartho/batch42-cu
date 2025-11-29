@@ -30,7 +30,8 @@ class MembershipController extends Controller
             }
         }
         
-        return view('frontend.pages.memberships.create');
+        $faculties = config('university_data.faculties');
+        return view('frontend.pages.memberships.create', compact('faculties'));
     }
 
     public function store(Request $request)
@@ -47,10 +48,13 @@ class MembershipController extends Controller
             'last_name' => 'required|string|max:255',
             'phone_number' => 'required|string|max:20',
             'department' => 'required|string|max:255',
+            'faculty' => 'required|string|max:255',
         ];
 
+        $rules['photo'] = 'nullable|image|max:2048|mimes:jpeg,png,jpg,gif';
+
         if (!$user->profile_photo_path) {
-            $rules['photo'] = 'required|image|max:1024';
+            $rules['photo'] = 'required|image|max:2048|mimes:jpeg,png,jpg,gif';
         }
 
         $request->validate($rules);
@@ -60,6 +64,7 @@ class MembershipController extends Controller
         $user->last_name = $request->last_name;
         $user->phone_number = $request->phone_number;
         $user->department = $request->department;
+        $user->faculty = $request->faculty;
 
         if ($request->hasFile('photo')) {
             $path = $request->file('photo')->store('profile-photos', 'public');

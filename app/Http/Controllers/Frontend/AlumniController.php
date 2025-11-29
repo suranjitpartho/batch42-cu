@@ -32,15 +32,20 @@ class AlumniController extends Controller
 
         // Apply filters based on request input
         if ($request->filled('name')) {
-            $query->where('name', 'like', '%' . $request->name . '%');
+            $search = $request->name;
+            $query->where(function($q) use ($search) {
+                $q->where('name', 'like', '%' . $search . '%')
+                  ->orWhere('first_name', 'like', '%' . $search . '%')
+                  ->orWhere('last_name', 'like', '%' . $search . '%');
+            });
         }
 
         if ($request->filled('department')) {
             $query->where('department', $request->department);
         }
 
-        if ($request->filled('city')) {
-            $query->where('current_city', $request->city);
+        if ($request->filled('faculty')) {
+            $query->where('faculty', $request->faculty);
         }
 
         if ($request->filled('blood_group')) {
@@ -48,16 +53,36 @@ class AlumniController extends Controller
         }
 
         // Paginate the results
-        $users = $query->paginate(3)->withQueryString();
+        $users = $query->orderBy('created_at', 'asc')->paginate(9)->withQueryString();
 
         // Get distinct values for filter dropdowns from approved alumni
-        $departments = User::whereHas('alumniMembership', function ($q) {
-            $q->where('status', 'approved');
-        })->select('department')->whereNotNull('department')->distinct()->orderBy('department')->pluck('department');
+        $fullConfig = config('university_data.faculties');
+        $filteredConfig = [];
 
-        $cities = User::whereHas('alumniMembership', function ($q) {
+        // Get all used faculty-department pairs
+        $usedFacultiesAndDepts = User::whereHas('alumniMembership', function ($q) {
             $q->where('status', 'approved');
-        })->select('current_city')->whereNotNull('current_city')->distinct()->orderBy('current_city')->pluck('current_city');
+        })
+        ->select('faculty', 'department')
+        ->whereNotNull('faculty')
+        ->whereNotNull('department')
+        ->distinct()
+        ->get()
+        ->groupBy('faculty');
+
+        foreach ($fullConfig as $faculty => $departments) {
+            if ($usedFacultiesAndDepts->has($faculty)) {
+                // Get the departments used in this faculty from DB
+                $usedDeptsInFaculty = $usedFacultiesAndDepts->get($faculty)->pluck('department')->toArray();
+                
+                // Intersect config departments with used departments to maintain config order
+                $validDepts = array_values(array_intersect($departments, $usedDeptsInFaculty));
+                
+                if (!empty($validDepts)) {
+                    $filteredConfig[$faculty] = $validDepts;
+                }
+            }
+        }
 
         $blood_groups = User::whereHas('alumniMembership', function ($q) {
             $q->where('status', 'approved');
@@ -65,8 +90,7 @@ class AlumniController extends Controller
 
         return view('frontend.pages.alumni.index', [
             'users' => $users,
-            'departments' => $departments,
-            'cities' => $cities,
+            'facultiesConfig' => $filteredConfig,
             'blood_groups' => $blood_groups,
         ]);
     }

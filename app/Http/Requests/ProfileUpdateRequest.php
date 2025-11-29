@@ -33,6 +33,7 @@ class ProfileUpdateRequest extends FormRequest
             'current_city' => ['nullable', 'string', 'max:255'],
             'country' => ['nullable', 'string', 'max:255'],
             'department' => ['nullable', 'string', 'max:255'],
+            'faculty' => ['nullable', 'string', 'max:255'],
             'works_at' => ['nullable', 'string', 'max:255'],
             'designation' => ['nullable', 'string', 'max:255'],
             'bio' => ['nullable', 'string', 'max:1000'],

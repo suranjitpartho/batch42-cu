@@ -14,28 +14,39 @@
                     <input type="text" id="name" name="name" value="{{ request('name') }}" placeholder="Search by name...">
                 </div>
 
-                <div class="form-group">
-                    <label for="department">Department</label>
-                    <select id="department" name="department">
-                        <option value="">All Departments</option>
-                        @foreach($departments as $department)
-                            <option value="{{ $department }}" {{ request('department') == $department ? 'selected' : '' }}>
-                                {{ $department }}
-                            </option>
-                        @endforeach
-                    </select>
-                </div>
+                <div x-data="{
+                    faculties: {{ json_encode($facultiesConfig) }},
+                    selectedFaculty: '{{ request('faculty') }}',
+                    selectedDepartment: '{{ request('department') }}',
+                    departments: []
+                }" x-init="
+                    if (selectedFaculty && faculties[selectedFaculty]) {
+                        departments = faculties[selectedFaculty];
+                    }
+                    $watch('selectedFaculty', value => {
+                        departments = faculties[value] || [];
+                        selectedDepartment = '';
+                    });
+                " style="display: contents;">
+                    <div class="form-group">
+                        <label for="faculty">Faculty</label>
+                        <select id="faculty" name="faculty" x-model="selectedFaculty">
+                            <option value="">All Faculties</option>
+                            <template x-for="(deptList, facultyName) in faculties" :key="facultyName">
+                                <option :value="facultyName" x-text="facultyName" :selected="selectedFaculty === facultyName"></option>
+                            </template>
+                        </select>
+                    </div>
 
-                <div class="form-group">
-                    <label for="city">City</label>
-                    <select id="city" name="city">
-                        <option value="">All Cities</option>
-                        @foreach($cities as $city)
-                            <option value="{{ $city }}" {{ request('city') == $city ? 'selected' : '' }}>
-                                {{ $city }}
-                            </option>
-                        @endforeach
-                    </select>
+                    <div class="form-group">
+                        <label for="department">Department</label>
+                        <select id="department" name="department" x-model="selectedDepartment">
+                            <option value="">All Departments</option>
+                            <template x-for="dept in departments" :key="dept">
+                                <option :value="dept" x-text="dept" :selected="selectedDepartment === dept"></option>
+                            </template>
+                        </select>
+                    </div>
                 </div>
 
                 <div class="form-group">

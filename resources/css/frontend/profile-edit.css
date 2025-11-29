@@ -60,7 +60,7 @@
     height: 200px;
     border-radius: 50%;
     overflow: hidden;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     border: 5px solid white;
 }
 
@@ -145,6 +145,7 @@
 .form-group input[type="url"],
 .form-group input[type="date"],
 .form-group input[type="password"],
+.form-group select,
 .form-group textarea {
     width: 100%;
     padding: 0.75rem 1rem;
@@ -156,6 +157,7 @@
 }
 
 .form-group input:focus,
+.form-group select:focus,
 .form-group textarea:focus {
     outline: none;
     border-color: var(--secondary);
@@ -199,7 +201,10 @@
 
 /* Buttons */
 
-.btn-primary, .btn-danger, .btn-secondary, .btn-danger-outline {
+.btn-primary,
+.btn-danger,
+.btn-secondary,
+.btn-danger-outline {
     padding: 0.75rem 1.5rem;
     border: 1px solid transparent;
     border-radius: 6px;
@@ -234,6 +239,7 @@
     background-color: var(--background-dark);
     color: var(--spaceblack);
 }
+
 .btn-secondary:hover {
     background-color: var(--background);
 }
@@ -242,6 +248,7 @@
     background-color: var(--danger);
     color: white;
 }
+
 .btn-danger-outline:hover {
     background-color: #a53f41;
 }
@@ -263,27 +270,36 @@
     .profile-edit-container {
         padding: 1rem;
     }
+
     .form-grid {
         grid-template-columns: 1fr;
     }
+
     .profile-photo-area {
         grid-template-columns: 1fr;
         justify-items: center;
     }
+
     .photo-upload-actions {
         width: 100%;
         align-items: center;
     }
+
     .photo-upload-actions .upload-form {
         align-items: stretch;
     }
+
     .photo-preview-container {
         width: 150px;
         height: 150px;
     }
 
-    .btn-primary, .btn-danger, .btn-secondary, .btn-danger-outline {
+    .btn-primary,
+    .btn-danger,
+    .btn-secondary,
+    .btn-danger-outline {
         width: 100%;
-        justify-content: center; /* To center icon and text */
+        justify-content: center;
+        /* To center icon and text */
     }
 }

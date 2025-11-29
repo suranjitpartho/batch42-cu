@@ -21,8 +21,10 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
+        $faculties = config('university_data.faculties');
         return view('frontend.profile.edit', [
             'user' => $request->user(),
+            'faculties' => $faculties,
         ]);
     }
 
