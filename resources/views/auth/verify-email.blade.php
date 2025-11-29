@@ -9,8 +9,8 @@
         </div>
     @endif
 
-    <div class="flex items-center justify-between mt-4">
-        <form method="POST" action="{{ route('verification.send') }}">
+    <div class="flex flex-col sm:flex-row items-center justify-between mt-4 gap-4 sm:gap-0">
+        <form method="POST" action="{{ route('verification.send') }}" class="w-full sm:w-auto">
             @csrf
 
             @if (isset($email))
@@ -26,7 +26,7 @@
             @endif
 
             <div>
-                <button type="submit" class="inline-flex items-center px-4 py-2 bg-primary border border-transparent rounded-md font-semibold text-xs text-button-text uppercase tracking-widest hover:bg-primary-dark focus:bg-primary-dark active:bg-primary-darker focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition ease-in-out duration-150">
+                <button type="submit" class="w-full sm:w-auto justify-center inline-flex items-center px-4 py-2 bg-primary border border-transparent rounded-md font-semibold text-xs text-button-text uppercase tracking-widest hover:bg-primary-dark focus:bg-primary-dark active:bg-primary-darker focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition ease-in-out duration-150">
                     {{ __('Resend Verification Email') }}
                 </button>
             </div>
@@ -35,7 +35,7 @@
         <form method="POST" action="{{ route('logout') }}">
             @csrf
 
-            <button type="submit" class="underline text-sm text-text-light hover:text-text rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary ml-4">
+            <button type="submit" class="underline text-sm text-text-light hover:text-text rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary ml-0 sm:ml-4">
                 {{ __('Log Out') }}
             </button>
         </form>
