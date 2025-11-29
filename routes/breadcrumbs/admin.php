@@ -168,3 +168,21 @@ Breadcrumbs::for('admin.constitutions.edit', function (BreadcrumbTrail $trail, $
     $trail->parent('admin.constitutions.index');
     $trail->push('Edit', route('admin.constitutions.edit', $constitution));
 });
+
+// Dashboard > Video Gallery
+Breadcrumbs::for('admin.video-galleries.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.dashboard');
+    $trail->push('Video Gallery', route('admin.video-galleries.index'));
+});
+
+// Dashboard > Video Gallery > Create
+Breadcrumbs::for('admin.video-galleries.create', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.video-galleries.index');
+    $trail->push('Create', route('admin.video-galleries.create'));
+});
+
+// Dashboard > Video Gallery > Edit
+Breadcrumbs::for('admin.video-galleries.edit', function (BreadcrumbTrail $trail, $videoGallery) {
+    $trail->parent('admin.video-galleries.index');
+    $trail->push('Edit', route('admin.video-galleries.edit', $videoGallery));
+});

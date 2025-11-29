@@ -90,3 +90,9 @@ Breadcrumbs::for('constitution.index', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
     $trail->push('Constitution', route('constitution.index'));
 });
+
+// Home > Video Gallery
+Breadcrumbs::for('video_gallery.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push('Video Gallery', route('video_gallery.index'));
+});
