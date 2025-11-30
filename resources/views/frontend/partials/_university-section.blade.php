@@ -26,7 +26,7 @@
     </div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8 items-center">
             
             {{-- University Card --}}
             <div class="relative group" @mouseenter="hover = 'uni'" @mouseleave="hover = null">
@@ -56,9 +56,9 @@
                             <i class="fas fa-university text-2xl md:text-3xl"></i>
                         </div>
 
-                        <h2 class="text-2xl md:text-3xl font-bold text-fe-spaceblack font-bengali mb-4 group-hover:text-fe-primary transition-colors duration-300">University of Chittagong</h2>
+                        <h2 class="text-2xl md:text-3xl font-bold text-fe-spaceblack font-bengali mb-2 md:mb-4 group-hover:text-fe-primary transition-colors duration-300">University of Chittagong</h2>
                         
-                        <p class="text-fe-spacegrey text-base leading-relaxed mb-8 line-clamp-3 relative">
+                        <p class="text-fe-spacegrey text-base leading-relaxed mb-4 md:mb-8 line-clamp-3 relative">
                             <span class="absolute -left-4 top-0 w-1 h-full bg-fe-primary/20 rounded-full"></span>
                             {{ $info->university_history ?? 'The University of Chittagong is a public research university located in Hathazari, Chittagong, Bangladesh.' }}
                         </p>
@@ -82,7 +82,7 @@
             </div>
 
             {{-- Batch Card --}}
-            <div class="relative group mt-8 lg:mt-0" @mouseenter="hover = 'batch'" @mouseleave="hover = null">
+            <div class="relative group lg:mt-0" @mouseenter="hover = 'batch'" @mouseleave="hover = null">
                 {{-- Card Shape --}}
                 <div class="relative bg-white rounded-[2rem] md:rounded-[3rem] p-6 md:p-10 overflow-hidden transition-all duration-500 border-2 border-transparent hover:border-fe-secondary/20 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] hover:shadow-[0_30px_70px_-15px_rgba(0,0,0,0.1)] transform lg:translate-y-8">
                     
@@ -109,9 +109,9 @@
                             <i class="fas fa-users text-2xl md:text-3xl"></i>
                         </div>
 
-                        <h2 class="text-2xl md:text-3xl font-bold text-fe-spaceblack font-bengali mb-4 group-hover:text-fe-secondary transition-colors duration-300">Batch 42 (2006-2007)</h2>
+                        <h2 class="text-2xl md:text-3xl font-bold text-fe-spaceblack font-bengali mb-2 md:mb-4 group-hover:text-fe-secondary transition-colors duration-300">Batch 42 (2006-2007)</h2>
                         
-                        <p class="text-fe-spacegrey text-base leading-relaxed mb-8 line-clamp-3 relative">
+                        <p class="text-fe-spacegrey text-base leading-relaxed mb-4 md:mb-8 line-clamp-3 relative">
                             <span class="absolute -left-4 top-0 w-1 h-full bg-fe-secondary/20 rounded-full"></span>
                             {{ $info->batch_info ?? 'Batch 42 represents the students of the 2006-2007 session, a vibrant community of alumni.' }}
                         </p>
