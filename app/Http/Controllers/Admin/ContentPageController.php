@@ -85,9 +85,18 @@ class ContentPageController extends Controller
                 'message_data.name_bn' => 'nullable|string|max:255',
                 'message_data.message_en' => 'nullable|string',
                 'message_data.message_bn' => 'nullable|string',
+                'image' => 'nullable|image|max:2048',
             ];
             $rules = array_merge($baseRules, $messageRules);
             $validated = $request->validate($rules);
+
+            if ($request->hasFile('image')) {
+                if ($contentPage->image_path) {
+                    \Illuminate\Support\Facades\Storage::disk('public')->delete($contentPage->image_path);
+                }
+                $path = $request->file('image')->store('content-pages', 'public');
+                $contentPage->image_path = $path;
+            }
 
             $contentPage->setTranslation('title', 'en', $validated['title_en']);
             $contentPage->setTranslation('title', 'bn', $validated['title_bn']);

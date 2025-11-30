@@ -31,12 +31,45 @@
                 @enderror
             </div>
 
-            <div class="form-group">
-                <label for="department" class="form-label">Department</label>
-                <input type="text" name="department" id="department" class="form-control" value="{{ old('department', auth()->user()->department) }}" {{ auth()->user()->department ? 'readonly' : '' }} required>
-                @error('department')
-                    <span class="text-red-500 text-sm">{{ $message }}</span>
-                @enderror
+            <div x-data="{
+                faculties: {{ json_encode($faculties) }},
+                selectedFaculty: '{{ old('faculty', auth()->user()->faculty) }}',
+                selectedDepartment: '{{ old('department', auth()->user()->department) }}',
+                departments: []
+            }" x-init="
+                if (selectedFaculty && faculties[selectedFaculty]) {
+                    departments = faculties[selectedFaculty];
+                }
+                $watch('selectedFaculty', value => {
+                    departments = faculties[value] || [];
+                    selectedDepartment = '';
+                });
+            ">
+                <div class="form-group">
+                    <label for="faculty" class="form-label">Faculty</label>
+                    <select name="faculty" id="faculty" class="form-control" x-model="selectedFaculty" required>
+                        <option value="">Select Faculty</option>
+                        <template x-for="(deptList, facultyName) in faculties" :key="facultyName">
+                            <option :value="facultyName" x-text="facultyName" :selected="selectedFaculty === facultyName"></option>
+                        </template>
+                    </select>
+                    @error('faculty')
+                        <span class="text-red-500 text-sm">{{ $message }}</span>
+                    @enderror
+                </div>
+
+                <div class="form-group">
+                    <label for="department" class="form-label">Department</label>
+                    <select name="department" id="department" class="form-control" x-model="selectedDepartment" required>
+                        <option value="">Select Department</option>
+                        <template x-for="dept in departments" :key="dept">
+                            <option :value="dept" x-text="dept" :selected="selectedDepartment === dept"></option>
+                        </template>
+                    </select>
+                    @error('department')
+                        <span class="text-red-500 text-sm">{{ $message }}</span>
+                    @enderror
+                </div>
             </div>
 
             <div class="form-group">

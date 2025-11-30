@@ -36,6 +36,7 @@
                         <nav class="main-nav">
                             <ul class="nav-links">
                                 <li class="nav-link"><a href="{{ route('home') }}">Home</a></li>
+                                <li class="nav-link"><a href="{{ route('constitution.index') }}">Constitution</a></li>
                                 <li class="nav-link"><a href="{{ route('events.index') }}">Events</a></li>
                                 <li class="nav-link"><a href="{{ route('notices.index') }}">Notices</a></li>
 
@@ -53,7 +54,6 @@
                                                 <a href="{{ route('alumni.index') }}">Alumni Directory</a>
                                             @endif
                                             <a href="{{ route('membership.create') }}">Apply for Membership</a>
-                                            <a href="{{ route('constitution.index') }}">Alumni Constitution</a>
                                         </x-slot>
                                     </x-dropdown>
                                 </li>
@@ -119,6 +119,7 @@
             <nav class="main-nav">
                 <ul class="nav-links">
                     <li class="nav-link"><a href="{{ route('home') }}">Home</a></li>
+                    <li class="nav-link"><a href="{{ route('constitution.index') }}">Constitution</a></li>
                     <li class="nav-link"><a href="{{ route('events.index') }}">Events</a></li>
                     <li class="nav-link"><a href="{{ route('notices.index') }}">Notices</a></li>
 
@@ -136,7 +137,6 @@
                                     <a href="{{ route('alumni.index') }}">Alumni Directory</a>
                                 @endif
                                 <a href="{{ route('membership.create') }}">Apply for Membership</a>
-                                <a href="{{ route('constitution.index') }}">Alumni Constitution</a>
                             </x-slot>
                         </x-dropdown>
                     </li>

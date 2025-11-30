@@ -15,6 +15,7 @@ class ContentPage extends Model
         'title',
         'slug',
         'content',
+        'image_path',
         'is_published',
     ];
 

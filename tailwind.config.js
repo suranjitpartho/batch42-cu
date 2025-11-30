@@ -39,7 +39,7 @@ export default {
                 'badge-bg-7': '#be5a87',
                 'badge-bg-8': '#57667a',
 
-                // Frontend Colors (from root.css)
+                // Frontend Colors
                 'fe-primary': '#977a82',
                 'fe-secondary': '#e9ae9a',
                 'fe-accent': '#f1ede4',

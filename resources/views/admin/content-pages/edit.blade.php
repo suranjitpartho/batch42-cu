@@ -80,7 +80,7 @@
                             </div>
                         </div>
 
-                        <form action="{{ route('admin.content-pages.update', $contentPage) }}" method="POST" class="admin-form-vertical">
+                        <form action="{{ route('admin.content-pages.update', $contentPage) }}" method="POST" class="admin-form-vertical" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
 
@@ -125,6 +125,18 @@
                             </div>
 
                             {{-- Shared Fields --}}
+                            <div class="admin-form-group">
+                                <label for="image" class="admin-form-label">Photo</label>
+                                @if($contentPage->image_path)
+                                    <div class="mb-2">
+                                        <img src="{{ asset('storage/' . $contentPage->image_path) }}" alt="Current Photo" class="w-32 h-32 object-cover rounded border border-gray-200">
+                                    </div>
+                                @endif
+                                <input type="file" id="image" name="image" class="admin-form-input">
+                                <p class="text-sm text-gray-500 mt-1">Recommended size: 300x300px. Max size: 2MB.</p>
+                                <x-input-error class="mt-2" :messages="$errors->get('image')" />
+                            </div>
+
                             <div class="admin-form-group">
                                 <label for="slug" class="admin-form-label">Slug</label>
                                 <input type="text" id="slug" name="slug" class="admin-form-input" value="{{ old('slug', $contentPage->slug) }}" readonly>

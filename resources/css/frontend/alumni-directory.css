@@ -61,7 +61,6 @@
     width: 100%;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
     box-sizing: border-box;
-    height: 42px;
     background-color: #fff;
 }
 
@@ -128,7 +127,8 @@
 /* === Alumni Card === */
 
 .alumni-card {
-    position: relative; /* Necessary for positioning the cover link */
+    position: relative;
+    /* Necessary for positioning the cover link */
     background-color: white;
     border: 1px solid white;
     border-radius: 8px;
@@ -147,8 +147,10 @@
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 1; /* Place it above the card content visually */
-    text-indent: -9999px; /* Hide link text */
+    z-index: 1;
+    /* Place it above the card content visually */
+    text-indent: -9999px;
+    /* Hide link text */
 }
 
 .alumni-card:hover {
@@ -189,7 +191,7 @@
 
 .alumni-card .alumni-name {
     font-size: 1.35rem;
-    font-weight:4600;
+    font-weight: 4600;
     color: var(--spaceblack);
 }
 
@@ -222,9 +224,11 @@
 
 .alumni-socials a {
     position: relative;
-    z-index: 2; /* Ensure social links are clickable above the cover link */
+    z-index: 2;
+    /* Ensure social links are clickable above the cover link */
     color: var(--secondary);
-    font-size: 1.25rem; /* Increased from 1rem */
+    font-size: 1.25rem;
+    /* Increased from 1rem */
     transition: color 0.2s ease;
 }
 
@@ -233,7 +237,8 @@
 }
 
 /* Middle & Lower Parts */
-.middle-part, .lower-part {
+.middle-part,
+.lower-part {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -256,7 +261,7 @@
     color: var(--spacegrey);
 }
 
-.lower-item{
+.lower-item {
     display: flex;
     padding: 0.8rem 1.5rem;
     align-items: baseline;
@@ -297,7 +302,7 @@
         grid-column: 1;
     }
 
-    .filter-bar .filter-buttons > * {
+    .filter-bar .filter-buttons>* {
         flex: 1;
     }
 

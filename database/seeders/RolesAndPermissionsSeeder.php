@@ -30,6 +30,7 @@ class RolesAndPermissionsSeeder extends Seeder
             'content_page' => ['view', 'edit'],
             'advertisement' => ['view', 'create', 'edit', 'delete'],
             'constitution' => ['view', 'create', 'edit', 'delete'],
+            'video_gallery' => ['view', 'create', 'edit', 'delete'],
         ];
 
         // Create permissions

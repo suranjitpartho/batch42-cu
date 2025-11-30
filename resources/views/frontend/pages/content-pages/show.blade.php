@@ -31,6 +31,11 @@
             <div class="content-page-container">
                 <div class="content-page-card">
                     <div class="content-page-header">
+                        @if($contentPage->image_path)
+                            <div class="flex justify-center mb-6">
+                                <img src="{{ asset('storage/' . $contentPage->image_path) }}" alt="{{ $messageData['name_en'] ?? 'Photo' }}" class="w-48 h-48 object-cover rounded-full border-4 border-fe-secondary shadow-lg">
+                            </div>
+                        @endif
                         <div x-show="activeTab === 'en'">
                             <h1 class="content-page-title">{{ $contentPage->getTranslation('title', 'en') }}</h1>
                             <p class="text-xl text-fe-secondary mt-2 font-medium">{{ $messageData['name_en'] ?? '' }}</p>

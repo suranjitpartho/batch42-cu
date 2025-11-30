@@ -70,6 +70,7 @@ Route::get('/alumni/{user}', [AlumniController::class, 'show'])->name('alumni.sh
 Route::get('/pages/{contentPage:slug}', [ContentPageController::class, 'show'])->name('content_pages.show');
 
 Route::get('/constitution', [ConstitutionController::class, 'index'])->name('constitution.index');
+Route::get('/video-gallery', [\App\Http\Controllers\Frontend\VideoGalleryController::class, 'index'])->name('video_gallery.index');
 
 
 
@@ -110,4 +111,7 @@ Route::middleware(['auth', 'can:admin_panel-view'])->prefix('admin')->name('admi
     Route::resource('constitutions', AdminConstitutionController::class);
 
     Route::resource('advertisements', AdvertisementController::class);
+    Route::resource('video-galleries', \App\Http\Controllers\Admin\VideoGalleryController::class);
 });
+
+

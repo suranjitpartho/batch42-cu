@@ -27,6 +27,10 @@
                                     
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
                                         <div>
+                                            <p class="text-xs text-gray-500 uppercase font-semibold">Faculty</p>
+                                            <p class="text-gray-900">{{ $membership->user->faculty }}</p>
+                                        </div>
+                                        <div>
                                             <p class="text-xs text-gray-500 uppercase font-semibold">Department</p>
                                             <p class="text-gray-900">{{ $membership->user->department }}</p>
                                         </div>
