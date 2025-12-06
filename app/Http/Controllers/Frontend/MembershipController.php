@@ -49,6 +49,7 @@ class MembershipController extends Controller
             'phone_number' => 'required|string|max:20',
             'department' => 'required|string|max:255',
             'faculty' => 'required|string|max:255',
+            'certificate' => 'required|file|mimes:pdf|max:1024', // 1MB max
         ];
 
         $rules['photo'] = 'nullable|image|max:2048|mimes:jpeg,png,jpg,gif';
@@ -73,14 +74,26 @@ class MembershipController extends Controller
 
         $user->save();
 
+        // Handle certificate upload
+        $certificatePath = null;
+        if ($request->hasFile('certificate')) {
+            $certificatePath = $request->file('certificate')->store('certificates', 'public');
+        }
+
         if ($user->alumniMembership) {
             // Re-application: Update existing record
-            $user->alumniMembership->update([
+            $updateData = [
                 'status' => 'pending',
                 'rejection_reason' => null,
                 'applied_at' => now(),
-                // Reset other fields if needed, though they are defaults now
-            ]);
+            ];
+            
+            // Update certificate path if a new one is uploaded
+            if ($certificatePath) {
+                $updateData['certificate_path'] = $certificatePath;
+            }
+            
+            $user->alumniMembership->update($updateData);
         } else {
             // New application
             AlumniMembership::create([
@@ -88,6 +101,7 @@ class MembershipController extends Controller
                 'membership_type' => 'General', // Default value
                 'transaction_id' => 'N/A',      // Default value
                 'payment_method' => 'N/A',      // Default value
+                'certificate_path' => $certificatePath,
                 'applied_at' => now(),
                 'status' => 'pending',
             ]);

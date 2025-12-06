@@ -87,6 +87,18 @@
                 @endif
             </div>
 
+            <div class="form-group">
+                <label for="certificate" class="form-label">
+                    Certificate (PDF) 
+                    <span class="text-sm text-gray-600 font-normal">- Upload your university certificate</span>
+                </label>
+                <input type="file" name="certificate" id="certificate" class="form-control file-input" accept=".pdf" required>
+                <p class="text-sm text-gray-500 mt-1">Accepted format: PDF (Max size: 1MB)</p>
+                @error('certificate')
+                    <span class="text-red-500 text-sm">{{ $message }}</span>
+                @enderror
+            </div>
+
             <button type="submit" class="btn-submit">Submit Application</button>
         </form>
     </div>
