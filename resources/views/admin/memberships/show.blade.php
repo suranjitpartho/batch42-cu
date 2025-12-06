@@ -55,6 +55,28 @@
                                 <h3 class="admin-detail-heading">Application Details</h3>
                                 <div class="admin-detail-group">
                                     <p class="admin-text-secondary"><strong>Applied At:</strong> {{ $membership->applied_at->format('d M Y, H:i A') }}</p>
+                                    
+                                    {{-- Certificate Section --}}
+                                    @if($membership->certificate_path)
+                                        <div class="mt-4">
+                                            <p class="text-xs text-gray-500 uppercase font-semibold mb-2">Certificate</p>
+                                            <a href="{{ asset('storage/' . $membership->certificate_path) }}" 
+                                               target="_blank" 
+                                               class="admin-button-base admin-button-black inline-flex items-center gap-2">
+                                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                                </svg>
+                                                View Certificate (PDF)
+                                            </a>
+                                        </div>
+                                    @else
+                                        <div class="mt-4">
+                                            <p class="text-xs text-gray-500 uppercase font-semibold mb-2">Certificate</p>
+                                            <p class="text-gray-400 italic">No certificate uploaded</p>
+                                        </div>
+                                    @endif
+                                    
                                     <div class="mt-4">
                                         @php
                                             $statusColorClass = match($membership->status) {
