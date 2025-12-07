@@ -21,6 +21,7 @@ return new class extends Migration
             $table->timestamp('applied_at')->nullable();
             $table->timestamp('approved_at')->nullable();
             $table->text('rejection_reason')->nullable();
+            $table->string('certificate_path')->nullable();
             $table->timestamps();
         });
     }

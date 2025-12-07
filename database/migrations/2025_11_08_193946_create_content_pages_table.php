@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('content_pages', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->json('title');
             $table->string('slug')->unique();
-            $table->longText('content');
+            $table->json('content');
+            $table->string('image_path')->nullable();
             $table->boolean('is_published')->default(false);
             $table->timestamps();
         });

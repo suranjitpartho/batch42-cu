@@ -47,12 +47,15 @@
             ">
                 <div class="form-group">
                     <label for="faculty" class="form-label">Faculty</label>
-                    <select name="faculty" id="faculty" class="form-control" x-model="selectedFaculty" required>
+                    <select name="faculty" id="faculty" class="form-control" x-model="selectedFaculty" required {{ auth()->user()->faculty ? 'disabled' : '' }}>
                         <option value="">Select Faculty</option>
                         <template x-for="(deptList, facultyName) in faculties" :key="facultyName">
                             <option :value="facultyName" x-text="facultyName" :selected="selectedFaculty === facultyName"></option>
                         </template>
                     </select>
+                    @if(auth()->user()->faculty)
+                        <input type="hidden" name="faculty" value="{{ auth()->user()->faculty }}">
+                    @endif
                     @error('faculty')
                         <span class="text-red-500 text-sm">{{ $message }}</span>
                     @enderror
@@ -60,12 +63,15 @@
 
                 <div class="form-group">
                     <label for="department" class="form-label">Department</label>
-                    <select name="department" id="department" class="form-control" x-model="selectedDepartment" required>
+                    <select name="department" id="department" class="form-control" x-model="selectedDepartment" required {{ auth()->user()->department ? 'disabled' : '' }}>
                         <option value="">Select Department</option>
                         <template x-for="dept in departments" :key="dept">
                             <option :value="dept" x-text="dept" :selected="selectedDepartment === dept"></option>
                         </template>
                     </select>
+                    @if(auth()->user()->department)
+                        <input type="hidden" name="department" value="{{ auth()->user()->department }}">
+                    @endif
                     @error('department')
                         <span class="text-red-500 text-sm">{{ $message }}</span>
                     @enderror
@@ -80,7 +86,8 @@
                         <p class="text-sm text-gray-500 mt-1">Current photo will be used.</p>
                     </div>
                 @else
-                    <input type="file" name="photo" id="photo" class="form-control" accept="image/*" required>
+                    <input type="file" name="photo" id="photo" class="form-control file-input" accept="image/*" required>
+                    <p class="text-sm text-gray-500 mt-1">Accepted format: Image (Max size: 1MB)</p>
                     @error('photo')
                         <span class="text-red-500 text-sm">{{ $message }}</span>
                     @enderror
