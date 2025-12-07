@@ -16,9 +16,37 @@
                             {{-- Applicant Details --}}
                             <div>
                                 <h3 class="admin-detail-heading">Applicant Information</h3>
-                                <div class="admin-detail-group">
-                                    <p class="admin-text-secondary"><strong>Name:</strong> {{ $membership->user->name }}</p>
-                                    <p class="admin-text-secondary"><strong>Email:</strong> <a href="mailto:{{ $membership->user->email }}" class="text-blue-600 hover:underline">{{ $membership->user->email }}</a></p>
+                                <div class="admin-detail-group flex flex-col gap-4">
+                                    <div class="flex items-center gap-4">
+                                        <img src="{{ $membership->user->profile_photo_path ? asset('storage/' . $membership->user->profile_photo_path) : asset('images/default-avatar.svg') }}" alt="{{ $membership->user->name }}" class="w-20 h-20 rounded-full object-cover border-2 border-gray-200">
+                                        <div>
+                                            <p class="text-lg font-semibold text-gray-900">{{ $membership->user->name }}</p>
+                                            <p class="text-sm text-gray-500">{{ $membership->user->email }}</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
+                                        <div>
+                                            <p class="text-xs text-gray-500 uppercase font-semibold">Faculty</p>
+                                            <p class="text-gray-900">{{ $membership->user->faculty }}</p>
+                                        </div>
+                                        <div>
+                                            <p class="text-xs text-gray-500 uppercase font-semibold">Department</p>
+                                            <p class="text-gray-900">{{ $membership->user->department }}</p>
+                                        </div>
+                                        <div>
+                                            <p class="text-xs text-gray-500 uppercase font-semibold">Phone Number</p>
+                                            <p class="text-gray-900">{{ $membership->user->phone_number }}</p>
+                                        </div>
+                                        <div>
+                                            <p class="text-xs text-gray-500 uppercase font-semibold">Home District</p>
+                                            <p class="text-gray-900">{{ $membership->user->home_district ?? 'N/A' }}</p>
+                                        </div>
+                                        <div>
+                                            <p class="text-xs text-gray-500 uppercase font-semibold">Current City</p>
+                                            <p class="text-gray-900">{{ $membership->user->current_city ?? 'N/A' }}</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -26,21 +54,46 @@
                             <div>
                                 <h3 class="admin-detail-heading">Application Details</h3>
                                 <div class="admin-detail-group">
-                                    <p class="admin-text-secondary"><strong>Membership Type:</strong> {{ $membership->membership_type }}</p>
-                                    <p class="admin-text-secondary"><strong>Transaction ID:</strong> {{ $membership->transaction_id }}</p>
-                                    <p class="admin-text-secondary"><strong>Payment Method:</strong> {{ $membership->payment_method }}</p>
                                     <p class="admin-text-secondary"><strong>Applied At:</strong> {{ $membership->applied_at->format('d M Y, H:i A') }}</p>
+                                    
+                                    {{-- Certificate Section --}}
+                                    @if($membership->certificate_path)
+                                        <div class="mt-4">
+                                            <p class="text-xs text-gray-500 uppercase font-semibold mb-2">Certificate</p>
+                                            <a href="{{ asset('storage/' . $membership->certificate_path) }}" 
+                                               target="_blank" 
+                                               class="admin-button-base admin-button-black inline-flex items-center gap-2">
+                                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                                </svg>
+                                                View Certificate (PDF)
+                                            </a>
+                                        </div>
+                                    @else
+                                        <div class="mt-4">
+                                            <p class="text-xs text-gray-500 uppercase font-semibold mb-2">Certificate</p>
+                                            <p class="text-gray-400 italic">No certificate uploaded</p>
+                                        </div>
+                                    @endif
+                                    
                                     <div class="mt-4">
                                         @php
                                             $statusColorClass = match($membership->status) {
                                                 'pending' => 'status-2',
-                                                'approved' => 'status-3',
+                                                'approved' => 'status-4',
                                                 'rejected' => 'status-1',
                                                 default => 'status-8',
                                             };
                                         @endphp
-                                        <span class="admin-status-badge {{ $statusColorClass }}">{{ $membership->status }}</span>
+                                        <span class="admin-status-badge {{ $statusColorClass }}">{{ ucfirst($membership->status) }}</span>
                                     </div>
+                                    @if($membership->status === 'rejected')
+                                        <div class="mt-4 p-4 bg-red-50 rounded-md border border-red-100">
+                                            <p class="text-red-800 font-semibold text-sm">Rejection Reason:</p>
+                                            <p class="text-red-600 mt-1">{{ $membership->rejection_reason }}</p>
+                                        </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>

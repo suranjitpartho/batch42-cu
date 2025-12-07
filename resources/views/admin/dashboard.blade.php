@@ -13,7 +13,7 @@
                         <div class="dashboard-stat-card">
                             <div class="dashboard-stat-icon"><i class="fa-solid fa-users"></i></div>
                             <div class="dashboard-stat-info">
-                                <h3 class="dashboard-stat-title">Total Users</h3>
+                                <h3 class="dashboard-stat-title">Verified Users</h3>
                                 <p class="dashboard-stat-value">{{ $userCount }}</p>
                             </div>
                         </div>
@@ -29,6 +29,13 @@
                             <div class="dashboard-stat-info">
                                 <h3 class="dashboard-stat-title">Total Permissions</h3>
                                 <p class="dashboard-stat-value">{{ $permissionCount }}</p>
+                            </div>
+                        </div>
+                        <div class="dashboard-stat-card">
+                            <div class="dashboard-stat-icon"><i class="fa-solid fa-user-check"></i></div>
+                            <div class="dashboard-stat-info">
+                                <h3 class="dashboard-stat-title">Registered Alumni</h3>
+                                <p class="dashboard-stat-value">{{ $approvedAlumniCount }}</p>
                             </div>
                         </div>
                     </div>

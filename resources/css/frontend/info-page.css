@@ -1,0 +1,120 @@
+/* Info Page Specific Styles */
+.info-page-container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.info-page-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #ececec;
+}
+
+.info-page-header h1 {
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: #2f343e;
+}
+
+.info-main-image-container {
+    margin-bottom: 2rem;
+    padding: 10px;
+    background: var(--spaceblack);
+    border: none;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+    max-width: 822px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.info-main-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.info-content-section {
+    margin-bottom: 2rem;
+}
+
+.info-content-section h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--spaceblack);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    text-align: center;
+}
+
+.info-content-section p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--spaceblack);
+    text-align: justify;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .info-page-container {
+        margin: 1.5rem auto;
+        padding: 1.5rem;
+    }
+
+    .info-page-header h1 {
+        font-size: 2rem;
+    }
+
+    .info-main-image {
+        max-width: 100%;
+    }
+
+    .info-content-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .info-content-section p {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .info-page-container {
+        margin: 1rem auto;
+        padding: 1rem;
+    }
+
+    .info-page-header h1 {
+        font-size: 1.75rem;
+    }
+
+    .info-main-image {
+        max-width: 100%;
+    }
+
+    .info-content-section h2 {
+        font-size: 1.3rem;
+    }
+
+    .info-content-section p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .info-page-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .info-content-section h2 {
+        font-size: 1.2rem;
+    }
+
+    .info-content-section p {
+        font-size: 0.85rem;
+    }
+}

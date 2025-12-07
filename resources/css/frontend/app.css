@@ -1,10 +1,24 @@
+@import 'root.css';
 @import 'storefront.css';
+@import 'header.css';
 @import 'hero.css';
-@import 'footer.css';
+@import 'breadcrumbs.css';
 @import 'membership.css';
 @import 'membership-promo.css';
 @import 'events.css';
 @import 'event-detail.css';
+@import 'notices.css';
+@import 'notice-detail.css';
+@import 'university-section.css';
+@import 'info-page.css';
+@import 'photo-gallery.css';
+@import 'alumni-directory.css';
+@import 'alumni-profile.css';
+@import 'pagination.css';
+@import 'profile-edit.css';
+@import 'modal.css';
+@import 'footer.css';
+@import 'content-page.css';
 
 /* @tailwind base;
 @tailwind components;

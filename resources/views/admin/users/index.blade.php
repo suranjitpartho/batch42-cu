@@ -27,6 +27,7 @@
                             <tr>
                                 <th scope="col" class="admin-table-th mobile-visible-column">Name</th>
                                 <th scope="col" class="admin-table-th">Email</th>
+                                <th scope="col" class="admin-table-th">Email Verified</th>
                                 <th scope="col" class="admin-table-th">Role</th>
                                 <th scope="col" class="admin-table-th">Status</th>
                                 <th scope="col" class="admin-table-th-action mobile-visible-column">
@@ -39,6 +40,13 @@
                                 <tr>
                                     <td class="admin-table-td mobile-visible-column"><span class="table-cell-content">{{ $user->name }}</span></td>
                                     <td class="admin-table-td">{{ $user->email }}</td>
+                                    <td class="admin-table-td">
+                                        @if ($user->hasVerifiedEmail())
+                                            <span class="admin-status-badge status-4">Verified</span>
+                                        @else
+                                            <span class="admin-status-badge status-7">Unverified</span>
+                                        @endif
+                                    </td>
                                     <td class="admin-table-td">
                                         @foreach($user->getRoleNames() as $role)
                                             <span class="admin-status-badge status-8">{{ $role }}</span>

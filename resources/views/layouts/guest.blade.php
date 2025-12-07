@@ -12,22 +12,19 @@
         <link href="https://fonts.bunny.net/css?family=barlow:400,500,600&display=swap" rel="stylesheet" />
 
         <!-- Scripts -->
-        @vite(['resources/css/admin/main.css', 'resources/css/components/main.css', 'resources/js/app.js'])
+        @vite(['resources/css/admin/main.css', 'resources/js/app.js'])
     </head>
-    <body class="app-body">
-        <div class="admin-dashboard-section guest-layout-container">
-            <div class="guest-layout-card-container">
-                <div class="guest-layout-logo-container">
-                    <a href="/" class="guest-layout-logo-link">
-                        <img src="{{ asset('images/logo.png') }}" alt="{{ config('app.name') }} Logo" class="guest-layout-logo">
-                        <span class="guest-layout-logo-title">{{ config('app.name') }}</span>
-                    </a>
-                </div>
-                <div class="admin-card guest-layout-card">
-                    <div class="admin-card-body guest-layout-card-body">
-                        {{ $slot }}
-                    </div>
-                </div>
+    <body class="font-sans text-text antialiased bg-background">
+        <div class="min-h-screen flex flex-col justify-center items-center px-4 py-6 sm:pt-0">
+            <div>
+                <a href="/" class="flex items-center gap-4 text-text">
+                    <img src="{{ asset('images/logo.png') }}" alt="{{ config('app.name') }} Logo" class="w-12 h-12 object-contain">
+                    <span class="text-3xl font-normal">{{ config('app.name') }}</span>
+                </a>
+            </div>
+
+            <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-card-background shadow-md overflow-hidden rounded-lg">
+                {{ $slot }}
             </div>
         </div>
     </body>

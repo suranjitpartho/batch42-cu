@@ -5,16 +5,31 @@ use Illuminate\Support\Facades\Route;
 // Admin Controllers
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\RoleController;
-use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\HeroBannerController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\NoticeController as AdminNoticeController;
 use App\Http\Controllers\Admin\MembershipController as AdminMembershipController;
 use App\Http\Controllers\Admin\EventController as AdminEventController;
+use App\Http\Controllers\Admin\UniversityInfoController;
+use App\Http\Controllers\Admin\ContentPageController as AdminContentPageController;
+use App\Http\Controllers\Admin\AdvertisementController;
+use App\Http\Controllers\Admin\ConstitutionController as AdminConstitutionController;
 
 // Frontend Controllers
 use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Frontend\ProfileController;
 use App\Http\Controllers\Frontend\MembershipController;
 use App\Http\Controllers\Frontend\EventController;
+use App\Http\Controllers\Frontend\NoticeController;
+use App\Http\Controllers\Frontend\UniversityController;
+use App\Http\Controllers\Frontend\AlumniController;
+use App\Http\Controllers\Frontend\ContentPageController;
+use App\Http\Controllers\Frontend\ConstitutionController;
+
+// Auth Controller
+use App\Http\Controllers\Auth\EmailVerificationPromptController;
+use App\Http\Controllers\Auth\EmailVerificationNotificationController;
+use App\Http\Controllers\Auth\GuestVerificationController;
 
 
 
@@ -25,27 +40,39 @@ use App\Http\Controllers\Frontend\EventController;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-// Membership Routes
-Route::get('/membership', [MembershipController::class, 'create'])->name('membership.create');
-Route::post('/membership', [MembershipController::class, 'store'])->name('membership.store');
-Route::get('/membership/status', [MembershipController::class, 'show'])->name('membership.show');
-// Events Routes
-Route::get('/events/{event:slug}', [EventController::class, 'show'])->name('events.show');
 
-
-/*
-|--------------------------------------------------------------------------
-| User Authentication Routes
-|--------------------------------------------------------------------------
-*/
-
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::put('/profile/password', [ProfileController::class, 'updatePassword'])->name('profile.password.update');
     Route::patch('/profile/photo', [ProfileController::class, 'updatePhoto'])->name('profile.photo.update');
     Route::delete('/profile/photo', [ProfileController::class, 'destroyPhoto'])->name('profile.photo.destroy');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+// Membership Routes
+Route::get('/membership', [MembershipController::class, 'create'])->name('membership.create');
+Route::post('/membership', [MembershipController::class, 'store'])->name('membership.store');
+Route::get('/membership/status', [MembershipController::class, 'show'])->name('membership.show');
+
+// Events and Notices Routes
+Route::get('/events', [EventController::class, 'index'])->name('events.index');
+Route::get('/events/{event:slug}', [EventController::class, 'show'])->name('events.show');
+Route::get('/notices', [NoticeController::class, 'index'])->name('notices.index');
+Route::get('/notices/{notice}', [NoticeController::class, 'show'])->name('notices.show');
+
+Route::get('/university', [UniversityController::class, 'show'])->name('university.show');
+Route::get('/batch', [UniversityController::class, 'showBatchInfo'])->name('batch.show');
+
+Route::get('/alumni', [AlumniController::class, 'index'])->name('alumni.index');
+Route::get('/alumni/{user}', [AlumniController::class, 'show'])->name('alumni.show');
+
+Route::get('/pages/{contentPage:slug}', [ContentPageController::class, 'show'])->name('content_pages.show');
+
+Route::get('/constitution', [ConstitutionController::class, 'index'])->name('constitution.index');
+Route::get('/video-gallery', [\App\Http\Controllers\Frontend\VideoGalleryController::class, 'index'])->name('video_gallery.index');
+
+
 
 require __DIR__.'/auth.php';
 
@@ -60,7 +87,11 @@ Route::middleware(['auth', 'can:admin_panel-view'])->prefix('admin')->name('admi
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('users', UserController::class);
     Route::resource('roles', RoleController::class);
+
     Route::resource('hero-banners', HeroBannerController::class);
+
+    // Events and Notices
+    Route::resource('notices', AdminNoticeController::class);
     Route::resource('events', AdminEventController::class);
     Route::delete('events/{event}/images/{image}', [AdminEventController::class, 'destroyImage'])->name('events.images.destroy');
 
@@ -68,4 +99,19 @@ Route::middleware(['auth', 'can:admin_panel-view'])->prefix('admin')->name('admi
     Route::resource('memberships', AdminMembershipController::class)->except(['create', 'store', 'edit', 'update', 'destroy']);
     Route::post('memberships/{membership}/approve', [AdminMembershipController::class, 'approve'])->name('memberships.approve');
     Route::post('memberships/{membership}/reject', [AdminMembershipController::class, 'reject'])->name('memberships.reject');
+
+    // University Info Routes
+    Route::get('university-info', [UniversityInfoController::class, 'edit'])->name('university-info.edit');
+    Route::put('university-info/textual', [UniversityInfoController::class, 'updateTextualInfo'])->name('university-info.update.textual');
+    Route::post('university-info/university-images', [UniversityInfoController::class, 'updateUniversityImages'])->name('university-info.update.university-images');
+    Route::post('university-info/batch-images', [UniversityInfoController::class, 'updateBatchImages'])->name('university-info.update.batch-images');
+    Route::delete('university-info/image/{field}', [UniversityInfoController::class, 'destroyImage'])->name('university-info.image.destroy');
+
+    Route::resource('content-pages', AdminContentPageController::class);
+    Route::resource('constitutions', AdminConstitutionController::class);
+
+    Route::resource('advertisements', AdvertisementController::class);
+    Route::resource('video-galleries', \App\Http\Controllers\Admin\VideoGalleryController::class);
 });
+
+

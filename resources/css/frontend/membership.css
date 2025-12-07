@@ -4,15 +4,16 @@
     max-width: 600px;
     margin: 2rem auto;
     padding: 2rem;
-    background-color: #fff;
-    border: 1px solid var(--color-border);
+    background-color: white;
+    border: none;
     border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
 .membership-title {
     font-size: 2rem;
     font-weight: 600;
-    color: var(--color-text-primary);
+    color: var(--primary-dark);
     margin-bottom: 1.5rem;
 }
 
@@ -24,28 +25,56 @@
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 600;
-    color: var(--color-text-secondary);
+    color: var(--primary-dark);
 }
 
 .membership-form .form-control {
     width: 100%;
     padding: 0.75rem 1rem;
-    border: 1px solid var(--color-border);
+    border: 1px solid var(--background-dark);
     border-radius: 4px;
     font-size: 1rem;
 }
 
 .membership-form .form-control:focus {
     outline: none;
-    border-color: var(--accentC);
-    box-shadow: 0 0 0 2px rgba(233, 180, 81, 0.5);
+    border-color: var(--secondary-transparent);
+    box-shadow: 0 0 0 2px var(--secondary-transparent);
+}
+
+.membership-form .file-input {
+    padding: 0.5rem;
+    cursor: pointer;
+    background-color: var(--background);
+    transition: all 0.3s ease;
+}
+
+.membership-form .file-input:hover {
+    background-color: var(--background-dark);
+    border-color: var(--secondary);
+}
+
+.membership-form .file-input::-webkit-file-upload-button {
+    padding: 0.5rem 1rem;
+    background-color: var(--secondary);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-right: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.membership-form .file-input::-webkit-file-upload-button:hover {
+    background-color: var(--secondary-light);
 }
 
 .btn-submit {
     display: inline-block;
     padding: 0.75rem 1.5rem;
-    background-color: var(--accentC);
-    color: #fff;
+    background-color: var(--secondary);
+    color: white;
     border: none;
     border-radius: 4px;
     font-size: 1rem;
@@ -55,21 +84,22 @@
 }
 
 .btn-submit:hover {
-    background-color: var(--accentC-light);
+    background-color: var(--secondary-light);
 }
 
 .membership-status-box {
     margin-top: 2rem;
     padding: 1.5rem;
-    border: 1px solid var(--color-border);
+    border: 1px solid var(--background);
+    border-top: 3px solid var(--secondary);
     border-radius: 8px;
-    background-color: var(--color-background-secondary);
+    background-color: rgb(246, 246, 246);
     text-align: center;
 }
 
 .membership-status-box p {
     margin-bottom: 1rem;
-    color: var(--color-text-primary);
+    color: var(--primary-dark);
 }
 
 .membership-status-box p:last-child {

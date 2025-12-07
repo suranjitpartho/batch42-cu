@@ -15,6 +15,7 @@ class AlumniMembership extends Model
         'payment_method',
         'status',
         'rejection_reason',
+        'certificate_path',
         'applied_at',
         'approved_at',
     ];

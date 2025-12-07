@@ -1,0 +1,102 @@
+/* Modal Container */
+.admin-modal-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 50;
+    overflow-y: auto;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Modal Backdrop */
+.admin-modal-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.admin-modal-backdrop-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: var(--spacegrey);
+    opacity: 0.75;
+}
+
+/* Modal Panel */
+.admin-modal-panel {
+    position: relative;
+    margin-bottom: 1.5rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Modal Widths */
+.admin-modal-panel--sm { max-width: 28rem; }
+.admin-modal-panel--md { max-width: 32rem; }
+.admin-modal-panel--lg { max-width: 36rem; }
+.admin-modal-panel--xl { max-width: 42rem; }
+.admin-modal-panel--2xl { max-width: 48rem; }
+
+/* Transitions */
+.admin-modal-transition-enter {
+    transition-timing-function: ease-out;
+    transition-duration: 300ms;
+}
+.admin-modal-transition-enter-start {
+    opacity: 0;
+}
+.admin-modal-transition-enter-end {
+    opacity: 1;
+}
+
+.admin-modal-transition-leave {
+    transition-timing-function: ease-in;
+    transition-duration: 200ms;
+}
+.admin-modal-transition-leave-start {
+    opacity: 1;
+}
+.admin-modal-transition-leave-end {
+    opacity: 0;
+}
+
+.admin-modal-panel-transition-enter {
+    transition-timing-function: ease-out;
+    transition-duration: 300ms;
+}
+.admin-modal-panel-transition-enter-start {
+    opacity: 0;
+    transform: translateY(1rem) scale(0.95);
+}
+.admin-modal-panel-transition-enter-end {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.admin-modal-panel-transition-leave {
+    transition-timing-function: ease-in;
+    transition-duration: 200ms;
+}
+.admin-modal-panel-transition-leave-start {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+.admin-modal-panel-transition-leave-end {
+    opacity: 0;
+    transform: translateY(1rem) scale(0.95);
+}

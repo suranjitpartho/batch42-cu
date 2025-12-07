@@ -43,8 +43,8 @@ class RegisteredUserController extends Controller
 
         event(new Registered($user));
 
-        Auth::login($user);
+        // Auth::login($user);
 
-        return redirect(route('verification.notice', absolute: false));
+        return redirect(route('verification.notice.guest'))->with('email', $user->email);
     }
 }

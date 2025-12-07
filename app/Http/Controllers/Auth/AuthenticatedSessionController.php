@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -24,13 +25,15 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
+        $user = User::where('email', $request->email)->first();
+
+        if ($user && ! $user->hasVerifiedEmail()) {
+            return redirect()->route('verification.notice.guest')->with('email', $request->email);
+        }
+
         $request->authenticate();
 
         $request->session()->regenerate();
-
-        if (! $request->user()->hasVerifiedEmail()) {
-            return redirect()->route('verification.notice');
-        }
 
         if ($request->user()->is_admin) {
             return redirect()->route('admin.dashboard');

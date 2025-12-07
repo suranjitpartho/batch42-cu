@@ -29,7 +29,7 @@ class HeroBannerController extends Controller
             $query->where('title', 'like', '%' . $search . '%');
         }
 
-        $heroBanners = $query->paginate(10);
+        $heroBanners = $query->paginate(5);
         $heroBannersCount = HeroBanner::count();
 
         return view('admin.hero-banners.index', compact('heroBanners', 'heroBannersCount'));
@@ -58,7 +58,7 @@ class HeroBannerController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'subtitle' => 'required|string|max:255',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10240',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'order' => 'required|integer',
             'is_active' => 'required|boolean',
         ]);
@@ -100,7 +100,7 @@ class HeroBannerController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'subtitle' => 'required|string|max:255',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:10240',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'order' => 'required|integer',
             'is_active' => 'required|boolean',
         ]);

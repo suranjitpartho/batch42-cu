@@ -1,45 +1,55 @@
 
 .membership-promo {
-    background-color: #cc3f65;
+    background-color: var(--primary);
+    background-image: var(--primary-svg-pattern);
     padding: 2rem 2rem 3rem;
     text-align: center;
 }
 
 .membership-promo .promo-icon {
     font-size: 3.5rem;
-    color: #ffffff;
+    color: white;
     margin-bottom: 0.5rem;
 }
 
 .membership-promo h2 {
     font-size: 2.5rem;
     font-weight: 600;
-    color: #ffffff;
+    color: white;
     margin-bottom: 1rem;
 }
 
 .membership-promo p {
     font-size: 1.2rem;
-    color: #ffffff;
+    color: white;
     margin-bottom: 2rem;
 }
 
 .membership-promo .promo-button {
-    background-color: #4e345a;
+    background-color: var(--secondary);
+    background-size: 100% auto;
     color: white;
-    padding: 1rem 2rem;
-    border-radius: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 6px;
     text-decoration: none;
     font-size: 1.2rem;
-    font-weight: 600;
-    transition: background-color 0.3s ease;
+    font-weight: 400;
+    transition: background-color 0.2s ease;
 }
 
 .membership-promo .promo-button:hover {
-    background-color: #634770;
+    background-color: var(--secondary-light);
+    transition: background-color 0.2s ease;
 }
 
+.membership-promo .promo-button:active {
+    transform: translateY(2px);
+}
+
+
 /* Responsive Adjustments */
+
 @media (max-width: 768px) {
     .membership-promo {
         padding: 1.5rem 1.5rem 2.5rem;

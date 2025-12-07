@@ -5,11 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>{{ config('app.name', 'Batch42-CU') }}</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=barlow:400,500,600&display=swap" rel="stylesheet" />
+        <link href="https://fonts.bunny.net/css?family=barlow:400,500,600|anek-bangla:400,500,600&display=swap" rel="stylesheet" />
 
         <!-- Scripts -->
         @vite(['resources/css/admin/main.css', 'resources/css/components/main.css', 'resources/js/app.js'])
@@ -50,11 +50,12 @@
                 <main>
                     {{ $slot }}
                     <x-toast/>
-        </main>
-    </div>
+                </main>
+            </div>
 
-    <!-- Mobile Sidebar Overlay -->
-    <div x-show="sidebarOpen && window.innerWidth <= 768" @click="sidebarOpen = false" class="mobile-sidebar-overlay" style="display: none;"></div>
-</div>
+            <!-- Mobile Sidebar Overlay -->
+            <div x-show="sidebarOpen && window.innerWidth <= 768" @click="sidebarOpen = false" class="mobile-sidebar-overlay" style="display: none;"></div>
+        </div>
+@stack('scripts')
     </body>
 </html>

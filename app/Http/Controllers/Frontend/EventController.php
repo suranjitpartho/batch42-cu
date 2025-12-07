@@ -9,6 +9,12 @@ use App\Models\Event;
 
 class EventController extends Controller
 {
+    public function index()
+    {
+        $events = Event::with('images')->latest()->paginate(4);
+        return view('frontend.pages.events.index', compact('events'));
+    }
+
     public function show(Event $event)
     {
         return view('frontend.pages.events.show', compact('event'));
