@@ -13,6 +13,9 @@
 
         <!-- Scripts -->
         @vite(['resources/css/admin/main.css', 'resources/js/app.js'])
+
+        <!-- Favicon -->
+        <link rel="icon" href="{{ asset('images/logo.png') }}" type="image/png">
     </head>
     <body class="font-sans text-text antialiased bg-background">
         <div class="min-h-screen flex flex-col justify-center items-center px-4 py-6 sm:pt-0">
