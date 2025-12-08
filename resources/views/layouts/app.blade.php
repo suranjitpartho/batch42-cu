@@ -16,6 +16,9 @@
 
         <!-- Font Awesome -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+        <!-- Favicon -->
+        <link rel="icon" href="{{ asset('images/logo.png') }}" type="image/png">
     </head>
     <body class="app-body">
         <x-topbar-loader />
