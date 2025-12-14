@@ -112,6 +112,7 @@ Route::middleware(['auth', 'can:admin_panel-view'])->prefix('admin')->name('admi
 
     Route::resource('advertisements', AdvertisementController::class);
     Route::resource('video-galleries', \App\Http\Controllers\Admin\VideoGalleryController::class);
+    Route::resource('executive-committees', \App\Http\Controllers\Admin\ExecutiveCommitteeController::class);
 });
 
 

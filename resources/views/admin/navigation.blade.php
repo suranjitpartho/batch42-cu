@@ -28,7 +28,7 @@
                 </x-nav-link>
             </x-nav-group>
 
-            <x-nav-group name="{{ __('Contents') }}" :active="request()->routeIs('admin.hero-banners.index') || request()->routeIs('admin.events.index') || request()->routeIs('admin.memberships.index') || request()->routeIs('admin.notices.index') || request()->routeIs('admin.university-info.edit') || request()->routeIs('admin.content-pages.index') || request()->routeIs('admin.advertisements.index') || request()->routeIs('admin.constitutions.index') || request()->routeIs('admin.video-galleries.index')" icon="fa-solid fa-globe">
+            <x-nav-group name="{{ __('Contents') }}" :active="request()->routeIs('admin.hero-banners.index') || request()->routeIs('admin.events.index') || request()->routeIs('admin.memberships.index') || request()->routeIs('admin.notices.index') || request()->routeIs('admin.university-info.edit') || request()->routeIs('admin.content-pages.index') || request()->routeIs('admin.advertisements.index') || request()->routeIs('admin.constitutions.index') || request()->routeIs('admin.video-galleries.index') || request()->routeIs('admin.executive-committees.index')" icon="fa-solid fa-globe">
                 <x-nav-link :href="route('admin.hero-banners.index')" :active="request()->routeIs('admin.hero-banners.index')" icon="fa-solid fa-images">
                     {{ __('Banners') }}
                 </x-nav-link>
@@ -55,6 +55,9 @@
                 </x-nav-link>
                 <x-nav-link :href="route('admin.video-galleries.index')" :active="request()->routeIs('admin.video-galleries.index')" icon="fa-solid fa-video">
                     {{ __('Video Gallery') }}
+                </x-nav-link>
+                <x-nav-link :href="route('admin.executive-committees.index')" :active="request()->routeIs('admin.executive-committees.index')" icon="fa-solid fa-users-viewfinder">
+                    {{ __('Executive Committee') }}
                 </x-nav-link>
             </x-nav-group>
         @endcan

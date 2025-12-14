@@ -186,3 +186,21 @@ Breadcrumbs::for('admin.video-galleries.edit', function (BreadcrumbTrail $trail,
     $trail->parent('admin.video-galleries.index');
     $trail->push('Edit', route('admin.video-galleries.edit', $videoGallery));
 });
+
+// Dashboard > Executive Committees
+Breadcrumbs::for('admin.executive-committees.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.dashboard');
+    $trail->push('Executive Committees', route('admin.executive-committees.index'));
+});
+
+// Dashboard > Executive Committees > Create
+Breadcrumbs::for('admin.executive-committees.create', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.executive-committees.index');
+    $trail->push('Create', route('admin.executive-committees.create'));
+});
+
+// Dashboard > Executive Committees > Edit
+Breadcrumbs::for('admin.executive-committees.edit', function (BreadcrumbTrail $trail, $executiveCommittee) {
+    $trail->parent('admin.executive-committees.index');
+    $trail->push('Edit', route('admin.executive-committees.edit', $executiveCommittee));
+});
