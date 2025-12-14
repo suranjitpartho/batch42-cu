@@ -96,3 +96,9 @@ Breadcrumbs::for('video_gallery.index', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
     $trail->push('Video Gallery', route('video_gallery.index'));
 });
+
+// Home > Executive Committees
+Breadcrumbs::for('executive-committees.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+    $trail->push('Executive Committees', route('executive-committees.index'));
+});

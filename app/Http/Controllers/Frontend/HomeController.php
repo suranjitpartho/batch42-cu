@@ -35,7 +35,8 @@ class HomeController extends Controller
         $secretaryMessage = \App\Models\ContentPage::where('slug', 'secretary-message')->first();
 
         $videos = \App\Models\VideoGallery::where('is_active', true)->orderBy('order')->orderBy('created_at', 'desc')->take(3)->get();
+        $executiveCommittee = \App\Models\ExecutiveCommittee::where('is_active', true)->orderBy('year', 'desc')->first();
 
-        return view('frontend.home', compact('heroBanners', 'events', 'showAllEventsButton', 'notices', 'showAllNoticesButton', 'info', 'presidentMessage', 'secretaryMessage', 'videos'));
+        return view('frontend.home', compact('heroBanners', 'events', 'showAllEventsButton', 'notices', 'showAllNoticesButton', 'info', 'presidentMessage', 'secretaryMessage', 'videos', 'executiveCommittee'));
     }
 }
