@@ -35,9 +35,13 @@
 
         <!-- Button -->
         <a href="{{ route('membership.create') }}" 
-           class="inline-flex items-center gap-3 px-8 py-3 bg-fe-secondary text-white text-base font-medium rounded-full shadow-lg shadow-fe-primary-dark/20 hover:brightness-110 transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-xl">
-            <span>Register Now</span>
-            <i class="fa-solid fa-arrow-right transition-transform duration-300 group-hover:translate-x-1"></i>
+           class="group/btn relative inline-flex items-center gap-3 px-8 py-3 bg-fe-secondary text-white text-base font-medium rounded-full shadow-lg shadow-fe-primary-dark/20 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5">
+            
+            {{-- Button Shine Effect --}}
+            <div class="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[25deg] transition-all duration-1000 group-hover/btn:left-[100%]"></div>
+            
+            <span class="relative">Register Now</span>
+            <i class="fa-solid fa-arrow-right relative transition-transform duration-300 group-hover/btn:translate-x-1"></i>
         </a>
     </div>
 </section>

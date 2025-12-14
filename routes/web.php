@@ -71,6 +71,7 @@ Route::get('/pages/{contentPage:slug}', [ContentPageController::class, 'show'])-
 
 Route::get('/constitution', [ConstitutionController::class, 'index'])->name('constitution.index');
 Route::get('/video-gallery', [\App\Http\Controllers\Frontend\VideoGalleryController::class, 'index'])->name('video_gallery.index');
+Route::get('/executive-committees', [\App\Http\Controllers\Frontend\ExecutiveCommitteeController::class, 'index'])->name('executive-committees.index');
 
 
 
