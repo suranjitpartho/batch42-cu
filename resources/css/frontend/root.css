@@ -28,6 +28,8 @@
 }
 
 
+[x-cloak] { display: none !important; }
+
 /* SCROLL BAR */
 
 ::-webkit-scrollbar {
