@@ -13,7 +13,7 @@
                 <div class="w-24 h-1 bg-fe-primary mx-auto rounded-full"></div>
                 
                 {{-- Language Toggle --}}
-                <div class="mt-6 flex justify-center gap-4">
+                {{-- <div class="mt-6 flex justify-center gap-4">
                     <button 
                         @click="activeTab = 'en'" 
                         :class="{'text-fe-primary border-b-2 border-fe-primary': activeTab === 'en', 'text-fe-spacegrey hover:text-fe-primary-dark': activeTab !== 'en'}"
@@ -28,13 +28,13 @@
                     >
                         বাংলা
                     </button>
-                </div>
+                </div> --}}
             </div>
 
             <div class="lg:grid lg:grid-cols-12 lg:gap-8 items-start relative">
                 
                 {{-- Sidebar Navigation (Desktop) --}}
-                <div class="hidden lg:block lg:col-span-3 sticky top-28">
+                <div class="hidden lg:block lg:col-span-3 sticky top-28 max-h-[calc(100vh-8rem)] overflow-y-auto pr-2">
                     <nav class="space-y-1" aria-label="Sidebar">
                         @foreach ($chapters as $chapter)
                             <a href="#chapter-{{ $chapter->id }}" 
@@ -101,7 +101,7 @@
                 {{-- Main Content --}}
                 <div class="lg:col-span-9 space-y-8">
                     @forelse ($chapters as $chapter)
-                        <div id="chapter-{{ $chapter->id }}" class="bg-white rounded-lg shadow-sm border border-fe-light-border overflow-hidden transition-shadow hover:shadow-md scroll-mt-24">
+                        <div id="chapter-{{ $chapter->id }}" class="bg-white rounded-lg shadow-sm border border-fe-light-border overflow-hidden transition-shadow hover:shadow-md scroll-mt-48 lg:scroll-mt-24">
                             {{-- Chapter Header --}}
                             <div class="bg-fe-primary/5 px-6 py-4 border-b border-fe-light-border flex items-center justify-between">
                                 <h2 class="text-xl font-semibold text-fe-primary-dark">
