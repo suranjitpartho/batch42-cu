@@ -118,7 +118,7 @@
         </header>
 
         <!-- Mobile Nav -->
-        <div class="mobile-nav-container" x-show="open" x-transition>
+        <div class="mobile-nav-container" x-show="open" x-transition x-cloak>
             <nav class="main-nav">
                 <ul class="nav-links">
                     <li class="nav-link"><a href="{{ route('home') }}">Home</a></li>
