@@ -3,12 +3,13 @@ import laravel from 'laravel-vite-plugin';
 
 export default defineConfig({
     // Server config for local network access. TODO: Hide this before deploy
-    server: {
-        host: '192.168.0.102',
-        hmr: {
-            host: '192.168.0.102',
-        },
-    },
+    // server: {
+    //     host: '0.0.0.0',
+    //     cors: true,
+    //     hmr: {
+    //         host: '192.168.0.102',
+    //     },
+    // },
     plugins: [
         laravel({
             input: [
