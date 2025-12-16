@@ -55,8 +55,9 @@
                     </div>
                     
                     <div class="flex flex-col items-center md:items-end gap-3">
+                        {{-- Desktop Trigger --}}
                         <button @click="showPdfModal = true" 
-                            class="group/btn relative inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-fe-primary to-fe-primary-light text-white text-base font-semibold shadow-md shadow-fe-primary/30 overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-fe-primary/40 hover:-translate-y-0.5">
+                            class="hidden md:inline-flex group/btn relative items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-fe-primary to-fe-primary-light text-white text-base font-semibold shadow-md shadow-fe-primary/30 overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-fe-primary/40 hover:-translate-y-0.5">
                             
                             {{-- Button Shine Effect --}}
                             <div class="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[25deg] transition-all duration-1000 group-hover/btn:left-[100%]"></div>
@@ -66,6 +67,20 @@
                             </div>
                             <span class="relative">View Members</span>
                         </button>
+
+                        {{-- Mobile Trigger (Direct Link) --}}
+                        <a href="{{ asset('storage/' . $executiveCommittee->document_path) }}" 
+                           target="_blank"
+                           class="md:hidden group/btn relative inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-fe-primary to-fe-primary-light text-white text-base font-semibold shadow-md shadow-fe-primary/30 overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-fe-primary/40 hover:-translate-y-0.5">
+                            
+                            {{-- Button Shine Effect --}}
+                            <div class="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[25deg] transition-all duration-1000 group-hover/btn:left-[100%]"></div>
+                            
+                            <div class="relative bg-white/20 p-1.5 rounded-full">
+                                <i class="fas fa-file-pdf text-lg"></i>
+                            </div>
+                            <span class="relative">View Members</span>
+                        </a>
                         <span class="text-xs text-fe-spacegrey/60 font-medium tracking-wide uppercase">Discover Team</span>
                     </div>
                 </div>
@@ -141,22 +156,29 @@
                 
                 {{-- Modal Content --}}
                 <div class="flex-1 relative bg-fe-background/50">
-                    <iframe src="{{ asset('storage/' . $executiveCommittee->document_path) }}" class="w-full h-full absolute inset-0" frameborder="0">
+                    {{-- Desktop: Embed PDF --}}
+                    <iframe src="{{ asset('storage/' . $executiveCommittee->document_path) }}" class="hidden md:block w-full h-full absolute inset-0" frameborder="0">
                         <div class="flex flex-col items-center justify-center h-full space-y-6">
-                            <div class="w-20 h-20 bg-fe-accent rounded-full flex items-center justify-center mb-4">
-                                <i class="fas fa-file-pdf text-4xl text-fe-primary"></i>
-                            </div>
-                            <div class="text-center">
-                                <h4 class="text-xl font-semibold text-fe-primary-dark mb-2">PDF Viewer Not Supported</h4>
-                                <p class="text-fe-spacegrey mb-6">Your browser doesn't support inline PDF viewing.</p>
-                                <a href="{{ asset('storage/' . $executiveCommittee->document_path) }}" 
-                                   target="_blank"
-                                   class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-fe-primary text-white font-semibold shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all">
-                                    <i class="fa-solid fa-download"></i> Download PDF Instead
-                                </a>
-                            </div>
+                            <p>Your browser does not support iframes.</p>
                         </div>
                     </iframe>
+
+                    {{-- Mobile: Direct Download/View Link (Better UX for mobile PDFs) --}}
+                    <div class="md:hidden flex flex-col items-center justify-center h-full p-6 text-center">
+                        <div class="w-20 h-20 bg-fe-accent/50 rounded-full flex items-center justify-center mb-6 ring-4 ring-fe-accent/20">
+                            <i class="fas fa-file-pdf text-4xl text-fe-primary"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-fe-spaceblack mb-2">View Full Document</h4>
+                        <p class="text-fe-spacegrey/80 mb-8 max-w-[250px] mx-auto text-sm leading-relaxed">
+                            For the best reading experience on mobile, open the document in a full viewer.
+                        </p>
+                        <a href="{{ asset('storage/' . $executiveCommittee->document_path) }}" 
+                           target="_blank"
+                           class="w-full max-w-xs group inline-flex items-center justify-center gap-3 px-6 py-4 rounded-xl bg-fe-primary text-white font-bold shadow-lg shadow-fe-primary/25 active:scale-95 transition-all duration-200">
+                            <span>Open PDF Document</span>
+                            <i class="fas fa-external-link-alt group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
