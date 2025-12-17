@@ -69,5 +69,13 @@ return [
             'Paediatrics',
             'Community Ophthalmology',
         ],
+        'Science' => [
+            'Physics',
+            'Chemistry',
+            'Mathematics',
+            'Statistics',
+            'Applied Chemistry and Chemical Engineering',
+            'Forestry and Environmental Science',
+        ],
     ],
 ];
