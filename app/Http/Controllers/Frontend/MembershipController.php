@@ -49,7 +49,7 @@ class MembershipController extends Controller
             'phone_number' => 'required|string|max:20',
             'department' => 'required|string|max:255',
             'faculty' => 'required|string|max:255',
-            'certificate' => 'required|file|mimes:pdf|max:1024', // 1MB max
+            'certificate' => 'required|file|mimes:pdf,jpeg,jpg,png|max:1024', // 1MB max
         ];
 
         $rules['photo'] = 'nullable|image|max:2048|mimes:jpeg,png,jpg,gif';
