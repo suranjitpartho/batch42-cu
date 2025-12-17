@@ -96,11 +96,11 @@
 
             <div class="form-group">
                 <label for="certificate" class="form-label">
-                    Certificate (PDF) 
+                    Certificate (PDF or Image) 
                     <span class="text-sm text-gray-600 font-normal">- Upload your university certificate</span>
                 </label>
-                <input type="file" name="certificate" id="certificate" class="form-control file-input" accept=".pdf" required>
-                <p class="text-sm text-gray-500 mt-1">Accepted format: PDF (Max size: 1MB)</p>
+                <input type="file" name="certificate" id="certificate" class="form-control file-input" accept=".pdf,image/jpeg,image/png,image/jpg" required>
+                <p class="text-sm text-gray-500 mt-1">Accepted format: PDF, JPEG, PNG (Max size: 1MB)</p>
                 @error('certificate')
                     <span class="text-red-500 text-sm">{{ $message }}</span>
                 @enderror

@@ -60,6 +60,21 @@
                                     @if($membership->certificate_path)
                                         <div class="mt-4">
                                             <p class="text-xs text-gray-500 uppercase font-semibold mb-2">Certificate</p>
+                                            
+                                            @php
+                                                $extension = pathinfo($membership->certificate_path, PATHINFO_EXTENSION);
+                                                $isImage = in_array(strtolower($extension), ['jpg', 'jpeg', 'png', 'gif']);
+                                            @endphp
+
+                                            @if($isImage)
+                                                <div class="mb-3">
+                                                    <img src="{{ asset('storage/' . $membership->certificate_path) }}" 
+                                                         alt="Certificate" 
+                                                         class="max-w-full h-auto rounded-lg border border-gray-200 shadow-sm"
+                                                         style="max-height: 200px;">
+                                                </div>
+                                            @endif
+
                                             <a href="{{ asset('storage/' . $membership->certificate_path) }}" 
                                                target="_blank" 
                                                class="admin-button-base admin-button-black inline-flex items-center gap-2">
@@ -67,7 +82,7 @@
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                                                 </svg>
-                                                View Certificate (PDF)
+                                                View Full Certificate
                                             </a>
                                         </div>
                                     @else
