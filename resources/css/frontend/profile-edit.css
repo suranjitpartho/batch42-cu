@@ -268,7 +268,9 @@
 
 @media (max-width: 768px) {
     .profile-edit-container {
-        padding: 1rem;
+        width: 100%;
+        margin: 1rem auto;
+        padding: 0.5rem;
     }
 
     .form-grid {

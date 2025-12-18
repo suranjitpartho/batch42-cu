@@ -197,20 +197,31 @@
                         A shared space for memories, updates, and lifelong bonds.
                     </p>
                     <div class="social-icons">
-                        <a href="{{ $socialLinks['facebook_url'] ?? '#' }}" @if(!empty($socialLinks['facebook_url'])) target="_blank" rel="noopener noreferrer" @endif><i class="fab fa-facebook"></i></a>
-                        <a href="{{ $socialLinks['twitter_url'] ?? '#' }}" @if(!empty($socialLinks['twitter_url'])) target="_blank" rel="noopener noreferrer" @endif><i class="fab fa-twitter"></i></a>
-                        <a href="{{ $socialLinks['instagram_url'] ?? '#' }}" @if(!empty($socialLinks['instagram_url'])) target="_blank" rel="noopener noreferrer" @endif><i class="fab fa-instagram"></i></a>
-                        <a href="{{ $socialLinks['linkedin_url'] ?? '#' }}" @if(!empty($socialLinks['linkedin_url'])) target="_blank" rel="noopener noreferrer" @endif><i class="fab fa-linkedin"></i></a>
-                        <a href="{{ $socialLinks['youtube_url'] ?? '#' }}" @if(!empty($socialLinks['youtube_url'])) target="_blank" rel="noopener noreferrer" @endif><i class="fab fa-youtube"></i></a>
+                        <a href="{{ !empty($socialLinks['facebook_url']) ? $socialLinks['facebook_url'] : '#' }}" @if(!empty($socialLinks['facebook_url'])) target="_blank" rel="noopener noreferrer" @endif><i class="fab fa-facebook"></i></a>
+                        <a href="{{ !empty($socialLinks['twitter_url']) ? $socialLinks['twitter_url'] : '#' }}" @if(!empty($socialLinks['twitter_url'])) target="_blank" rel="noopener noreferrer" @endif><i class="fab fa-twitter"></i></a>
+                        <a href="{{ !empty($socialLinks['instagram_url']) ? $socialLinks['instagram_url'] : '#' }}" @if(!empty($socialLinks['instagram_url'])) target="_blank" rel="noopener noreferrer" @endif><i class="fab fa-instagram"></i></a>
+                        <a href="{{ !empty($socialLinks['linkedin_url']) ? $socialLinks['linkedin_url'] : '#' }}" @if(!empty($socialLinks['linkedin_url'])) target="_blank" rel="noopener noreferrer" @endif><i class="fab fa-linkedin"></i></a>
+                        <a href="{{ !empty($socialLinks['youtube_url']) ? $socialLinks['youtube_url'] : '#' }}" @if(!empty($socialLinks['youtube_url'])) target="_blank" rel="noopener noreferrer" @endif><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
 
                 <div class="footer-section footer-links">
-                    <h3>Useful Links</h3>
+                    <h3>Explore</h3>
+                    <ul>
+                        <li><a href="{{ route('events.index') }}">Events</a></li>
+                        <li><a href="{{ route('notices.index') }}">Notices</a></li>
+                        <li><a href="{{ route('video_gallery.index') }}">Video Gallery</a></li>
+                        <li><a href="{{ route('alumni.index') }}">Alumni Directory</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section footer-links">
+                    <h3>Organization</h3>
                     <ul>
                         <li><a href="{{ route('home') }}">Home</a></li>
-                        <li><a href="{{ route('constitution.index') }}">Constitution</a></li>
                         <li><a href="{{ route('content_pages.show', 'about-us') }}">About Us</a></li>
+                        <li><a href="{{ route('constitution.index') }}">Constitution</a></li>
+                        <li><a href="{{ route('executive-committees.index') }}">Committee Archive</a></li>
                     </ul>
                 </div>
 
@@ -222,14 +233,7 @@
                     </ul>
                 </div>
 
-                <div class="footer-section">
-                    <h3>Subscribe</h3>
-                    <p>Get the latest updates and offers.</p>
-                    <form action="#" class="subscribe-form">
-                        <input type="email" name="email" placeholder="Your email address" class="subscribe-input">
-                        <button type="submit" class="subscribe-button">Subscribe</button>
-                    </form>
-                </div>
+
             </div>
             <x-advertisements.footer />
             <div class="footer-bottom">
