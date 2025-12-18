@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\ContentPage;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Http\Request;
 
 class ContentPageController extends Controller
@@ -78,6 +79,9 @@ class ContentPageController extends Controller
             $contentPage->setTranslation('content', 'bn', null);
 
             $contentPage->save();
+            
+            // Clear the social links cache
+            Cache::forget('social_links');
 
         } elseif (in_array($contentPage->slug, ['president-message', 'secretary-message'])) {
             $messageRules = [
