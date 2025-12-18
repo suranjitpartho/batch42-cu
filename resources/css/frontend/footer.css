@@ -109,3 +109,14 @@
 .subscribe-form .subscribe-button:hover {
     background-color: var(--secondary-light) !important;
 }
+
+@media (max-width: 768px) {
+    .footer-content {
+        text-align: center;
+        gap: 30px;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+}
